@@ -1,4 +1,5 @@
 import  { useState } from 'react';
+import "../Login/Login.css"
 
 
 
@@ -18,7 +19,7 @@ const Login = () => {
 
   return (
     <div className="login">
-      <div className="form scale-up-center">
+      <div className="form scale-up-center form-login">
         <h1 className="titelLog">Iniciar sesión</h1>
         <p>Ingrese sus credenciales para continuar.</p>
         <form >

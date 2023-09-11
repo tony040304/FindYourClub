@@ -1,0 +1,68 @@
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+  
+  
+  .form-login {
+    max-width: 500px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+  }
+  
+
+  .titelLog {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+ 
+  .usuario_estilo,
+  .contrasenia {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+
+  .btn-success {
+    width: 100%;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838;
+  }
+  
+
+  .btn-secondary {
+    width: 100%;
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #5a6268;
+  }
+  

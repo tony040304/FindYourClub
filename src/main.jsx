@@ -4,11 +4,13 @@ import App from './App.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from './Commponents/Login/Login.jsx';
+import Registro from './Commponents/Register/Register.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Login />,
+  
   },
 ]);
 
