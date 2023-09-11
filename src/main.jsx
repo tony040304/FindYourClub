@@ -12,6 +12,11 @@ const router = createBrowserRouter([
     element: <Login />,
   
   },
+  {
+    path: "/Registro",
+    element: <Registro />
+
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

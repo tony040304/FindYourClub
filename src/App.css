@@ -42,44 +42,108 @@
 }
 
 /*login*/
-.form{
-  flex-direction: column;
+.login {
+  width: 600px;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 1rem;
-  background-color: #ffffffcf;
-  margin-left: 30%;
-  margin-right: 30%;
-  margin-top: 10%;
-  padding: 30px;
-  border-radius: 30px;
+
 }
 
-.usuario_estilo{
-  margin-bottom: 5px;
-  font-style: oblique;
+.label{
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
-.login{
-  box-sizing: border-box;
-  padding: 0%;
-  margin: 0%;
-}
-.contrasenia{
-  margin-top: 5px;
-  font-style: oblique;
-}
-.register{
-  flex-direction: column;
-  align-self: flex-end;
-  padding-left: 7px;
-}
-.titelLog{
-  font-weight: bold;
-  font-style: oblique;
-}
+.form-login {
   
-  @media (max-width: 830px) {
-  .form{
-    margin-left: 5%;
-    margin-right: 5%;
+  margin: 0 auto;
+  width: 75%;
+  height: auto;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
 }
+
+
+.titelLog {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+
+.usuario_estilo,
+.contrasenia {
+  justify-content: center;
+  width: 75%;
+  padding: 8px;
+  padding-top: 8px;
+  margin-bottom: 20px;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+.btn-success {
+  width: 75%;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+
+.btn-secondary {
+  width: 75%;
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+/*register */
+
+.invalid-feedback {
+  margin-bottom: 15px;
+  display: flex;
+  font-size: 14px;
+  color: #dc3545;
+}
+
+
+button[type="submit"] {
+  width: 100%;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+
+input.is-invalid {
+  border-color: #dc3545 !important;
 }

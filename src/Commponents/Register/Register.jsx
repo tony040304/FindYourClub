@@ -48,12 +48,13 @@ const Registro = () => {
   };
 
   return (
-    <div>
-      <h2>Registro</h2>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="nombre">
-          <Form.Label>Nombre</Form.Label>
-          <Form.Control
+    <div className="login">
+      <div className="form scale-up-center form-login " >
+      <h2 className="titelLog">Registro</h2>
+      <Form className="form-login" onSubmit={handleSubmit}>
+        <Form.Group className=""controlId="nombre">
+          <Form.Control className="usuario_estilo form-control"
+          placeholder='Nomre usuario'
             type="text"
             name="nombre"
             value={formData.nombre}
@@ -64,8 +65,9 @@ const Registro = () => {
         </Form.Group>
 
         <Form.Group controlId="email">
-          <Form.Label>Correo Electrónico</Form.Label>
           <Form.Control
+            className="contrasenia form-control"
+            placeholder='Email'
             type="email"
             name="email"
             value={formData.email}
@@ -76,8 +78,9 @@ const Registro = () => {
         </Form.Group>
 
         <Form.Group controlId="password">
-          <Form.Label>Contraseña</Form.Label>
           <Form.Control
+            className="contrasenia form-control"
+            placeholder='Contraseña'
             type="password"
             name="password"
             value={formData.password}
@@ -88,8 +91,9 @@ const Registro = () => {
         </Form.Group>
 
         <Form.Group controlId="confirmPassword">
-          <Form.Label>Confirmar Contraseña</Form.Label>
           <Form.Control
+            className="contrasenia form-control"
+            placeholder='Confirma contraseña'
             type="password"
             name="confirmPassword"
             value={formData.confirmPassword}
@@ -99,10 +103,11 @@ const Registro = () => {
           <Form.Control.Feedback type="invalid">{errors.confirmPassword}</Form.Control.Feedback>
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button className="btn btn-success justify-content-center mt-3 " variant="primary" type="submit">
           Registrarse
         </Button>
       </Form>
+      </div>
     </div>
   );
 };
