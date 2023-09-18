@@ -1,0 +1,11 @@
+*{
+    background-image: url("../Img/daniel-norin-lBhhnhndpE0-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+  }
+
+h1{
+  text-align: center;
+  color: rgb(116, 116, 116);
+}

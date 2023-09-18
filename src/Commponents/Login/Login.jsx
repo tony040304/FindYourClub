@@ -1,7 +1,6 @@
 import  { useState } from 'react';
-import "../Login/Login.css"
 import {  useNavigate } from 'react-router-dom';
-
+import { Button } from 'react-bootstrap';
 
 
 const Login = () => {
@@ -35,9 +34,9 @@ const Login = () => {
           <div>
             <input placeholder="Contraseña" className="contrasenia form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" type="password" value={password} onChange={handlePasswordChange} required />
           </div>
-          <button className="btn btn-success justify-content-center mt-3 " type="submit">Iniciar sesión</button>
+          <Button class="btn btn-success justify-content-center mt-3 " type="submit">Iniciar sesión</Button>
         </form>
-        <button  className="btn btn-secondary justify-content-center mt-4 mb-3 " onClick={goRegister}>Registrarme</button>
+        <Button  class="btn btn-secondary justify-content-center mt-4 mb-3" type="button" onClick={goRegister}>Registrarme</Button>
       </div>
 
     </div>

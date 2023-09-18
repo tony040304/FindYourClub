@@ -1,8 +1,11 @@
 import  { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import "./Register.css"
+import { useNavigate } from 'react-router-dom';
 
 const Registro = () => {
+
+  const navigate = useNavigate("")
+
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
@@ -42,10 +45,16 @@ const Registro = () => {
     
     if (Object.keys(validationErrors).length === 0) {
       console.log('Datos válidos:', formData);
+      navigate("/login")
     } else {
       setErrors(validationErrors);
     }
+    
   };
+
+  const NavToLogin = () => {
+    navigate("/login")
+  }
 
   return (
     <div className="login">
@@ -103,10 +112,13 @@ const Registro = () => {
           <Form.Control.Feedback type="invalid">{errors.confirmPassword}</Form.Control.Feedback>
         </Form.Group>
 
-        <Button className="btn btn-success justify-content-center mt-3 " variant="primary" type="submit">
+        <Button class="register btn btn-succes justify-content-center mt-3 " type="submit">
           Registrarse
         </Button>
       </Form>
+      <Button onClick={NavToLogin} type="button" class="btn btn-outline-secondary">
+          Ya tengo una cuenta
+        </Button>
       </div>
     </div>
   );
