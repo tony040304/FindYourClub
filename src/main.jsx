@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from './Commponents/Login/Login.jsx';
@@ -10,16 +9,16 @@ import PreviousPage from './Commponents/previousPage/PreviousPage.jsx';
 
 const router = createBrowserRouter([
   {
-    path: "/previousPage",
+    path: "/app",
     element: <PreviousPage/>
   },
   {
-    path: "/login",
+    path: "/app/login",
     element: <Login />,
     errorElement: <ErrorPage/>
   },
   {
-    path: "/Registro",
+    path: "/app/Registro",
     element: <Registro />
   },
 ]);
@@ -27,5 +26,5 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
+  </React.StrictMode>
 )

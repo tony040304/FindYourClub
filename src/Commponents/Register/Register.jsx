@@ -1,59 +1,107 @@
+
 import  { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Registro = () => {
-
   const navigate = useNavigate("")
-
-  const [formData, setFormData] = useState({
-    nombre: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-  });
-
+  const [Contrasenia, setContrasenia] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [email, setEmail] = useState("")
+  const [Nombre, setNombre] = useState("")
   const [errors, setErrors] = useState({});
+  const [isDelayedActionComplete, setDelayedActionComplete] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const validationErrors = {};
-    if (!formData.nombre.trim()) {
-      validationErrors.nombre = 'El nombre es obligatorio';
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+    if (handleValidation()) {
+      let registerNeeded = {Nombre, Contrasenia}
+      
+      fetch("http://localhost:5222/api/Auth/register",{
+        method: "POST", 
+        mode: "cors", 
+        cache: "no-cache",
+        credentials: "same-origin", 
+        headers: { "Content-Type": "application/json" },
+        redirect: "follow", 
+        referrerPolicy: "no-referrer", 
+        body: JSON.stringify(registerNeeded),
+      }).then((response)=>{
+          const isJson = response.headers.get('content-type')?.includes('application/json');
+          const data = isJson ? response.json() : null;
+          if (!response.ok) {
+            const error = (data && data.message) || response.status;
+            return Promise.reject(error);
+          }
+          toast.success('Registrado satisfactoriamente', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        })
+        console.log(response)
+        setTimeout(() => {
+          navigate("/app/login")
+          setDelayedActionComplete(true);
+        }, 3000);
+        return response.json()
+      }).catch(err => {
+          toast.error("Usuario existente, error:" + err, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        })
+      })
     }
-    if (!formData.email.trim()) {
+  }
+
+  const handleValidation  = () => {
+    let result = true
+    const validationErrors = {};
+    if (!Nombre.trim()) {
+      result = false
+      validationErrors.Nombre = 'El nombre es obligatorio';
+    }
+    if (!email.trim()) {
+      result = false
       validationErrors.email = 'El correo electrónico es obligatorio';
-    } else if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(formData.email)) {
+    } else if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email)) {
+      result = false
       validationErrors.email = 'El correo electrónico no es válido';
     }
-    if (!formData.password) {
-      validationErrors.password = 'La contraseña es obligatoria';
-    } else if (formData.password.length < 6) {
-      validationErrors.password = 'La contraseña debe tener al menos 6 caracteres';
+    if (!Contrasenia) {
+      result = false
+      validationErrors.Contrasenia = 'La contraseña es obligatoria';
+    } else if (Contrasenia.length < 6) {
+      result = false
+      validationErrors.Contrasenia = 'La contraseña debe tener al menos 6 caracteres';
     }
-    if (formData.password !== formData.confirmPassword) {
+    if (Contrasenia !== confirmPassword) {
+      result = false
       validationErrors.confirmPassword = 'Las contraseñas no coinciden';
     }
     
     if (Object.keys(validationErrors).length === 0) {
-      console.log('Datos válidos:', formData);
-      navigate("/login")
+      console.log('Datos válidos:');
     } else {
+      result = false
       setErrors(validationErrors);
     }
-    
+    return result
   };
 
   const NavToLogin = () => {
-    navigate("/login")
+    navigate("/app/login")
   }
 
   return (
@@ -66,11 +114,11 @@ const Registro = () => {
           placeholder='Nomre usuario'
             type="text"
             name="nombre"
-            value={formData.nombre}
-            onChange={handleChange}
-            isInvalid={!!errors.nombre}
+            value={Nombre}
+            onChange={(e)=>setNombre(e.target.value)}
+            isInvalid={!!errors.Nombre}
           />
-          <Form.Control.Feedback type="invalid">{errors.nombre}</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{errors.Nombre}</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group controlId="email">
@@ -79,8 +127,8 @@ const Registro = () => {
             placeholder='Email'
             type="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e)=>setEmail(e.target.value)}
             isInvalid={!!errors.email}
           />
           <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
@@ -92,11 +140,11 @@ const Registro = () => {
             placeholder='Contraseña'
             type="password"
             name="password"
-            value={formData.password}
-            onChange={handleChange}
-            isInvalid={!!errors.password}
+            value={Contrasenia}
+            onChange={(e)=>setContrasenia(e.target.value)}
+            isInvalid={!!errors.Contrasenia}
           />
-          <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{errors.Contrasenia}</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group controlId="confirmPassword">
@@ -105,8 +153,8 @@ const Registro = () => {
             placeholder='Confirma contraseña'
             type="password"
             name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
+            value={confirmPassword}
+            onChange={(e)=>setConfirmPassword(e.target.value)}
             isInvalid={!!errors.confirmPassword}
           />
           <Form.Control.Feedback type="invalid">{errors.confirmPassword}</Form.Control.Feedback>
@@ -120,6 +168,7 @@ const Registro = () => {
           Ya tengo una cuenta
         </Button>
       </div>
+      <ToastContainer/>
     </div>
   );
 };
