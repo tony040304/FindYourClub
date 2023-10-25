@@ -153,11 +153,9 @@ button[type="submit"]:hover {
   background-color: #28812d;
 }
 
-.prev{
-  background-color: #000000;
-}
 
 input.is-invalid {
   border-color: #dc3545 !important;
 }
+
 

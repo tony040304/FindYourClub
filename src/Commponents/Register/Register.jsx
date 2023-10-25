@@ -1,10 +1,11 @@
-
 import  { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
-const Registro = () => {
+
+
+const Registro = ({ Rol }) => {
   const navigate = useNavigate("")
   const [Contrasenia, setContrasenia] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -16,7 +17,7 @@ const Registro = () => {
   const handleSubmit = (e)=>{
     e.preventDefault()
     if (handleValidation()) {
-      let registerNeeded = {Nombre, Contrasenia}
+      let registerNeeded = {Nombre, Contrasenia, email, Rol}
       
       fetch("http://localhost:5222/api/Auth/register",{
         method: "POST", 
