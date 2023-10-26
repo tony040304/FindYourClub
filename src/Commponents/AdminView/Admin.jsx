@@ -14,8 +14,8 @@ const Admin = () => {
   return (
     <div>
         <form action="form-login">
-            <Button onClick={GoMostrarJugadores}>Mostrar jugadores</Button>
-            <Button onClick={GoMostrarJugadoresId}>Mostrar jugadores por id</Button>
+            <Button onClick={GoMostrarJugadores}>Mostrar jugadores y equipo</Button>
+            <Button onClick={GoMostrarJugadoresId}>Mostrar jugadores y/o equipo por id</Button>
         </form>
     </div>
   )

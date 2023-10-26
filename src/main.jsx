@@ -8,8 +8,8 @@ import RegisterEquipo from './Commponents/Register/RegisterEquipo';
 import ErrorPage from './Commponents/Router/ErrorPage.jsx';
 import PreviousPage from './Commponents/previousPage/PreviousPage.jsx';
 import Admin from './Commponents/AdminView/Admin';
-import HandleJugadores from './Commponents/AdminView/HandleJugadores';
-import TraerJugadoresID from './Commponents/AdminView/TraerJugadoresID';
+import DataRender from './Commponents/AdminView/DataRender';
+import DataIdRender from './Commponents/AdminView/DataIdRender';
 
 
 const router = createBrowserRouter([
@@ -37,11 +37,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/app/adminview/viewplayers",
-    element: <HandleJugadores/>
+    element: <DataRender/>
   },
   {
     path: "/app/adminview/jugadorId",
-    element: <TraerJugadoresID/>
+    element: <DataIdRender/>
   }
     
 ]);

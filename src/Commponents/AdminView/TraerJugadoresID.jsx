@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
 
-const TraerJugadoresID = () => {
-    const [userId, setUserId] = useState('');
+function TraerJugadoresIDRenderProps({ render }) {
+  const [userId, setUserId] = useState('');
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -13,8 +11,8 @@ const TraerJugadoresID = () => {
     fetch(`http://localhost:5222/api/Admin/GetJugadoresById/${userId}`)
       .then((response) => {
         if (!response.ok) {
-            alert("Usuario inexistente")
-            throw new Error('Network response was not ok');
+          alert("Usuario inexistente");
+          throw new Error('Network response was not ok');
         }
         return response.json();
       })
@@ -34,29 +32,7 @@ const TraerJugadoresID = () => {
     }
   }, [userId]);
 
-  return (
-    <div>
-      <h1>Buscar usuario por ID</h1>
-      <input
-        type="text"
-        placeholder="Ingrese el ID del usuario"
-        value={userId}
-        onChange={(e) => setUserId(e.target.value)}
-      />
-      <button onClick={fetchUser}>Buscar</button>
-      {loading && <p>Cargando...</p>}
-      {user && (
-        <div>
-          <h2>Detalles del usuario</h2>
-          <p>ID: {user.usuarioId}</p>
-          <p>Nombre: {user.nombre}</p>
-          <p>Apellido: {user.apellido}</p>
-        </div>
-      )}
-    </div>
-  );
+  return render({ userId, user, loading, setUserId, fetchUser });
 }
 
-
-
-export default TraerJugadoresID
+export default TraerJugadoresIDRenderProps;
