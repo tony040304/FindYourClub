@@ -5,7 +5,7 @@ const PreviousPage = () => {
   const navigate = useNavigate('')
 
   const navegarAlLogin = () => {
-    navigate('/app/Registro')
+    navigate('/app/login')
   }
   const navegarAlRegisterE = () => {
     navigate('/app/RegistroEquipo')

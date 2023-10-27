@@ -5,10 +5,6 @@ import BorrarJugador from './BorrarJugador'
 import Buttonadmin from './Buttonadmin';
 import BorrarEquipo from './BorrarEquipo';
 
-
-
-
-
 class DataRender extends Component {
 
   render() {
