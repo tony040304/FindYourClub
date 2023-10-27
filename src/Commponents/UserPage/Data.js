@@ -64,6 +64,9 @@ const Data = [
         clubLogo: 'https://ligacañadense.com.ar/fotos/clubes/2.jpeg ',
         position: 'DC',
         league: 'Liga Caniadiense de Futbol',
+    },
+    {
+
     }
   ];
   
