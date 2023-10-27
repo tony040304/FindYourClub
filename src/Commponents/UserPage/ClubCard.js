@@ -1,5 +1,6 @@
 
 import PropTypes from 'prop-types';
+import "./clubcard.css"
 import { useState } from 'react';
 const ClubCard = ({ Data , onApply }) => {
     const [applied, setApplied] = useState(false);
@@ -16,17 +17,19 @@ const ClubCard = ({ Data , onApply }) => {
   }
 
   return (
-    <div className="Club-card">
+    <div className="card-container">
       {Data.clubLogo && 
       (
-        <img src={Data.clubLogo} alt={Data.clubName} />
+        <img className='card-logo' src={Data.clubLogo} alt={Data.clubName} />
       )}
+      <div className='card-content'>
       <h3>{Data.clubName}</h3>
       <p>Liga: {Data.league}</p>
+      </div>
       {applied ? (
         <p>¡Postulación enviada!</p>
       ) : (
-        <button onClick={handleApply}>Postularse</button>
+        <button className='card-button' onClick={handleApply}>Postularse</button>
       )}
       
     </div>

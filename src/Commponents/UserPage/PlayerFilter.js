@@ -8,9 +8,10 @@ const PlayerFilter = ({ onFilterChange }) => {
   };
 
   return (
-    <div className="filter">
-      <h2>Filters</h2>
+    <div className="player-filter">
+      <h2 className='filter-title'>Filters</h2>
       <select
+        className='filter-select'
         value={filters.position}
         onChange={(e) => setFilters({ ...filters, position: e.target.value })}
       >
@@ -26,6 +27,7 @@ const PlayerFilter = ({ onFilterChange }) => {
         <option value="DC">DC</option>
       </select>
       <select
+      className='filter-select'
         value={filters.league}
         onChange={(e) => setFilters({ ...filters, league: e.target.value })}
       >
@@ -33,7 +35,7 @@ const PlayerFilter = ({ onFilterChange }) => {
         <option value="Liga Caniadiense de Futbol">Liga Caniadiense De Futbol</option>
         <option value="Liga Rosarina Profesional">Liga Rosarina Profesional</option>
       </select>
-      <button onClick={handleFilterChange}>Aplicar Filtros</button>
+      <button className='filter-button' onClick={handleFilterChange}>Aplicar Filtros</button>
     </div>
   );
 };
