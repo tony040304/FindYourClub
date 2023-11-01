@@ -1,5 +1,5 @@
 import  { useState } from 'react';
-
+import './playerfilter.css'
 const PlayerFilter = ({ onFilterChange }) => {
   const [filters, setFilters] = useState({ position: '', league: '' });
 
@@ -8,7 +8,8 @@ const PlayerFilter = ({ onFilterChange }) => {
   };
 
   return (
-    <div className="player-filter">
+    <div className="filte-container">
+      <div className='hamburger-button'></div>
       <h2 className='filter-title'>Filters</h2>
       <select
         className='filter-select'
@@ -36,6 +37,7 @@ const PlayerFilter = ({ onFilterChange }) => {
         <option value="Liga Rosarina Profesional">Liga Rosarina Profesional</option>
       </select>
       <button className='filter-button' onClick={handleFilterChange}>Aplicar Filtros</button>
+      
     </div>
   );
 };

@@ -2,20 +2,23 @@ import  { useState } from 'react';
 import {  useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { toast } from 'react-toastify';
+import { Cookies } from 'react-cookie';
 
 
 const Login = () => {
   const [Nombre, setNombre] = useState('');
   const [Contrasenia, setContrasenia] = useState('');
+  const [token, setToken] = useState()
+  const [user, setUser] = useState()
   const Navigate = useNavigate()
   const [isDelayedActionComplete, setDelayedActionComplete] = useState(false);
 
-  const handleSubmitLog =(e)=>{
+  const handleSubmitLog = async (e)=>{
     e.preventDefault()
     if(!handleValidation()){
       let registerNeeded = {Nombre, Contrasenia}
-
-        fetch('http://localhost:5222/api/Auth/login', {
+      try{
+        const response = await fetch('https://localhost:7102/api/Auth/login', {
           method: "POST",
           mode: "cors", 
           credentials: "same-origin", 
@@ -23,33 +26,27 @@ const Login = () => {
           referrerPolicy: "no-referrer", 
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(registerNeeded)
-        }).then((response) =>{
-          const isJson = response.headers.get('content-type')?.includes('application/json');
-          const data = isJson ? response.json() : null;
-          if (!response.ok) {
-            const error = (data && data.message) || response.status;
-            return Promise.reject(error);
-          }
-          toast.success('Logueado satisfactoriamente', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          })
-          console.log(response)
-          setTimeout(() => {
-            Navigate("/app/login")
-            setDelayedActionComplete(true);
-          }, 3000);
-          
-          return response.json()
-          })        
+        })
+        if(response.data && response.data.token){
+          const token = response.data.token
+        localStorage.setItem('token', token)
+      }else{
+        console.error("No se recibió un token");
+      }
+      }
+      catch (error){
+        console.error("Error al loguearse", error)
+      }
     }
   }
+
+  // const loginUser =(token)=>{
+  //   const myDecodedToken = decodeToken(token)
+  //   setToken(token)
+  //   setUser(myDecodedToken)
+  //   Cookies.set("user", JSON.stringify(myDecodedToken))
+  //   Cookies.set("UserToken", token)
+  // }
 
   const handleValidation =()=>{
     let result = true

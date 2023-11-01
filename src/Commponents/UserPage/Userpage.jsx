@@ -1,8 +1,8 @@
 import  { useState } from 'react';
 
-import PlayerFilter from './PlayerFilter';
-import Clubcard from '../UserPage./ClubCard.js';
-import Data from './Data'; 
+import PlayerFilter from './PlayerFilter.jsx';
+import ClubCard from './ClubCard.jsx'
+import Data from './Data.jsx';
 
 function Userpage()   {
   const [filters, setFilters] = useState({
@@ -33,7 +33,7 @@ function Userpage()   {
       <PlayerFilter onFilterChange={handleFilterChange} />
       <div className="cards-container">
         {filteredData.map((item, index) => (
-          <Clubcard key={index} Data={item} onApply={handleApply} />
+          <ClubCard key={index} Data={item} onApply={handleApply} />
         ))}
       </div>
     </div>

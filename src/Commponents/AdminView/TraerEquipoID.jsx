@@ -5,7 +5,8 @@ function TraerEquipoID({ render }) {
   const [equipo, setEquipo] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const fetchEquipo = () => {
+  const fetchEquipo = (e) => {
+    e.preventDeafult()
     setLoading(true);
 
     fetch(`http://localhost:5222/api/Admin/GetEquipoById/${equipoId}`)
