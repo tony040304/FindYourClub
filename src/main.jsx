@@ -10,6 +10,7 @@ import PreviousPage from './Commponents/previousPage/PreviousPage.jsx';
 import Admin from './Commponents/AdminView/Admin';
 import DataRender from './Commponents/AdminView/DataRender';
 import DataIdRender from './Commponents/AdminView/DataIdRender';
+import ClubDashboard from './Commponents/ClubPage/Clubdashbooard';
 
 
 const router = createBrowserRouter([
@@ -42,7 +43,12 @@ const router = createBrowserRouter([
   {
     path: "/app/adminview/jugadorId",
     element: <DataIdRender/>
+  },
+  {
+    path:"/app/ClubPage/Clubdashbooard",
+    element: <ClubDashboard />
   }
+
     
 ]);
 
