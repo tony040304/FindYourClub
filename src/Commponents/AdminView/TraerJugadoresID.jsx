@@ -5,10 +5,11 @@ function TraerJugadoresIDRenderProps({ render }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const fetchUser = () => {
+  const fetchUser = (e) => {
+    e.preventDefault()
     setLoading(true);
 
-    fetch(`http://localhost:5222/api/Admin/GetJugadoresById/${userId}`)
+    fetch(`http://localhost:7102/api/Admin/GetJugadoresById/${userId}`)
       .then((response) => {
         if (!response.ok) {
           alert("Usuario inexistente");

@@ -8,7 +8,7 @@ class JugadoFetch extends Component {
 
   componentDidMount() {
     // Lógica de obtención de datos usando el fetch personalizado
-    fetch('http://localhost:5222/api/Admin/GetJugadores')
+    fetch('http://localhost:7102/api/Admin/GetJugadores')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Error al responder');

@@ -19,7 +19,7 @@ const Registro = ({ Rol }) => {
     if (handleValidation()) {
       let registerNeeded = {Nombre, Contrasenia, email, Rol}
       
-      fetch("http://localhost:5222/api/Auth/register",{
+      fetch("https://localhost:7102/api/Auth/register",{
         method: "POST", 
         mode: "cors", 
         cache: "no-cache",

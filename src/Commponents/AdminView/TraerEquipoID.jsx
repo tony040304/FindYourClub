@@ -9,7 +9,7 @@ function TraerEquipoID({ render }) {
     e.preventDeafult()
     setLoading(true);
 
-    fetch(`http://localhost:5222/api/Admin/GetEquipoById/${equipoId}`)
+    fetch(`http://localhost:7102/api/Admin/GetEquipoById/${equipoId}`)
       .then((response) => {
         if (!response.ok) {
           alert("Equipo inexistente");

@@ -66,7 +66,10 @@ const Login = () => {
   const handlePasswordChange = (e) => {
     setContrasenia(e.target.value);
   };
-  const goRegister = () => {
+  const goRegisterE = () => {
+    Navigate('/app/RegistroEquipo')
+  }
+  const goRegisterJ = () => {
     Navigate('/app/Registro')
   }
   
@@ -87,7 +90,8 @@ const Login = () => {
           </div>
           <Button class="btn btn-success justify-content-center mt-3" type="submit" onClick={handleSubmitLog}>Iniciar sesión</Button>
         </form>
-        <Button  class="btn btn-secondary justify-content-center mt-4 mb-3" type="button" onClick={goRegister}>Registrarme</Button>
+        <Button  class="btn btn-secondary justify-content-center mt-4 mb-3" type="button" onClick={goRegisterE}>Registrarme como equipo</Button>
+        <Button  class="btn btn-secondary justify-content-center mt-4 mb-3" type="button" onClick={goRegisterJ}>Registrarme como jugador</Button>
       </div>
 
     </div>

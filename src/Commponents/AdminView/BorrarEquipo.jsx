@@ -10,7 +10,7 @@ const BorrarEquipo = () => {
   const fetchUser = () => {
     setLoading(true);
 
-    fetch(`http://localhost:5222/api/Admin/BorrarEquipo/${EquipoId}`)
+    fetch(`https://localhost:7102/api/Admin/BorrarEquipo/${EquipoId}`)
       .then((response) => {
         if (!response.ok) {
             throw new Error('Network response was not ok');

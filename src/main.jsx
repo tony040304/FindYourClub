@@ -11,6 +11,8 @@ import Admin from './Commponents/AdminView/Admin';
 import DataRender from './Commponents/AdminView/DataRender';
 import DataIdRender from './Commponents/AdminView/DataIdRender';
 import ClubDashboard from './Commponents/ClubPage/Clubdashbooard';
+import PrevPage from './Commponents/UserPage/PrevPage';
+import CreatePlayer from './Commponents/UserPage/CreatePlayer';
 
 
 const router = createBrowserRouter([
@@ -47,7 +49,15 @@ const router = createBrowserRouter([
   {
     path:"/app/ClubPage/Clubdashbooard",
     element: <ClubDashboard />
-  }
+  },
+  {
+    path: '/app/UserPage',
+    element:<PrevPage/>
+  },
+  {
+    path: '/app/UserPage/createPlayer',
+    element:<CreatePlayer/>
+  },
 
     
 ]);
