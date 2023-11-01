@@ -1,20 +1,20 @@
 import  { useState } from 'react';
 import PlayerCard from './Playercard';
-import data from '../data/players';
+import Data from '../UserPage/Data';
 
 const ClubDashboard = () => {
-  const [players, setPlayers] = useState(data);
+  const [players, setPlayers] = useState(Data);
   const [acceptedPlayers, setAcceptedPlayers] = useState([]);
   const [rejectedPlayers, setRejectedPlayers] = useState([]);
   const [filterPosition, setFilterPosition] = useState('');
 
-  const handleAccept = (player) => {
-    setAcceptedPlayers([...acceptedPlayers, player]);
-    setPlayers(players.filter((p) => p !== player));
+  const handleAccept = (players) => {
+    setAcceptedPlayers([...acceptedPlayers, players]);
+    setPlayers(players.filter((p) => p !== players));
   };
 
   const handleReject = (player) => {
-    setRejectedPlayers([...rejectedPlayers, player]);
+    setRejectedPlayers([...rejectedPlayers, players]);
     setPlayers(players.filter((p) => p !== player));
   };
 
@@ -24,7 +24,7 @@ const ClubDashboard = () => {
 
   return (
     <div className="club-dashboard">
-      <h1>Mis Postulaciones</h1>
+      <h1>Postulaciones</h1>
       <div className="filter">
         <select
           value={filterPosition}
@@ -33,7 +33,15 @@ const ClubDashboard = () => {
           <option value="">Filtrar por posición</option>
           <option value="DFC">DFC</option>
           <option value="LD">LD</option>
-          {/* Agrega más opciones de posición aquí */}
+          <option value ="LI">LI</option>
+          <option value ="MC">MC</option>
+          <option value ="MCD">MCD</option>
+          <option value ="MCO">MCO</option>
+          <option value ="EI">EI</option>
+          <option value ="ED">ED</option>
+          <option value ="DC">DC</option>
+          
+          {}
         </select>
       </div>
       <div className="players">

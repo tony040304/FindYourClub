@@ -157,5 +157,255 @@ button[type="submit"]:hover {
 input.is-invalid {
   border-color: #dc3545 !important;
 }
+/* Userpage */
+card-container {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+ max-width: 600px;
+ margin-left: 400px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.card-logo {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.card-content {
+  flex: 1;
+  text-align: center;
+}
+
+.card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 18px;
+}
+
+.card-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.card-button:hover {
+  background-color: #0056b3;
+}
+
+
+@media (max-width: 767px) {
+  .card {
+    padding: 10px;
+    font-size: 16px;
+  }
+  .card h2 {
+    font-size: 20px;
+  }
+  .card p {
+    font-size: 16px;
+  }
+  .card-button {
+    font-size: 16px;
+  }
+}
+
+
+.player-filter {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.filter-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.filter-select {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.filter-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.filter-button:hover {
+  background-color: #0056b3;
+}
+
+
+@media (max-width: 767px) {
+  .player-filter {
+    padding: 10px;
+  }
+
+  .filter-title {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .filter-select {
+    width: 100%;
+    padding: 8px;
+    margin: 3px 0;
+  }
+
+  .filter-button {
+    padding: 8px 16px;
+  }
+}
+
+/*ClubPage*/
+.player-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.player-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 300px;
+  background-color: #fff;
+  margin: 10px;
+}
+
+.player-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.player-card h3 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+
+.player-card p {
+  font-size: 1rem;
+  color: #555;
+  margin: 10px 0;
+}
+
+.player-card button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .player-card {
+    width: 100%;
+  }
+}
+
+.player-card button:hover {
+  background-color: #0056b3;
+}
+
+.club-dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.club-dashboard h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.filter {
+  margin: 20px 0;
+}
+
+.filter select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 200px;
+}
+
+.players {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.players h2 {
+  font-size: 1.5rem;
+  margin: 20px 0;
+}
+
+.accepted-players,
+.rejected-players {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Estilos para hacer responsive */
+@media (max-width: 768px) {
+  .players,
+  .accepted-players,
+  .rejected-players {
+    flex-direction: column;
+  }
+  .players h2,
+  .accepted-players h2,
+  .rejected-players h2 {
+    font-size: 1.2rem;
+  }
+}
+
+
+
+
+
+
+
 
 

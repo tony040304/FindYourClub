@@ -69,6 +69,19 @@ const Data = [
 
     }
   ];
+
+  const players = [
+    { name: 'Juan douglas',
+     position: 'DFC', 
+     league: 'Regional Rosarina' 
+    },
+    {
+        name: 'Juan douglas',
+        position: 'DFC', 
+        league: 'Regional Rosarina'  
+    }
+    
+  ];
   
   export default Data;
   

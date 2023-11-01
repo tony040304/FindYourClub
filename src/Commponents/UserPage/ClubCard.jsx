@@ -1,6 +1,6 @@
 
 import PropTypes from 'prop-types';
-import "./clubcard.css"
+import "../../index.css"
 import { useState } from 'react';
 const ClubCard = ({ Data , onApply }) => {
     const [applied, setApplied] = useState(false);
