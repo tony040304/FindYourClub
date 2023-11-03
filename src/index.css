@@ -1,87 +1,48 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+}
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'Jost', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+} 
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+ code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} 
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+ @media (max-width: 830px) {
+  body{
+    background-image: url("https://htmlcolorcodes.com/colors/light-green/");
+    background-size: cover;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+  
+} 
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.paginaPrevia{
+  background-image: url('./Commponents/Img/3d24ffc760bb39551b687ca294adc072.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100%;
 }
 
 /*login*/
 .login {
-  width: 600px;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  top: 150px;
+  
 }
 
 .label{
@@ -90,7 +51,6 @@ button:focus-visible {
   align-items: center;
 }
 .form-login {
-  
   margin: 0 auto;
   width: 75%;
   height: auto;
@@ -132,7 +92,7 @@ button:focus-visible {
 
 
 Button[type="submit"] {
-  width: 100%;
+  width: 80%;
   background-color: #39aa22;
   color: #fff;
   border: none;
@@ -143,16 +103,34 @@ Button[type="submit"] {
 }
 
 Button[type="button"] {
-  margin: 5px;
-  background-color: #ffffff;
-  color: #000000;
+  width: 45%;
+  margin: 1.5%;
+  background-color: rgb(233, 218, 15);
+  color: #fff;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
-
+Button[type="buttonl"] {
+  width: 30%;
+  margin: 1%;
+  background-color: rgb(233, 218, 15);
+  color: #fff;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
 
 button[type="submit"]:hover {
   background-color: #28812d;
 }
-
+button[type="button"]:hover {
+  background-color: rgb(243, 239, 7);
+}
 
 input.is-invalid {
   border-color: #dc3545 !important;

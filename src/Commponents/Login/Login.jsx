@@ -90,8 +90,8 @@ const Login = () => {
           </div>
           <Button class="btn btn-success justify-content-center mt-3" type="submit" onClick={handleSubmitLog}>Iniciar sesión</Button>
         </form>
-        <Button  class="btn btn-secondary justify-content-center mt-4 mb-3" type="button" onClick={goRegisterE}>Registrarme como equipo</Button>
-        <Button  class="btn btn-secondary justify-content-center mt-4 mb-3" type="button" onClick={goRegisterJ}>Registrarme como jugador</Button>
+        <Button  class="btn btn-secondary justify-content-center mt-4 mb-3" type="buttonl" onClick={goRegisterE}>Registrarme como equipo</Button>
+        <Button  class="btn btn-secondary justify-content-center mt-4 mb-3" type="buttonl" onClick={goRegisterJ}>Registrarme como jugador</Button>
       </div>
 
     </div>
