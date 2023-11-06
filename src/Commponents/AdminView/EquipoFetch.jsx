@@ -6,7 +6,7 @@ class EquipoFetch extends Component {
     };
     
     componentDidMount() {
-        fetch('http://localhost:7102/api/Admin/GetListaEquipo')
+        fetch('https://localhost:7102/api/Admin/GetListaEquipo')
         .then((response) => {
           if (!response.ok) {
             throw new Error('Error al responder');

@@ -10,7 +10,7 @@ const TraerJugadoresID = () => {
   const fetchUser = () => {
     setLoading(true);
 
-    fetch(`http://localhost:7102/api/Admin/BorrarJugador/${UsuarioId}`)
+    fetch(`https://localhost:7102/api/Admin/BorrarJugador/${UsuarioId}`)
       .then((response) => {
         if (!response.ok) {
             throw new Error('Network response was not ok');

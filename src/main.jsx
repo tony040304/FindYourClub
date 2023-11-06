@@ -10,9 +10,12 @@ import PreviousPage from './Commponents/previousPage/PreviousPage.jsx';
 import Admin from './Commponents/AdminView/Admin';
 import DataRender from './Commponents/AdminView/DataRender';
 import DataIdRender from './Commponents/AdminView/DataIdRender';
+import ClubPage from './Commponents/ClubPage/ClubPage.jsx';
 import ClubDashboard from './Commponents/ClubPage/Clubdashbooard';
+import CreateClub from './Commponents/ClubPage/CreateClub.jsx'
 import PrevPage from './Commponents/UserPage/PrevPage';
 import CreatePlayer from './Commponents/UserPage/CreatePlayer';
+
 
 
 const router = createBrowserRouter([
@@ -47,8 +50,16 @@ const router = createBrowserRouter([
     element: <DataIdRender/>
   },
   {
+    path: '/app/ClubPage',
+    element: <ClubPage/>
+  },
+  {
     path:"/app/ClubPage/Clubdashbooard",
     element: <ClubDashboard />
+  },
+  {
+    path:"/app/ClubPage/CreateClub",
+    element: <CreateClub/>
   },
   {
     path: '/app/UserPage',

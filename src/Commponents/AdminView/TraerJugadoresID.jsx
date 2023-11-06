@@ -9,7 +9,7 @@ function TraerJugadoresIDRenderProps({ render }) {
     e.preventDefault()
     setLoading(true);
 
-    fetch(`http://localhost:7102/api/Admin/GetJugadoresById/${userId}`)
+    fetch(`https://localhost:7102/api/Admin/GetJugadoresById/${userId}`)
       .then((response) => {
         if (!response.ok) {
           alert("Usuario inexistente");

@@ -10,8 +10,10 @@ const PrevPage = () => {
 
   return (
     <div>
+      <form action="">
         <label htmlFor="">Ingresar mis datos como jugador:</label>
         <Button onClick={goToCreate}>Ingresar datos</Button>
+      </form>
     </div>
   )
 }

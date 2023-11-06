@@ -5,15 +5,14 @@ import { Button } from 'react-bootstrap'
 
 const CreatePlayer = () => {
     const [Nombre, setNombre] = useState('')
-    const [Apellido, setApellido] = useState('')
     const [Descripcion, setDescripcion] = useState('')
-    const [Posicion, setPosicion] = useState('')
-    const usuarioId = 24
+    const [posiciónRequerida, setPosicion] = useState('')
+    const usuarioId = 25
     const handleSubmit = (e)=>{
         e.preventDefault()
-          let PlayerData = {Nombre, Apellido, Descripcion, Posicion, usuarioId}
+          let PlayerData = {Nombre, Descripcion, posiciónRequerida, usuarioId}
           
-          fetch("https://localhost:7102/api/Jugador/InsertarDatosJugador",{
+          fetch("https://localhost:7102/api/Equipo/InsertarDatosEquipo",{
             method: "POST", 
             mode: "cors", 
             cache: "no-cache",
@@ -42,7 +41,7 @@ const CreatePlayer = () => {
             console.log(response)
             return response.json()
           }).catch(err => {
-              toast.error("Usuario existente, error:" + err, {
+              toast.error("Equipo existente, error:" + err, {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -57,31 +56,14 @@ const CreatePlayer = () => {
 
   return (
     <div>
+        f
         <label htmlFor="">Ingrese su nombre:</label>
         <input type="text"
          value={Nombre} onChange={(e)=>setNombre(e.target.value)} />
-        <label htmlFor="">Ingrese su apellido:</label>
-        <input type="text" value={Apellido} onChange={(e)=>setApellido(e.target.value)} />
-        <label htmlFor="">Ingrese una descripcion de su estilo de juego (Ej: pierna habil, equipos donde jugo, etc):</label>
+        <label htmlFor="">Ingrese una descripcion de su estilo de equipo:</label>
         <input type="text" value={Descripcion} onChange={(e)=>setDescripcion(e.target.value)} />
-        <label htmlFor="">Ingrese su posicion preferida:</label>
-        <select
-          value={Posicion}
-          onChange={(e) => setPosicion(e.target.value)}
-        >
-          <option value="">Filtrar por posición</option>
-          <option value="DFC">DFC</option>
-          <option value="LD">LD</option>
-          <option value ="LI">LI</option>
-          <option value ="MC">MC</option>
-          <option value ="MCD">MCD</option>
-          <option value ="MCO">MCO</option>
-          <option value ="EI">EI</option>
-          <option value ="ED">ED</option>
-          <option value ="DC">DC</option>
-          
-          {}
-        </select>
+        <label htmlFor="">Ingrese su posición requerida:</label>
+        <input type="text" value={posiciónRequerida} onChange={(e) => setPosicion(e.target.value)}/>
         <Button onClick={handleSubmit}>Guardar cambios</Button>
         <ToastContainer/>
     </div>
