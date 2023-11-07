@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import { Button } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 
 
 const CreatePlayer = () => {
@@ -9,6 +10,11 @@ const CreatePlayer = () => {
     const [Descripcion, setDescripcion] = useState('')
     const [Posicion, setPosicion] = useState('')
     const usuarioId = 24
+    const nav = useNavigate("")
+    const goBack =()=>{
+      nav("/app/UserPage")
+    }
+
     const handleSubmit = (e)=>{
         e.preventDefault()
           let PlayerData = {Nombre, Apellido, Descripcion, Posicion, usuarioId}
@@ -55,35 +61,75 @@ const CreatePlayer = () => {
           })
       }
 
+      const adjustTextarea = (e) => {
+        e.style.height = 'auto';
+        e.style.height = e.scrollHeight + 'px';
+      };
+
   return (
-    <div>
-        <label htmlFor="">Ingrese su nombre:</label>
-        <input type="text"
-         value={Nombre} onChange={(e)=>setNombre(e.target.value)} />
-        <label htmlFor="">Ingrese su apellido:</label>
-        <input type="text" value={Apellido} onChange={(e)=>setApellido(e.target.value)} />
-        <label htmlFor="">Ingrese una descripcion de su estilo de juego (Ej: pierna habil, equipos donde jugo, etc):</label>
-        <input type="text" value={Descripcion} onChange={(e)=>setDescripcion(e.target.value)} />
-        <label htmlFor="">Ingrese su posicion preferida:</label>
-        <select
-          value={Posicion}
-          onChange={(e) => setPosicion(e.target.value)}
-        >
-          <option value="">Filtrar por posición</option>
-          <option value="DFC">DFC</option>
-          <option value="LD">LD</option>
-          <option value ="LI">LI</option>
-          <option value ="MC">MC</option>
-          <option value ="MCD">MCD</option>
-          <option value ="MCO">MCO</option>
-          <option value ="EI">EI</option>
-          <option value ="ED">ED</option>
-          <option value ="DC">DC</option>
-          
-          {}
-        </select>
+    <div className="createplayer">
+      <div className="center">
+        <form className="form-style-4 large-form" action="" method="post">
+          <label htmlFor="field1">
+            <span>Ingresa tu nombre</span>
+            <input
+              type="text"
+              name="field1"
+              required="true"
+              value={Nombre}
+              onChange={(e) => setNombre(e.target.value)}
+            />
+          </label>
+          <label htmlFor="field2">
+            <span>Ingresa tu apellido</span>
+            <input
+              type="text"
+              name "field2"
+              required="true"
+              value={Apellido}
+              onChange={(e) => setApellido(e.target.value)}
+            />
+          </label>
+          <label htmlFor="field3">
+            <span>Ingresa una descripción</span>
+            <textarea
+              onKeyUp={(e) => adjustTextarea(e.target)}
+              name="field4"
+              required="true"
+              value={Descripcion}
+              onChange={(e) => setDescripcion(e.target.value)}
+            />
+          </label>
+          <label htmlFor="field4">
+            <span>Ingresa tu posición favorita</span>
+            <select
+              name="field5"
+              required="true"
+              value={Posicion}
+              onChange={(e) => setPosicion(e.target.value)}
+            >
+              <option value="">Buscar posición</option>
+              <option value="DFC">DFC</option>
+              <option value="LD">LD</option>
+              <option value="LI">LI</option>
+              <option value="MC">MC</option>
+              <option value="MCD">MCD</option>
+              <option value="MCO">MCO</option>
+              <option value="EI">EI</option>
+              <option value="ED">ED</option>
+              <option value="DC">DC</option>
+            </select>
+          </label>
+        </form>
+      </div>
+      <div className="button-container">
         <Button onClick={handleSubmit}>Guardar cambios</Button>
-        <ToastContainer/>
+        <Button type="button" onClick={goBack}>
+          Volver a la página jugador
+        </Button>
+      </div>
+      <br />
+      <ToastContainer />
     </div>
   )
 }

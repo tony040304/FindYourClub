@@ -1,18 +1,23 @@
 import  { useState } from 'react';
 import PlayerCard from './Playercard';
 import Data from '../UserPage/Data';
+import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const ClubDashboard = () => {
   const [players, setPlayers] = useState(Data);
   const [acceptedPlayers, setAcceptedPlayers] = useState([]);
   const [rejectedPlayers, setRejectedPlayers] = useState([]);
   const [filterPosition, setFilterPosition] = useState('');
-
+  const nav = useNavigate("")
   const handleAccept = (players) => {
     setAcceptedPlayers([...acceptedPlayers, players]);
     setPlayers(players.filter((p) => p !== players));
   };
 
+  const goBack =()=>{
+    nav("/app/ClubPage")
+  }
   const handleReject = (player) => {
     setRejectedPlayers([...rejectedPlayers, players]);
     setPlayers(players.filter((p) => p !== player));
@@ -67,6 +72,7 @@ const ClubDashboard = () => {
           <PlayerCard key={player.id} player={player} />
         ))}
       </div>
+      <Button onClick={goBack}>Volver a la pagina del club</Button>
     </div>
   );
 };

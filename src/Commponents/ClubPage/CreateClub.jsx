@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import { Button } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 
 
 const CreatePlayer = () => {
@@ -8,6 +9,12 @@ const CreatePlayer = () => {
     const [Descripcion, setDescripcion] = useState('')
     const [posiciónRequerida, setPosicion] = useState('')
     const usuarioId = 25
+    const nav = useNavigate("")
+
+    const goBack =()=>{
+      nav("/app/ClubPage")
+    }
+
     const handleSubmit = (e)=>{
         e.preventDefault()
           let PlayerData = {Nombre, Descripcion, posiciónRequerida, usuarioId}
@@ -66,6 +73,7 @@ const CreatePlayer = () => {
         <input type="text" value={posiciónRequerida} onChange={(e) => setPosicion(e.target.value)}/>
         <Button onClick={handleSubmit}>Guardar cambios</Button>
         <ToastContainer/>
+        <Button onClick={goBack}>Voler a la pagina del club</Button>
     </div>
   )
 }

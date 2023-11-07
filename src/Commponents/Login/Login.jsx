@@ -10,57 +10,47 @@ const Login = () => {
   const [Nombre, setNombre] = useState('');
   const [Contrasenia, setContrasenia] = useState('');
   const Navigate = useNavigate()
-  const [isDelayedActionComplete, setDelayedActionComplete] = useState(false);
 
-  const handleSubmitLog =(e)=>{
-    e.preventDefault()
-    if(!handleValidation()){
-      let registerNeeded = {Nombre, Contrasenia}
+
+  const handleSubmitLog = (e) => {
+    e.preventDefault();
+    if (!handleValidation()) {
+      const registerNeeded = { Nombre, Contrasenia };
       fetch('https://localhost:7102/api/Auth/login', {
-          method: "POST",
-          mode: "cors", 
-          credentials: "same-origin", 
-          redirect: "follow", 
-          referrerPolicy: "no-referrer", 
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(registerNeeded)
-        }).then((response) =>{
-          const isJson = response.headers.get('content-type')?.includes('application/json');
-          const data = isJson ? response.json() : null;
-          if (!response.ok) {
-            const error = (data && data.message) || response.status;
-            return Promise.reject(error);
-          }
-          const token = response.json()
-          const myDecodedToken = jwtDecode(token)
-          console.log(myDecodedToken)
-          toast.success('Logueado satisfactoriamente', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          })
-          console.log(response)
-          setTimeout(() => {
-            Navigate("/app/login")
-            setDelayedActionComplete(true);
-          }, 3000);
-          return response.json()
-          })        
-      }
+        method: "POST",
+        mode: "cors",
+        credentials: "same-origin",
+        redirect: "follow",
+        referrerPolicy: "no-referrer",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(registerNeeded)
+      }).then((response) => {
+        const isJson = response.headers.get('content-type')?.includes('application/json');
+        const data = isJson ? response.json() : null;
+        if (!response.ok) {
+          const error = (data && data.message) || response.status;
+          return Promise.reject(error);
+        }
+        return response.json();
+      }).then((token) => {
+        // Decodificar el token JWT
+        const myDecodedToken = jwtDecode(token);
+        console.log(myDecodedToken);
+        toast.success('Logueado satisfactoriamente', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }).catch((error) => {
+        console.error('Error al decodificar el token:', error);
+      });
     }
-
-  // const loginUser =(token)=>{
-  //   const myDecodedToken = decodeToken(token)
-  //   setToken(token)
-  //   setUser(myDecodedToken)
-  //   Cookies.set("user", JSON.stringify(myDecodedToken))
-  //   Cookies.set("UserToken", token)
-  // }
+  }
 
   const handleValidation =()=>{
     let result = true

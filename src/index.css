@@ -105,7 +105,7 @@ Button[type="submit"] {
 Button[type="button"] {
   width: 45%;
   margin: 1.5%;
-  background-color: rgb(233, 218, 15);
+  background-color: rgb(41, 56, 56);
   color: #fff;
   border: none;
   padding: 8px;
@@ -129,7 +129,7 @@ button[type="submit"]:hover {
   background-color: #28812d;
 }
 button[type="button"]:hover {
-  background-color: rgb(243, 239, 7);
+  background-color: rgb(19, 73, 43);
 }
 
 input.is-invalid {
@@ -379,7 +379,69 @@ card-container {
   }
 }
 
+/*Userpage*/
+.form-style-4{
+	width: 450px;
+	font-size: 16px;
+	background: #5ea39d;
+	padding: 30px 30px 15px 30px;
+	border: 5px solid #53687E;
+}
+.form-style-4 input[type=text],
+.form-style-4 label
+{
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 16px;
+	color: #fff;
 
+}
+.form-style-4 label {
+	display:block;
+	margin-bottom: 10px;
+}
+.form-style-4 label > span{
+	display: inline-block;
+	float: left;
+	width: 150px;
+}
+.form-style-4 input[type=text]
+{
+	background: transparent;
+	border: none;
+	border-bottom: 1px dashed #83A4C5;
+	width: 275px;
+	outline: none;
+	padding: 0px 0px 0px 0px;
+	font-style: italic;
+}
+.form-style-4 textarea{
+	font-style: italic;
+	padding: 0px 0px 0px 0px;
+	background: transparent;
+	outline: none;
+	border: none;
+	border-bottom: 1px dashed #5abee6;
+	width: 275px;
+	overflow: hidden;
+	resize:none;
+	height:20px;
+}
+
+.form-style-4 textarea:focus, 
+.form-style-4 input[type=text]:focus
+{
+background: #2fb0b9;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.large-form {
+  width: 6000px; /* Cambia el ancho según tus necesidades */
+  height: auto; /* Puedes ajustar la altura según sea necesario */
+}
 
 
 
