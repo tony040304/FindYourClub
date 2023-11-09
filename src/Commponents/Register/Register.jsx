@@ -118,6 +118,7 @@ const Registro = ({ Rol }) => {
             value={Nombre}
             onChange={(e)=>setNombre(e.target.value)}
             isInvalid={!!errors.Nombre}
+            maxLength="20"
           />
           <Form.Control.Feedback type="invalid">{errors.Nombre}</Form.Control.Feedback>
         </Form.Group>
@@ -131,6 +132,7 @@ const Registro = ({ Rol }) => {
             value={email}
             onChange={(e)=>setEmail(e.target.value)}
             isInvalid={!!errors.email}
+            maxLength="50"
           />
           <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
         </Form.Group>
@@ -144,6 +146,7 @@ const Registro = ({ Rol }) => {
             value={Contrasenia}
             onChange={(e)=>setContrasenia(e.target.value)}
             isInvalid={!!errors.Contrasenia}
+            maxLength="30"
           />
           <Form.Control.Feedback type="invalid">{errors.Contrasenia}</Form.Control.Feedback>
         </Form.Group>
@@ -157,6 +160,7 @@ const Registro = ({ Rol }) => {
             value={confirmPassword}
             onChange={(e)=>setConfirmPassword(e.target.value)}
             isInvalid={!!errors.confirmPassword}
+            maxLength="30"
           />
           <Form.Control.Feedback type="invalid">{errors.confirmPassword}</Form.Control.Feedback>
         </Form.Group>

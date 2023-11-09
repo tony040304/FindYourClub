@@ -84,11 +84,10 @@ const CreatePlayer = () => {
             <span>Ingresa tu apellido</span>
             <input
               type="text"
-              name "field2"
+              name="field2"
               required="true"
               value={Apellido}
-              onChange={(e) => setApellido(e.target.value)}
-            />
+              onChange={(e) => setApellido(e.target.value)}/>
           </label>
           <label htmlFor="field3">
             <span>Ingresa una descripción</span>
@@ -106,8 +105,7 @@ const CreatePlayer = () => {
               name="field5"
               required="true"
               value={Posicion}
-              onChange={(e) => setPosicion(e.target.value)}
-            >
+              onChange={(e) => setPosicion(e.target.value)}>
               <option value="">Buscar posición</option>
               <option value="DFC">DFC</option>
               <option value="LD">LD</option>

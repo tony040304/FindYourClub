@@ -83,18 +83,18 @@ const Login = () => {
     <div className="login">
       <div className="form scale-up-center form-login ">
         <h1 className="titelLog">Iniciar sesión</h1>
-        <p>Ingrese sus credenciales para continuar.</p>
+        <p className='subtitlelog'>Ingrese sus credenciales para continuar.</p>
         <form className="form-login" >
           <div>
-            <input placeholder="Usuario" className="usuario_estilo form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" type="text" value={Nombre} onChange={handleNombreChange} required maxLength="10"/>
+            <input placeholder="Usuario" className="usuario_estilo form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" type="text" value={Nombre} onChange={handleNombreChange} required maxLength="20"/>
           </div>
           
           <div>
-            <input placeholder="Contraseña" className="contrasenia form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" type="password" value={Contrasenia} onChange={handlePasswordChange} required />
+            <input placeholder="Contraseña" className="contrasenia form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" type="password" value={Contrasenia} onChange={handlePasswordChange} required maxLength="30"/>
           </div>
           <Button class="btn btn-success justify-content-center mt-3" type="submit" onClick={handleSubmitLog}>Iniciar sesión</Button>
         </form>
-        <Button  class="btn btn-secondary justify-content-center mt-4 mb-3" type="buttonl" onClick={goRegisterE}>Registrarme como equipo</Button>
+        <Button  class="btn btn-secondary justify-content-center mt-4 mb-3" type="button" onClick={goRegisterE}>Registrarme como equipo</Button>
         <Button  class="btn btn-secondary justify-content-center mt-4 mb-3" type="buttonl" onClick={goRegisterJ}>Registrarme como jugador</Button>
       </div>
 

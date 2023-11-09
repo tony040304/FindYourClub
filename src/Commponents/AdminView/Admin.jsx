@@ -12,10 +12,12 @@ const Admin = () => {
   }
 
   return (
-    <div>
-        <form action="form-login">
+    <div className='admin'>
+        <form className="form-admin">
             <Button onClick={GoMostrarJugadores}>Mostrar jugadores y equipo</Button>
-            <Button onClick={GoMostrarJugadoresId}>Mostrar jugadores y/o equipo por id</Button>
+        </form>
+        <form className="form-admin">
+            <Button onClick={GoMostrarJugadoresId}>Mostrar jugadores y equipo</Button>
         </form>
     </div>
   )

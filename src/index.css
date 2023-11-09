@@ -9,31 +9,17 @@ body {
   font-family: 'Jost', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(255, 255, 255); opacity: 1;
+  background-image: url("./Commponents/Img/3d24ffc760bb39551b687ca294adc072.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-} 
+}
 
  code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } 
-
- @media (max-width: 830px) {
-  body{
-    background-image: url("https://htmlcolorcodes.com/colors/light-green/");
-    background-size: cover;
-  }
-  
-} 
-
-.paginaPrevia{
-  background-image: url('./Commponents/Img/3d24ffc760bb39551b687ca294adc072.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  width: 100%;
-}
 
 /*login*/
 .login {
@@ -42,7 +28,6 @@ body {
   justify-content: center;
   align-items: center;
   top: 150px;
-  
 }
 
 .label{
@@ -52,9 +37,9 @@ body {
 }
 .form-login {
   margin: 0 auto;
-  width: 75%;
+  width: 60%;
   height: auto;
-  background-color: #ffffff;
+  background-color: #04373dad;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
@@ -65,9 +50,11 @@ body {
 .titelLog {
   font-size: 24px;
   margin-bottom: 20px;
-  color: #333;
+  color: #d4cece;
 }
-
+.subtitlelog{
+  color: #6d6d6d;
+}
 
 .usuario_estilo,
 .contrasenia {
@@ -111,18 +98,18 @@ Button[type="button"] {
   padding: 8px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
 }
 Button[type="buttonl"] {
-  width: 30%;
-  margin: 1%;
-  background-color: rgb(233, 218, 15);
+  width: 45%;
+  margin: 1.5%;
+  background-color: rgb(41, 56, 56);
   color: #fff;
   border: none;
   padding: 8px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 button[type="submit"]:hover {
@@ -131,7 +118,9 @@ button[type="submit"]:hover {
 button[type="button"]:hover {
   background-color: rgb(19, 73, 43);
 }
-
+button[type="buttonl"]:hover {
+  background-color: rgb(19, 73, 43);
+}
 input.is-invalid {
   border-color: #dc3545 !important;
 }
@@ -439,11 +428,27 @@ background: #2fb0b9;
   height: 100vh;
 }
 .large-form {
-  width: 6000px; /* Cambia el ancho según tus necesidades */
+  width: 600px; /* Cambia el ancho según tus necesidades */
   height: auto; /* Puedes ajustar la altura según sea necesario */
 }
-
-
+/*AdminPage*/
+.form-admin{
+  margin: 5%;
+  width: 60%;
+  height: auto;
+  background-color: #04373dad;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+}
+.admin {
+  position: unset;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  top: 150px;
+}
 
 
 
