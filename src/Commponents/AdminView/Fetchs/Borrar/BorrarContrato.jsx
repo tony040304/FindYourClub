@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
-const BorrarEquipo = () => {
-    const [EquipoId, setEquipoId] = useState('');
-    const [equipo, setEquipo] = useState(null);
+const BorrarContrato = () => {
+    const [ContratoId, setContratoId] = useState('');
+    const [Contrato, setContrato] = useState(null);
     const [loading, setLoading] = useState(false);
 
   const fetchUser = () => {
     setLoading(true);
 
-    fetch(`https://localhost:7102/api/Admin/BorrarEquipo/${EquipoId}`)
+    fetch(`https://localhost:7102/api/Admin/BorrarEquipo/${ContratoId}`)
       .then((response) => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -18,7 +17,7 @@ const BorrarEquipo = () => {
         return response.json();
       })
       .then((userData) => {
-        setEquipo(userData);
+        setContrato(userData);
         setLoading(false);
       })
       .catch((error) => {
@@ -28,24 +27,24 @@ const BorrarEquipo = () => {
   };
 
   useEffect(() => {
-    if (EquipoId) {
+    if (ContratoId) {
       fetchUser();
     }
-  }, [EquipoId]);
+  }, [ContratoId]);
   return (
     <div>
       <h1>Borrar equipo por ID</h1>
       <input
         type="text"
         placeholder="Ingrese el ID del usuario"
-        onChange={(e) => setEquipoId(e.target.value)}
-        value={EquipoId}
+        onChange={(e) => setContratoId(e.target.value)}
+        value={ContratoId}
       />
       <Button onClick={fetchUser} class='btn btn-danger'>Borrar</Button>
       {loading && <p>Cargando...</p>}
-      {equipo && (
+      {Contrato && (
         <div>
-          <h2>Equipo borrado correctamente</h2>        
+          <h2>Contrato borrado correctamente</h2>        
         </div>
       )}
     </div>
@@ -54,4 +53,4 @@ const BorrarEquipo = () => {
 
 
 
-export default BorrarEquipo
+export default BorrarContrato

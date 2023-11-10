@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function TraerEquipoID({ render }) {
-  const [equipoId, setEquipoId] = useState('');
+  const [equipoNombre, setEquipoNombre] = useState('');
   const [equipo, setEquipo] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -9,7 +9,7 @@ function TraerEquipoID({ render }) {
     e.preventDeafult()
     setLoading(true);
 
-    fetch(`https://localhost:7102/api/Admin/GetEquipoById/${equipoId}`)
+    fetch(`https://localhost:7102/api/Admin/GetEquipoById/${equipoNombre}`)
       .then((response) => {
         if (!response.ok) {
           alert("Equipo inexistente");
@@ -28,12 +28,12 @@ function TraerEquipoID({ render }) {
   };
 
   useEffect(() => {
-    if (equipoId) {
+    if (equipoNombre) {
       fetchEquipo();
     }
-  }, [equipoId]);
+  }, [equipoNombre]);
 
-  return render({ equipoId, equipo, loading, setEquipoId, fetchEquipo });
+  return render({ equipoNombre, equipo, loading, setEquipoNombre, fetchEquipo });
 }
 
 export default TraerEquipoID;

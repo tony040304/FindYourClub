@@ -1,14 +1,13 @@
 import { Component } from 'react';
 
-class JugadoFetch extends Component {
+class UsuarioFetch extends Component {
   state = {
     data: null,
     loading: true,
   };
 
   componentDidMount() {
-    // Lógica de obtención de datos usando el fetch personalizado
-    fetch('https://localhost:7102/api/Admin/GetJugadores')
+    fetch('https://localhost:7102/api/Admin/GetUsuarios')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Error al responder');
@@ -30,4 +29,4 @@ class JugadoFetch extends Component {
     return this.props.render(this.state.data, this.state.loading);
   }
 }
-export default JugadoFetch
+export default UsuarioFetch

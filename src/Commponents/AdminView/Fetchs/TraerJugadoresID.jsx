@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function TraerJugadoresIDRenderProps({ render }) {
-  const [userId, setUserId] = useState('');
+  const [userNombre, setUserNombre] = useState('');
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -9,7 +9,7 @@ function TraerJugadoresIDRenderProps({ render }) {
     e.preventDefault()
     setLoading(true);
 
-    fetch(`https://localhost:7102/api/Admin/GetJugadoresById/${userId}`)
+    fetch(`https://localhost:7102/api/Admin/GetJugadoresById/${userNombre}`)
       .then((response) => {
         if (!response.ok) {
           alert("Usuario inexistente");
@@ -28,12 +28,12 @@ function TraerJugadoresIDRenderProps({ render }) {
   };
 
   useEffect(() => {
-    if (userId) {
+    if (userNombre) {
       fetchUser();
     }
-  }, [userId]);
+  }, [userNombre]);
 
-  return render({ userId, user, loading, setUserId, fetchUser });
+  return render({ userNombre, user, loading, setUserNombre, fetchUser });
 }
 
 export default TraerJugadoresIDRenderProps;

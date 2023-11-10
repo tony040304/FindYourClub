@@ -1,7 +1,7 @@
 import React from 'react';
-import TraerJugadoresID from './TraerJugadoresID'
-import TraerEquipoId from './TraerEquipoID'
-import Buttonadmin from './Buttonadmin'
+import TraerJugadoresID from '../Fetchs/TraerJugadoresID'
+import TraerEquipoId from '../Fetchs/TraerEquipoID'
+import Buttonadmin from '../Buttonadmin'
 
 function App() {
   return (
