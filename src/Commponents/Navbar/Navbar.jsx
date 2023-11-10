@@ -1,5 +1,5 @@
 
-import logo from '../Img/find\ your\ club.png'
+import logo from '../Img/FINDYOURLOG1.png'
 import { useNavigate } from 'react-router-dom'
 import Userpage from '../UserPage/Userpage';
 

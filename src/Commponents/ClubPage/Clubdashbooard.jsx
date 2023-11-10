@@ -95,7 +95,7 @@ const ClubDashboard = () => {
       </div>
 </div>
 
-      <Button onClick={goBack}>Volver a la pagina del club</Button>
+      <Button className='bt-back' onClick={goBack}>Volver a la pagina del club</Button>
     </div>
   );
 };
