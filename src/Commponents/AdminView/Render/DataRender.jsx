@@ -1,14 +1,14 @@
 import { Component } from 'react';
 import EquipoFetch from '../Fetchs/EquipoFetch'
 import JugadorFetch from '../Fetchs/JugadoFetch'
-import BorrarJugador from '../BorrarJugador'
+import BorrarJugador from '../Fetchs/Borrar/BorrarJugador'
 import Buttonadmin from '../Buttonadmin';
-import BorrarEquipo from '../Fetchs/BorrarEquipo';
+import BorrarEquipo from '../Fetchs/Borrar/BorrarEquipo';
 import UsuarioFetch from '../Fetchs/UsuarioFetch';
 import ContratoFetch from '../Fetchs/ContratoFetch'
 import PostulacionFetch from '../Fetchs/PostulacionFetch';
-import BorrarPostulacion from '../Fetchs/BorrarPostulacion'
-import BorrarContrato from '../Fetchs/BorrarContrato';
+import BorrarPostulacion from '../Fetchs/Borrar/BorrarPostulacion'
+import BorrarContrato from '../Fetchs/Borrar/BorrarContrato';
 
 class DataRender extends Component {
 
