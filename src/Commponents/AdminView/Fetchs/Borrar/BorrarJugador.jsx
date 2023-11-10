@@ -10,7 +10,12 @@ const TraerJugadoresID = () => {
   const fetchUser = () => {
     setLoading(true);
 
-    fetch(`https://localhost:7102/api/Admin/BorrarJugador/${UsuarioId}`)
+    fetch(`https://localhost:7102/api/Admin/BorrarJugador/${UsuarioId}`, {
+      method: 'DELETE',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      })
       .then((response) => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -27,11 +32,7 @@ const TraerJugadoresID = () => {
       });
   };
 
-  useEffect(() => {
-    if (UsuarioId) {
-      fetchUser();
-    }
-  }, [UsuarioId]);
+
   console.log(UsuarioId)
   return (
     <div>

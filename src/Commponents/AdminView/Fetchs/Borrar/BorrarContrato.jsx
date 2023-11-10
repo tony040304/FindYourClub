@@ -33,7 +33,7 @@ const BorrarContrato = () => {
   }, [ContratoId]);
   return (
     <div>
-      <h1>Borrar equipo por ID</h1>
+      <h1>Borrar contrato por ID</h1>
       <input
         type="text"
         placeholder="Ingrese el ID del usuario"

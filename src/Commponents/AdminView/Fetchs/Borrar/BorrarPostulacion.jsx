@@ -26,14 +26,10 @@ const BorrarPostulacion = () => {
       });
   };
 
-  useEffect(() => {
-    if (PostulacionID) {
-      fetchUser();
-    }
-  }, [PostulacionID]);
+
   return (
     <div>
-      <h1>Borrar equipo por ID</h1>
+      <h1>Borrar postulacion por ID</h1>
       <input
         type="text"
         placeholder="Ingrese el ID del usuario"

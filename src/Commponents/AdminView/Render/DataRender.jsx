@@ -31,7 +31,7 @@ class DataRender extends Component {
             </div>
           )}
         />
-        <BorrarJugador/>
+        <BorrarEquipo/>
         <h1>Jugadores registrados</h1>
         <JugadorFetch render={(data) => (
             <div>
@@ -46,7 +46,8 @@ class DataRender extends Component {
               )}
             </div>
           )}/>
-          <BorrarEquipo/>
+          <BorrarJugador/>
+          <h1>Usuarios registrados</h1>
         <UsuarioFetch render={(data) => (
             <div>
               {data ? (
@@ -74,6 +75,7 @@ class DataRender extends Component {
             </div>
           )}/>
           <BorrarContrato/>
+          <h1>Postulaciones registradas</h1>
           <PostulacionFetch render={(data) => (
             <div>
               {data ? (
