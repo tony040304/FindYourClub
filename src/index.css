@@ -9,11 +9,12 @@ body {
   font-family: 'Jost', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(255, 255, 255); opacity: 1;
-  background-image: url("./Commponents/Img/3d24ffc760bb39551b687ca294adc072.jpg");
-  background-size: cover;
+  background-color: #6d6d6d;
+ /* background-image: url("./Commponents/Img/El.png");*/
+  background-size:cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center center;
 }
 
  code {
@@ -125,7 +126,7 @@ input.is-invalid {
   border-color: #dc3545 !important;
 }
 /* Userpage */
-card-container {
+.card-container {
   display: flex;
   align-items: center;
   background-color: #fff;
@@ -191,6 +192,17 @@ card-container {
   }
 }
 
+.filter-container{
+  position: fixed;
+  left: 3px;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: #fff;
+  transition: left 0.3s;
+  padding: 10px;
+}
 
 .player-filter {
   background-color: #f5f5f5;
@@ -246,6 +258,16 @@ card-container {
   .filter-button {
     padding: 8px 16px;
   }
+
+}
+
+.hamburger-button{
+  position:absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  font-size: 24px;
+  color:#fff;
 }
 
 /*ClubPage*/
@@ -264,9 +286,22 @@ card-container {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
   text-align: center;
-  width: 300px;
+  width: 500px;
   background-color: #fff;
   margin: 10px;
+}
+
+@media (min-width: 600px) {
+  .player-card {
+    width: 500px; 
+  }
+}
+
+
+@media (max-width: 599px) {
+  .player-card {
+    width: 100%; 
+  }
 }
 
 .player-card img {
@@ -308,6 +343,19 @@ card-container {
   background-color: #0056b3;
 }
 
+.club-container{
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+@media (max-width: 599px) {
+  .club-container {
+    padding-left: 10px; /* Puedes ajustar este valor según sea necesario */
+  }
+}
+
 .club-dashboard {
   display: flex;
   flex-direction: column;
@@ -315,6 +363,8 @@ card-container {
   padding: 20px;
   text-align: center;
 }
+
+
 
 .club-dashboard h1 {
   font-size: 2rem;
@@ -450,7 +500,98 @@ background: #2fb0b9;
   top: 150px;
 }
 
+.paginaPrevia{
+  background-image: url("https://unsplash.com/es/fotos/luz-verde-en-fondo-negro-4YdAsyI9j3A?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash");
+}
 
+.img-previa{
+  background-image: url("./Commponents/Img/FINdyourclub.png");
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  max-width: 100%;
+}
+
+.paginaPrevia {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #ffffff; /* Color de fondo blanco */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #007bff; /* Color azul brillante */
+}
+
+.prev, .prevRe, .prevRE {
+  display: flex;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  background-color: #28a745; /* Color verde brillante */
+  color: #ffffff; /* Texto blanco */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  justify-content: center;
+}
+
+.button:hover {
+  background-color: #218838; /* Color verde más oscuro al pasar el ratón */
+}
+
+.prev {
+  background-color: #007bff; /* Color azul brillante para el botón "Tengo una cuenta" */
+}
+
+.prevRe {
+  background-color: #ffc107; /* Color amarillo para el botón "Registrarme como equipo" */
+}
+
+.prevRE {
+  background-color: #dc3545; /* Color rojo para el botón "Registrarme como jugador" */
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 40px; 
+  height: 40px; 
+  margin-right: 10px;
+ 
+}
+
+.page-name,
+.nav-item {
+  color: #fff;
+  margin-right: 15px;
+}
+
+.navbar-right button {
+  background-color: #f00; 
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  cursor: pointer;
+}
 
 
 

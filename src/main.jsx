@@ -15,6 +15,7 @@ import ClubDashboard from './Commponents/ClubPage/Clubdashbooard';
 import CreateClub from './Commponents/ClubPage/CreateClub.jsx'
 import PrevPage from './Commponents/UserPage/PrevPage';
 import CreatePlayer from './Commponents/UserPage/CreatePlayer';
+import Userpage from './Commponents/UserPage/Userpage.jsx';
 
 
 
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
     path: '/app/UserPage/createPlayer',
     element:<CreatePlayer/>
   },
+  {
+    path: '/app/UserPage/Userpage',
+    element:<Userpage />
+  }
 
     
 ]);

@@ -67,9 +67,9 @@ const CreatePlayer = () => {
         <label htmlFor="">Ingrese su nombre:</label>
         <input type="text"
          value={Nombre} onChange={(e)=>setNombre(e.target.value)} />
-        <label htmlFor="">Ingrese una descripcion de su estilo de equipo:</label>
+        <label >Ingrese una descripcion de su estilo de equipo:</label>
         <input type="text" value={Descripcion} onChange={(e)=>setDescripcion(e.target.value)} />
-        <label htmlFor="">Ingrese su posición requerida:</label>
+        <label >Ingrese su posición requerida:</label>
         <input type="text" value={posiciónRequerida} onChange={(e) => setPosicion(e.target.value)}/>
         <Button onClick={handleSubmit}>Guardar cambios</Button>
         <ToastContainer/>

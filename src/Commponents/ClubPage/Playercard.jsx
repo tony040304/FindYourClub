@@ -1,12 +1,20 @@
-import React from 'react';
+import Players from './Dataplayers';
+import { useState } from 'react'; 
+const PlayerCard = ({ Players, onAccept, onReject }) => {
+  
 
-const PlayerCard = ({ player, onAccept, onReject }) => {
+
+      if (!Players) {
+        return null;
+      }
+
   return (
     <div className="player-card">
-      <h3>{player.name}</h3>
-      <p>Posición: {player.position}</p>
-      <button onClick={() => onAccept(player)}>Aceptar</button>
-      <button onClick={() => onReject(player)}>Rechazar</button>
+      <img className='card-logo' src={Players.photo} alt='' />
+      <h3>{Players.name}</h3>
+      <p>Posición: {Players.positionJug}</p>
+      <button onClick={() => onAccept(Players)}>Aceptar</button>
+      <button onClick={() => onReject(Players)}>Rechazar</button>
     </div>
   );
 };

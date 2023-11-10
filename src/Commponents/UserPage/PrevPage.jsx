@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
+import { Button, Container } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
 const PrevPage = () => {
@@ -9,13 +9,16 @@ const PrevPage = () => {
     }
 
   return (
-    <div>
+    
+       <div >
       <form action="">
         <label htmlFor="">Ingresar mis datos como jugador:</label>
         <Button onClick={goToCreate}>Ingresar datos</Button>
       </form>
     </div>
+    
   )
+   
 }
 
 export default PrevPage
