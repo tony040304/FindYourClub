@@ -10,13 +10,13 @@ const PlayerFilter = ({ onFilterChange }) => {
   return (
     <div className="filter-container">
       <div className='hamburger-button'></div>
-      <h2 className='filter-title'>Filters</h2>
+      <h2 className='filter-title'>Buscar</h2>
       <select
         className='filter-select'
         value={filters.position}
         onChange={(e) => setFilters({ ...filters, position: e.target.value })}
       >
-        <option value="">Position</option>
+        <option value="">Posicion</option>
         <option value="DFC">DFC</option>
         <option value="LD">LD</option>
         <option value="LI">LI</option>
@@ -32,7 +32,7 @@ const PlayerFilter = ({ onFilterChange }) => {
         value={filters.league}
         onChange={(e) => setFilters({ ...filters, league: e.target.value })}
       >
-        <option value="">League</option>
+        <option value="">Liga</option>
         <option value="Liga Caniadiense de Futbol">Liga Caniadiense De Futbol</option>
         <option value="Liga Rosarina Profesional">Liga Rosarina Profesional</option>
       </select>

@@ -28,7 +28,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 150px;
+  top: 100px;
 }
 
 .label{
@@ -40,7 +40,7 @@ body {
   margin: 0 auto;
   width: 60%;
   height: auto;
-  background-color: #04373dad;
+  background-color: #ffffffa1;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
@@ -51,10 +51,10 @@ body {
 .titelLog {
   font-size: 24px;
   margin-bottom: 20px;
-  color: #d4cece;
+  color: #050505;
 }
 .subtitlelog{
-  color: #6d6d6d;
+  color: #080808;
 }
 
 .usuario_estilo,
@@ -81,7 +81,7 @@ body {
 
 Button[type="submit"] {
   width: 80%;
-  background-color: #39aa22;
+  background-color: #a4ff00;
   color: #fff;
   border: none;
   padding: 8px;
@@ -114,13 +114,13 @@ Button[type="buttonl"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #28812d;
+  background-color: #161616;
 }
 button[type="button"]:hover {
-  background-color: rgb(19, 73, 43);
+  background-color: #a4ff00;
 }
 button[type="buttonl"]:hover {
-  background-color: rgb(19, 73, 43);
+  background-color: #a4ff00;
 }
 input.is-invalid {
   border-color: #dc3545 !important;
@@ -129,13 +129,13 @@ input.is-invalid {
 .card-container {
   display: flex;
   align-items: center;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: #ffffffa1;
+  border: 1px solid #818181;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 10px;
  max-width: 600px;
- margin-left: 400px;
+ margin-left: 300px;
   text-align: center;
   font-family: Arial, sans-serif;
 }
@@ -161,7 +161,7 @@ input.is-invalid {
 }
 
 .card-button {
-  background-color: #007bff;
+  background-color: #a4ff00;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -192,18 +192,6 @@ input.is-invalid {
   }
 }
 
-.filter-container{
-  position: fixed;
-  left: 3px;
-  top: 0;
-  width: 250px;
-  height: 100%;
-  background-color: #333;
-  color: #fff;
-  transition: left 0.3s;
-  padding: 10px;
-}
-
 .player-filter {
   background-color: #f5f5f5;
   padding: 20px;
@@ -225,8 +213,26 @@ input.is-invalid {
   border-radius: 5px;
 }
 
+.filter-container{
+  position: fixed;
+  top: 61px;
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: #fff;
+  transition: left 0.3s;
+  padding: 10px;
+}
+
+@media (max-width: 767px) {
+.filter-container {
+  width: 100%; 
+  left: -100%; 
+  z-index: 999; 
+}
+}
 .filter-button {
-  background-color: #007bff;
+  background-color: #a4ff00;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -258,7 +264,6 @@ input.is-invalid {
   .filter-button {
     padding: 8px 16px;
   }
-
 }
 
 .hamburger-button{
@@ -281,13 +286,13 @@ input.is-invalid {
 }
 
 .player-card {
-  border: 1px solid #ccc;
+  border: 1px solid #ccccccad;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
   text-align: center;
   width: 500px;
-  background-color: #fff;
+  background-color: #ffffffa1;
   margin: 10px;
 }
 
@@ -323,7 +328,7 @@ input.is-invalid {
 }
 
 .player-card button {
-  background-color: #007bff;
+  background-color: #a4ff00;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -352,7 +357,7 @@ input.is-invalid {
 }
 @media (max-width: 599px) {
   .club-container {
-    padding-left: 10px; /* Puedes ajustar este valor según sea necesario */
+    padding-left: 10px; 
   }
 }
 
@@ -364,6 +369,12 @@ input.is-invalid {
   text-align: center;
 }
 
+.h-post{
+  text-align: center;
+  justify-content: center;
+  color: #fbfcfd;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 
 
 .club-dashboard h1 {
@@ -501,7 +512,7 @@ background: #2fb0b9;
 }
 
 .paginaPrevia{
-  background-image: url("https://unsplash.com/es/fotos/luz-verde-en-fondo-negro-4YdAsyI9j3A?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash");
+  
 }
 
 .img-previa{
@@ -516,10 +527,12 @@ background: #2fb0b9;
 .paginaPrevia {
   max-width: 600px;
   margin: 50px auto;
-  background-color: #ffffff; /* Color de fondo blanco */
-  padding: 20px;
+  background-color: #ffffffa1; /* Color de fondo blanco */
+  padding: 50px;
+
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 h1 {
@@ -535,11 +548,12 @@ h1 {
   text-decoration: none;
   outline: none;
   background-color: #28a745; /* Color verde brillante */
-  color: #ffffff; /* Texto blanco */
+  color: #070707; /* Texto blanco */
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
   justify-content: center;
+  align-items: center;
 }
 
 .button:hover {
@@ -547,15 +561,17 @@ h1 {
 }
 
 .prev {
-  background-color: #007bff; /* Color azul brillante para el botón "Tengo una cuenta" */
+  align-items: center;
+  width: 240px;
+  background-color: #a4ff00; /* Color azul brillante para el botón "Tengo una cuenta" */
 }
 
 .prevRe {
-  background-color: #ffc107; /* Color amarillo para el botón "Registrarme como equipo" */
+  background-color: #a4ff00; /* Color amarillo para el botón "Registrarme como equipo" */
 }
 
 .prevRE {
-  background-color: #dc3545; /* Color rojo para el botón "Registrarme como jugador" */
+  background-color: #a4ff00; /* Color rojo para el botón "Registrarme como jugador" */
 }
 
 /* Navbar */
@@ -593,5 +609,24 @@ h1 {
   cursor: pointer;
 }
 
+.style-span{
+  justify-content: center;
+  text-align: center;
+  font-weight: 450; 
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 54px; 
+  color: #faf8f8; 
+  background-color: rgba(255, 255, 255, 0);
+  align-items: center;
+  text-shadow: black 2.0rem 1rem 0.5rem;
+  text-decoration-color: #a4ff00;
+}
 
-
+.text-span{
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 80%;
+  margin-left: 70px;
+  margin-top: 10px;
+}

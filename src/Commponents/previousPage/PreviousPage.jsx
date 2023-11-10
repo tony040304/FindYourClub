@@ -16,10 +16,9 @@ const PreviousPage = () => {
   }
   return (
     <div className="">
+     <div className="text-span"> <span className="style-span">ENTRÁ, POSTULATE &amp; DEMOSTRÁ</span> </div>
      
-      <h1>Bienvenido a la mejor pagina para encontrar tus equipos/jugadores </h1>
         <div className="paginaPrevia">
-           
             <button className="prev" onClick={navegarAlLogin}>Tengo una cuenta</button>
             <button className="prevRe" onClick={navegarAlRegisterE}>Reguistrarme como equipo</button>
             <button className="prevRE" onClick={navegarAlRegister}>Reguistrarme como jugador</button>

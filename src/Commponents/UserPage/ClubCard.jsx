@@ -25,6 +25,7 @@ const ClubCard = ({ Data , onApply }) => {
       <div className='card-content'>
       <h3>{Data.clubName}</h3>
       <p>Liga: {Data.league}</p>
+      <p>Posicion: {Data.position}</p>
       </div>
       {applied ? (
         <p>¡Postulación enviada!</p>

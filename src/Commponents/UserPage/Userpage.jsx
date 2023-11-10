@@ -1,5 +1,5 @@
 import  { useState } from 'react';
-
+import Navbar from '../Navbar/Navbar.jsx';
 import PlayerFilter from './PlayerFilter.jsx';
 import ClubCard from './ClubCard.jsx'
 import Data from './Data.jsx';
@@ -30,6 +30,7 @@ function Userpage()   {
 
   return (
     <div className="App">
+      <Navbar />
       <PlayerFilter onFilterChange={handleFilterChange} />
       <div className="cards-container">
         {filteredData.map((item, index) => (
