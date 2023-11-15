@@ -1,45 +1,33 @@
-
-import PropTypes from 'prop-types';
+import { useState } from "react";
 import "../../index.css"
-import { useState } from 'react';
-const ClubCard = ({ Data , onApply }) => {
-    const [applied, setApplied] = useState(false);
- 
-    const handleApply = () => {
-        if (!applied) {
-          onApply(Data);
-          setApplied(true);
-        }
-      };
 
-    if (!Data) {
-    return null;
-  }
+const ClubCard = ({ Data, onApply }) => {
+  const [applied, setApplied] = useState(false);
+
+  const handleApply = () => {
+    if (!applied) {
+      onApply(Data);
+      setApplied(true);
+    }
+  };
+
 
   return (
     <div className="card-container">
-      {Data.clubLogo && 
-      (
-        <img className='card-logo' src={Data.clubLogo} alt={Data.clubName} />
-      )}
-      <div className='card-content'>
-      <h3>{Data.clubName}</h3>
-      <p>Liga: {Data.league}</p>
-      <p>Posicion: {Data.position}</p>
-      </div>
-      {applied ? (
+    <div className="card-content">
+      <h3>Nombre: {Data.nombre}</h3>
+      <p>Posición Requerida: {Data.posicionRequerida}</p>
+      <p>Liga: {Data.liga}</p>
+      <p>Descripción: {Data.descripcion}</p>
+    </div>
+    {applied ? (
         <p>¡Postulación enviada!</p>
       ) : (
         <button className='card-button' onClick={handleApply}>Postularse</button>
       )}
-      
     </div>
-  );
-}; 
 
-ClubCard.propTypes = {
-  Data: PropTypes.object.isRequired, 
-  onApply: PropTypes.func.isRequired, 
+  );
 };
 
 export default ClubCard;

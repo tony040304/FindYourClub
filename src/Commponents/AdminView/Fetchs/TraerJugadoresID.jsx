@@ -6,9 +6,8 @@ function TraerJugadoresIDRenderProps({ render }) {
   const [loading, setLoading] = useState(false);
 
   const fetchUser = (e) => {
-    e.preventDefault()
     setLoading(true);
-
+    e.preventDefault()
     fetch(`https://localhost:7102/api/Admin/GetJugadoresById/${userNombre}`)
       .then((response) => {
         if (!response.ok) {
@@ -27,11 +26,6 @@ function TraerJugadoresIDRenderProps({ render }) {
       });
   };
 
-  useEffect(() => {
-    if (userNombre) {
-      fetchUser();
-    }
-  }, [userNombre]);
 
   return render({ userNombre, user, loading, setUserNombre, fetchUser });
 }

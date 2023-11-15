@@ -14,6 +14,7 @@ const BorrarPostulacion = () => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
+        alert("Borrado correctamente")
         return response.json();
       })
       .then((userData) => {

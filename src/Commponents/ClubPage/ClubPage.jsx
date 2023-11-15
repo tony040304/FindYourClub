@@ -13,11 +13,11 @@ const ClubPage = () => {
 
   return (
     <div>
-        <form action="">
+        <form className='form-club'>
         <label htmlFor="">Ingresar mis datos como equipo:</label>
         <Button onClick={goToCreate}>Ingresar datos</Button>
         </form>
-        <form action="">
+        <form className='form-club'>
         <label htmlFor="">Ver solicitudes de jugadores:</label>
         <Button onClick={gpToSoli}>Ver solicitudes</Button>
         </form>

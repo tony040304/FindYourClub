@@ -1,42 +1,50 @@
-import  { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PlayerCard from './Playercard';
-import Players from './Dataplayers';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import ClubFilter from './Clubfilter';
 import Navbar from '../Navbar/Navbar';
 
 const ClubDashboard = () => {
-  const [players, setPlayers] = useState(Players);
+  const [players, setPlayers] = useState([]);
   const [acceptedPlayers, setAcceptedPlayers] = useState([]);
   const [rejectedPlayers, setRejectedPlayers] = useState([]);
- 
-  const nav = useNavigate("")
-  
-
-  const goBack =()=>{
-    nav("/app/ClubPage")
-  }
-  const [filter , setFilter] = useState({
-    position: '',
-    
+  const [filter, setFilter] = useState({
+    positionJug: '',
   });
- 
 
-  //const navegarAlLogin = () => {
-  //  navigate('/app/PreviusPage')
-  //}
+  const nav = useNavigate('');
+
+  useEffect(() => {
+    // Realizar la solicitud GET al montar el componente
+    fetchData();
+  }, []); // El segundo parámetro [] asegura que useEffect solo se ejecute una vez al montar el componente
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://localhost:7102/api/Equipo/GetPostulacionListaxEquipo');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const jsonData = await response.json();
+      setPlayers(jsonData);
+    } catch (error) {
+      console.error('Hubo un error al obtener los datos del servidor:', error);
+    }
+  };
+  console.log(players)
+  const goBack = () => {
+    nav('/app/ClubPage');
+  };
 
   const handleAccept = (item) => {
     setAcceptedPlayers([...acceptedPlayers, item]);
     setPlayers(players.filter((p) => p !== item));
   };
 
-  const filteredPlayers = Players.filter((item) => {
+  const filteredPlayers = players.filter((item) => {
     const positionMatch = filter.positionJug ? item.positionJug === filter.positionJug : true;
-    
-
-    return positionMatch 
+    return positionMatch;
   });
 
   const handleFilterChange = (newFilter) => {
@@ -48,54 +56,33 @@ const ClubDashboard = () => {
     setPlayers(players.filter((p) => p !== item));
   };
 
- 
-
-
-
   return (
-    
     <div className="App">
-     <Navbar />
-     <h1 className='h-post'>Postulaciones</h1>
-    <ClubFilter onFilterChange={handleFilterChange} />
-    <div className="club-container">
-      {filteredPlayers.map((item, index) => (
-        <PlayerCard key={index} Players={item} 
-        onAccept={handleAccept}
-        onReject={handleReject} 
-        />
-      ))}
-    </div>
- 
+      <Navbar />
+      <h1 className="h-post">Postulaciones</h1>
+      <ClubFilter onFilterChange={handleFilterChange} />
+      <div className="club-container">
+        {filteredPlayers.map((item, index) => (
+          <PlayerCard key={index} player={item} onAccept={handleAccept} onReject={handleReject} />
+        ))}
+      </div>
 
-    <div className="club-dashboard">
-    
-      <div className="players">
-        
-        {filteredPlayers.map((Players) => (
-          <PlayerCard
-            key={Players.id}
-            player={Players}
-            onAccept={handleAccept}
-            onReject={handleReject}
-          />
-        ))}
+      <div className="club-dashboard">
+        <div className="players">
+          {filteredPlayers.map((player) => (
+            <PlayerCard
+              key={player.id}
+              player={player}
+              onAccept={handleAccept}
+              onReject={handleReject}
+            />
+          ))}
+        </div>
       </div>
-      <div className="accepted-players">
-        <h2>Postulaciones Aceptadas</h2>
-        {acceptedPlayers.map((Players) => (
-          <PlayerCard key={Players.id} Players={Players} />
-        ))}
-      </div>
-      <div className="rejected-players">
-        <h2>Postulaciones Rechazadas</h2>
-        {rejectedPlayers.map((Players) => (
-          <PlayerCard key={Players.id} Players={Players} />
-        ))}
-      </div>
-</div>
 
-      <Button className='bt-back' onClick={goBack}>Volver a la pagina del club</Button>
+      <Button className="bt-back" onClick={goBack}>
+        Volver a la pagina del club
+      </Button>
     </div>
   );
 };

@@ -13,8 +13,7 @@ const PlayerCard = ({ Players, onAccept, onReject }) => {
       <img className='card-logo' src={Players.photo} alt='' />
       <h3>{Players.name}</h3>
       <p>Posición: {Players.positionJug}</p>
-      <button onClick={() => onAccept(Players)}>Aceptar</button>
-      <button onClick={() => onReject(Players)}>Rechazar</button>
+      
     </div>
   );
 };

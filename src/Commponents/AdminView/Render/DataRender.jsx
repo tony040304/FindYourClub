@@ -35,7 +35,7 @@ class DataRender extends Component {
         <h1>Jugadores registrados</h1>
         <JugadorFetch render={(data) => (
             <div>
-              {data ? (
+              {data ?(
                 <ul>
                   {data.map((item) => (
                     <li key={item.jugadorId}>{item.jugadorId}, {item.nombre}, {item.apellido}, {item.descripcion}, {item.posicion}</li>

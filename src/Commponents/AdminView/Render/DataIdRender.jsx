@@ -8,13 +8,13 @@ function App() {
     <div>
       <h1>Traer jugador por id</h1>
       <TraerJugadoresID
-        render={({ userId, user, loading, setUserId, fetchUser }) => (
+        render={({ userNombre, user, loading, setUserNombre, fetchUser }) => (
           <div>
             <input
               type="text"
-              placeholder="Ingrese el ID del usuario"
-              value={userId}
-              onChange={(e) => setUserId(e.target.value)}
+              placeholder="Ingrese el nombre del usuario"
+              value={userNombre}
+              onChange={(e) => setUserNombre(e.target.value)}
             />
             <button onClick={fetchUser}>Buscar</button>
             {loading && <p>Cargando...</p>}
@@ -35,7 +35,7 @@ function App() {
           <div>
             <input
               type="text"
-              placeholder="Ingrese el ID del equipo"
+              placeholder="Ingrese el nombre del equipo"
               value={equipoId}
               onChange={(e) => setEquipoId(e.target.value)}
             />

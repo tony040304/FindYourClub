@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import JugadoFetch from '../JugadoFetch';
 
 const TraerJugadoresID = () => {
     const [UsuarioId, setUserId] = useState('');
@@ -20,6 +21,7 @@ const TraerJugadoresID = () => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
+        alert("Borrado correctamente")
         return response.json();
       })
       .then((userData) => {
@@ -44,12 +46,6 @@ const TraerJugadoresID = () => {
         value={UsuarioId}
       />
       <Button onClick={fetchUser} class='btn btn-danger'>Borrar</Button>
-      {loading && <p>Cargando...</p>}
-      {user && (
-        <div>
-          <h2>Jugador borrado correctamente</h2>        
-        </div>
-      )}
     </div>
   );
 }

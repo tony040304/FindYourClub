@@ -27,11 +27,7 @@ function TraerEquipoID({ render }) {
       });
   };
 
-  useEffect(() => {
-    if (equipoNombre) {
-      fetchEquipo();
-    }
-  }, [equipoNombre]);
+  
 
   return render({ equipoNombre, equipo, loading, setEquipoNombre, fetchEquipo });
 }

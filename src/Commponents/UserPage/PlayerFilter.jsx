@@ -33,7 +33,7 @@ const PlayerFilter = ({ onFilterChange }) => {
         onChange={(e) => setFilters({ ...filters, league: e.target.value })}
       >
         <option value="">Liga</option>
-        <option value="Liga Caniadiense de Futbol">Liga Caniadiense De Futbol</option>
+        <option value="Liga Cañadiense de Futbol">Liga Cañadiense De Futbol</option>
         <option value="Liga Rosarina Profesional">Liga Rosarina Profesional</option>
       </select>
       <button className='filter-button' onClick={handleFilterChange}>Aplicar Filtros</button>

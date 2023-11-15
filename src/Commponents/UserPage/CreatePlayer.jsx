@@ -9,12 +9,11 @@ const CreatePlayer = () => {
     const [Apellido, setApellido] = useState('')
     const [Descripcion, setDescripcion] = useState('')
     const [Posicion, setPosicion] = useState('')
-    const usuarioId = 24
     const nav = useNavigate("")
     const goBack =()=>{
       nav("/app/UserPage")
     }
-
+    const usuarioId = 2035
     const handleSubmit = (e)=>{
         e.preventDefault()
           let PlayerData = {Nombre, Apellido, Descripcion, Posicion, usuarioId}

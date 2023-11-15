@@ -17,7 +17,7 @@ const Admin = () => {
             <Button onClick={GoMostrarJugadores}>Mostrar jugadores y equipo</Button>
         </form>
         <form className="form-admin">
-            <Button onClick={GoMostrarJugadoresId}>Mostrar jugadores y equipo</Button>
+            <Button onClick={GoMostrarJugadoresId}>Buscar jugadores y equipo</Button>
         </form>
     </div>
   )
