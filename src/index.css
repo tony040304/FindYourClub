@@ -75,7 +75,7 @@ p{
   border-radius: 5px;
 }
 
-/*register */
+/*register, login*/
 
 .invalid-feedback {
   margin-bottom: 15px;
@@ -106,18 +106,6 @@ Button[type="button"] {
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
-  margin-left: 300px;
-}
-Button[type="buttonl"] {
-  width: 30%;
-  margin: 3%;
-  background-color: rgb(41, 56, 56);
-  color: #fff;
-  border: none;
-  padding: 8px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
 }
 
 button[type="submit"]:hover {
@@ -136,7 +124,7 @@ input.is-invalid {
 .card-container {
   display: flex;
   align-items: center;
-  background-color: #ffffffa1;
+  background-color: #ffffff5a;
   border: 1px solid #818181;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -146,6 +134,34 @@ input.is-invalid {
   text-align: center;
   font-family: Arial, sans-serif;
 }
+.userDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.userDiv2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.userForm {
+  flex: 1;
+  max-width: 30%;
+  margin: 2%;
+  background-color: #cacacade; /* Color de fondo blanco */
+  padding: 5%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(157, 255, 0, 0.459);
+  text-align: center;
+}
+
+h3.userH {
+  color: #a4ff00;
+  margin-bottom: 3%; /* Ajusta el espacio entre el título y el botón */
+}
+
+
+
 
 .card-logo {
   width: 100px;
@@ -632,5 +648,4 @@ h1 {
   margin-left: 230px;
   margin-top: 10px;
 }
-
 

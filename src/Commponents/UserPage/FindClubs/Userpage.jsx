@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../Navbar/Navbar.jsx';
-import PlayerFilter from './PlayerFilter.jsx';
-import ClubCard from './ClubCard.jsx';
+import Navbar from '../../Navbar/Navbar.jsx';
+import PlayerFilter from '../FindClubs/PlayerFilter.jsx';
+import ClubCard from '../FindClubs/ClubCard.jsx';
+import Cookies from 'universal-cookie';
 
-function Userpage() {
+const Userpage=()=> {
   const [filters, setFilters] = useState({
     position: '',
     league: '',
   });
   const [appliedClubs, setAppliedClubs] = useState([]);
   const [data, setData] = useState([]);
-
+  const cookies = new Cookies();
+  const token = cookies.get("token")
   useEffect(() => {
     // Llamar a la función que realiza la solicitud al backend cuando se monta el componente
     fetchData();
@@ -18,7 +20,12 @@ function Userpage() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('https://localhost:7102/api/Jugador/GetListaEquipoXJugadores');
+      const response = await fetch('https://localhost:7102/api/Jugador/ListaEquipo', {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`, // Incluir el token JWT en el encabezado de autorización
+        },
+      });
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }

@@ -1,7 +1,7 @@
 
 import logo from '../Img/FINDYOURLOG1.png'
 import { useNavigate } from 'react-router-dom'
-import Userpage from '../UserPage/Userpage';
+import Userpage from '../UserPage/FindClubs/Userpage';
 
 const Navbar = () => {
   

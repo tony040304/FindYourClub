@@ -13,22 +13,20 @@ import DataIdRender from './Commponents/AdminView/Render/DataIdRender';
 import ClubPage from './Commponents/ClubPage/ClubPage.jsx';
 import ClubDashboard from './Commponents/ClubPage/Clubdashbooard';
 import CreateClub from './Commponents/ClubPage/CreateClub.jsx'
-import PrevPage from './Commponents/UserPage/PrevPage';
-import CreatePlayer from './Commponents/UserPage/CreatePlayer';
-import Userpage from './Commponents/UserPage/Userpage.jsx';
-
+import PrevPage from './Commponents/UserPage/PrevPage.jsx';
+import Userpage from './Commponents/UserPage/FindClubs/Userpage.jsx';
+import PostuPage from './Commponents/UserPage/FindClubs/PostuPage.jsx';
 
 
 const router = createBrowserRouter([
+  
   {
     path: "/app",
     element: <PreviousPage/>
-    
   },
   {
     path: "/app/login",
-    element: <Login />,
-    errorElement: <ErrorPage/>
+    element: <Login/>,
   },
   {
     path: "/app/Registro",
@@ -67,15 +65,15 @@ const router = createBrowserRouter([
     element:<PrevPage/>
   },
   {
-    path: '/app/UserPage/createPlayer',
-    element:<CreatePlayer/>
+
+    path: '/app/UserPage/Equipos',
+    element:<Userpage/>
   },
   {
-    path: '/app/UserPage/Userpage',
-    element:<Userpage />
+    path:'/app/UserPage/Postulaciones',
+    element:<PostuPage/>
   }
 
-    
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

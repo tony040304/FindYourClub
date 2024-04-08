@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../../index.css"
+import "../../../index.css"
 
 const ClubCard = ({ Data, onApply }) => {
   const [applied, setApplied] = useState(false);
@@ -15,16 +15,12 @@ const ClubCard = ({ Data, onApply }) => {
   return (
     <div className="card-container">
     <div className="card-content">
-      <h3>Nombre: {Data.nombre}</h3>
-      <p>Posición Requerida: {Data.posicionRequerida}</p>
+      <h3>Nombre equipo: {Data.nombre}</h3>
       <p>Liga: {Data.liga}</p>
-      <p>Descripción: {Data.descripcion}</p>
+      <p>Posición: {Data.posicion}</p>
+      <p>Fecha: {Data.fechaPostulaciones}</p>
+      <p>Id: {Data.id}</p>
     </div>
-    {applied ? (
-        <p>¡Postulación enviada!</p>
-      ) : (
-        <button className='card-button' onClick={handleApply}>Postularse</button>
-      )}
     </div>
 
   );
