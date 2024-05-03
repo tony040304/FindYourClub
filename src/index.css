@@ -86,18 +86,19 @@ p{
 
 
 Button[type="submit"] {
-  width: 80%;
+  max-width: 45%;
   background-color: #a4ff00;
-  color: #fff;
+  color: #000000;
   border: none;
   padding: 8px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  margin-left: 1%;
 }
 
 Button[type="button"] {
-  width: 45%;
+  max-width: 35%;
   margin: 1.5%;
   background-color: rgb(41, 56, 56);
   color: #fff;
@@ -107,9 +108,19 @@ Button[type="button"] {
   cursor: pointer;
   font-size: 14px;
 }
-
+button[type="cancel"]{
+  max-width: 45%;
+  background-color: #ff3c00b6;
+  color: #000000;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
 button[type="submit"]:hover {
   background-color: #161616;
+  color: #ffffff;
 }
 button[type="button"]:hover {
   background-color: #a4ff00;
@@ -117,22 +128,70 @@ button[type="button"]:hover {
 button[type="buttonl"]:hover {
   background-color: #a4ff00;
 }
+button[type="cancel"]:hover{
+  background-color: #ff3c00;
+  color: #ffffff;
+}
 input.is-invalid {
   border-color: #dc3545 !important;
 }
+/*ClubPage*/
+.popUp-container{
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #95ff00;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  max-width: 40%;
+  margin-left: 30%;
+  margin-top: 1%;
+  text-align: center;
+}
+.popUp-h2{
+  color: #000;
+}
 /* Userpage */
 .card-container {
-  display: flex;
+  display: list-item flow;
   align-items: center;
   background-color: #ffffff5a;
   border: 1px solid #818181;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 10px;
- max-width: 600px;
- margin-left: 300px;
+  max-width: 30%;
+  margin-left: 35%;
+  margin-top: 1%;
   text-align: center;
-  font-family: Arial, sans-serif;
+}
+.card-container-team{
+  display: flex;
+  align-items: center;
+  background-color: #ffffff5a;
+  border: 1px solid #818181;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(143, 255, 6, 0.698);
+  padding: 5%;
+  max-width: 20%;
+  margin-top: 10%;
+  margin-left: 35%;
+}
+.p-submit{
+  color: #000;
+}
+.cardButton{
+  max-width: 35%;
+  margin: 1.5%;
+  background-color: rgb(41, 56, 56);
+  color: #fff;
+  border: none;
+  padding: 0.5%;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 80%;
+  margin-left: 45%;
 }
 .userDiv {
   display: flex;
@@ -358,7 +417,20 @@ background: #65b415;
   width: 600px; /* Cambia el ancho según tus necesidades */
   height: auto; /* Puedes ajustar la altura según sea necesario */
 }
-
+/*Change Password*/
+.card-container-changePasword {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff5a;
+  border: 1px solid #818181;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  max-width: 30%;
+  margin-left: 35%;
+  margin-top: 10%;
+  text-align: center;
+}
 /*ClubPage*/
 .player-card-container {
   display: flex;
@@ -628,16 +700,13 @@ h1 {
 }
 
 .style-span{
-  justify-content: center;
   text-align: center;
-  font-weight: 450; 
+  justify-content: center;
+  font-weight: 400; 
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-size: 54px; 
-  color: #faf8f8; 
-  background-color: rgba(255, 255, 255, 0);
-  align-items: center;
-  text-shadow: black 2.0rem 1rem 0.5rem;
-  text-decoration-color: #a4ff00;
+  color: #c8ff61; 
+  text-shadow: rgb(0, 0, 0) 2.0rem 1rem 0.5rem;
 }
 
 .text-span{
@@ -645,7 +714,7 @@ h1 {
   text-align: center;
   justify-content: center;
   width: 60%;
-  margin-left: 230px;
+  margin-left: 18%;
   margin-top: 10px;
 }
 

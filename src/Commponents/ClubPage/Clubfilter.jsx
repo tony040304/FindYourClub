@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import Players from './Dataplayers';
 const ClubFilter = ({ onFilterChange }) => {
   const [filters, setFilters] = useState({ positionJug: '' });
 

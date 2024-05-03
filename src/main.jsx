@@ -5,17 +5,18 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from './Commponents/Login/Login.jsx';
 import RegisterJugador from './Commponents/Register/RegisterJugador'
 import RegisterEquipo from './Commponents/Register/RegisterEquipo';
-import ErrorPage from './Commponents/Router/ErrorPage.jsx';
 import PreviousPage from './Commponents/previousPage/PreviousPage.jsx';
 import Admin from './Commponents/AdminView/Admin';
 import DataRender from './Commponents/AdminView/Render/DataRender.jsx';
 import DataIdRender from './Commponents/AdminView/Render/DataIdRender';
 import ClubPage from './Commponents/ClubPage/ClubPage.jsx';
-import ClubDashboard from './Commponents/ClubPage/Clubdashbooard';
-import CreateClub from './Commponents/ClubPage/CreateClub.jsx'
+import ClubPostulation from './Commponents/ClubPage/ClubPostulation';
 import PrevPage from './Commponents/UserPage/PrevPage.jsx';
-import Userpage from './Commponents/UserPage/FindClubs/Userpage.jsx';
-import PostuPage from './Commponents/UserPage/FindClubs/PostuPage.jsx';
+import Userpage from './Commponents/UserPage/FindClubs/Fetchs/Userpage.jsx';
+import PostuPage from './Commponents/UserPage/FindClubs/Fetchs/PostuPage.jsx';
+import MyTeam from './Commponents/UserPage/FindClubs/Fetchs/MyTeam.jsx';
+import ChangePassword from './Commponents/UserPage/FindClubs/ChangePassword.jsx';
+import { ClubContracts } from './Commponents/ClubPage/ClubContracts.jsx';
 
 
 const router = createBrowserRouter([
@@ -54,11 +55,11 @@ const router = createBrowserRouter([
   },
   {
     path:"/app/ClubPage/Clubdashbooard",
-    element: <ClubDashboard />
+    element: <ClubPostulation />
   },
   {
-    path:"/app/ClubPage/CreateClub",
-    element: <CreateClub/>
+    path: '/app/ClubPage/Contratos',
+    element: <ClubContracts/>
   },
   {
     path: '/app/UserPage',
@@ -72,6 +73,14 @@ const router = createBrowserRouter([
   {
     path:'/app/UserPage/Postulaciones',
     element:<PostuPage/>
+  },
+  {
+    path:'/app/UserPage/Contrato',
+    element:<MyTeam/>
+  },
+  {
+    path:'/app/UserPage/ChangePassword',
+    element: <ChangePassword/>
   }
 
 ]);

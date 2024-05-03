@@ -3,6 +3,8 @@ import {  useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { jwtDecode } from "jwt-decode";
 import Cookies from 'universal-cookie';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const [nombre, setNombre] = useState('');
@@ -10,6 +12,8 @@ const Login = () => {
   const [Rol, setRol] = useState('');
   const Navigate = useNavigate()
   const cookies = new Cookies();
+
+
   const handleSubmitLog = async (e) => {
     e.preventDefault();
     
@@ -21,25 +25,57 @@ const Login = () => {
         },
         body: JSON.stringify({ nombre, password }),
       });
-
+  
       if (!response.ok) {
         throw new Error('Credenciales incorrectas');
       }
-  
+      
       const token = await response.text(); // Obtener el token como texto
-      const decodeToken = jwtDecode(token)
-      const Role = decodeToken.role
+      const decodeToken = jwtDecode(token);
+      const Role = decodeToken.role;
       if (Role == 2) {
-        cookies.set("token", token, {path: '/'})
+        toast.success('Logeado satisfactoriamente', {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+  
+        setTimeout(() => {
+          cookies.set("token", token, {path: '/'});
+          console.log('Inicio de sesión exitoso');
+          Navigate('/app/UserPage');
+        }, 1000);
         
-        Navigate('/app/UserPage')
+      } if (Role == 3) {
+        toast.success('Logeado satisfactoriamente', {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+  
+        setTimeout(() => {
+          cookies.set("tokenTeam", token, {path: '/'});
+          console.log('Inicio de sesión exitoso');
+          Navigate('/app/ClubPage');
+        }, 1000);
       }
-      console.log('Inicio de sesión exitoso');
     } catch (error) {
       console.error('Error al iniciar sesión:', error.message);
       // Manejar el error (por ejemplo, mostrar un mensaje de error al usuario)
     }
   };
+  
+
 
 
   const handleNombreChange = (e) => {
@@ -74,8 +110,22 @@ const Login = () => {
           <Button class="btn btn-success justify-content-center mt-3" type="submit" onClick={handleSubmitLog}>Iniciar sesión</Button>
         </form>
         <Button  class="btn btn-secondary justify-content-center mt-4 mb-3" type="button" onClick={goRegisterE}>Registrarme como equipo</Button>
-        <Button  class="btn btn-secondary justify-content-center mt-4 mb-3" type="buttonl" onClick={goRegisterJ}>Registrarme como jugador</Button>
+        <Button  class="btn btn-secondary justify-content-center mt-4 mb-3" type="button" onClick={goRegisterJ}>Registrarme como jugador</Button>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        />
+        {/* Same as */}
+        <ToastContainer />
 
     </div>
   );

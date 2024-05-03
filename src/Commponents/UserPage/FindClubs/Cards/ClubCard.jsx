@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../../../index.css"
+import "../../../../index.css"
 import Cookies from 'universal-cookie';
 
 
@@ -28,7 +28,7 @@ const ClubCard = ({ Data, onApply }) => {
         throw new Error('Error al responder');
       }
       setApplied(true)
-      if (!applied && data.success !== false) {
+      if (!applied && Data.success !== false) {
         onApply(Data);
         setApplied(true);
       }
@@ -39,20 +39,26 @@ const ClubCard = ({ Data, onApply }) => {
     });
   };
 
+
   return (
-    <div className="card-container">
-      <div className="card-content">
-        <h3>Nombre: {Data.nombre}</h3>
-        <p>Posición Requerida: {Data.posiciónRequerida}</p>
-        <p>Liga: {Data.liga}</p>
-        <p>Descripción: {Data.descripcion}</p>
+    <div>
+      <div className="card-container">
+        <div className="card-content">
+          <h3>Nombre: {Data.nombre}</h3>
+          <p>Posición Requerida: {Data.posiciónRequerida}</p>
+          <p>Liga: {Data.liga}</p>
+          <p>Descripción: {Data.descripcion}</p>
+        </div>
+        {applied ? (
+          <p className="p-submit">¡Postulación enviada!</p>
+        ) : (
+          <button className='card-button' onClick={handleApply}>Postularse</button>
+        )}
       </div>
-      {applied ? (
-        <p>¡Postulación enviada!</p>
-      ) : (
-        <button className='card-button' onClick={handleApply}>Postularse</button>
-      )}
     </div>
+
+  
+
   );
 };
 

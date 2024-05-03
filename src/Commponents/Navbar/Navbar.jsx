@@ -1,11 +1,14 @@
-
 import logo from '../Img/FINDYOURLOG1.png'
 import { useNavigate } from 'react-router-dom'
-import Userpage from '../UserPage/FindClubs/Userpage';
+import Userpage from '../UserPage/FindClubs/Fetchs/Userpage';
 
 const Navbar = () => {
-  
+  const nav = useNavigate('')
     
+  const goBack =()=>{
+    nav('./')
+  }
+
   //const handleLogout = () => {
     // Lógica para cerrar sesión
     // Puedes redirigir al usuario a la página anterior usando history.goBack()
@@ -26,7 +29,7 @@ const Navbar = () => {
         <span className="nav-item">Buscar</span>
       </div>
       <div className="navbar-right">
-        <button onClick={''} className="logout-button">
+        <button onClick={goBack} className="logout-button">
           Cerrar Sesión
         </button>
       </div>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import MyPostuFetch from './MyPostuFetch';
-import Navbar from '../../Navbar/Navbar';
-import PlayerFilter from './PlayerFilter';
-import PostuCard from './PostuCard'
+import Navbar from '../../../Navbar/Navbar';
+import PlayerFilter from '../PlayerFilter';
+import PostuCard from '../Cards/MyPostuCard'
 
 
 export default function Userpag() {
@@ -15,7 +15,7 @@ export default function Userpag() {
     };
   
     const handleApply = (clubData) => {
-      setAppliedClubs([...appliedClubs, clubData.clubName]);
+      setAppliedClubs([...appliedClubs, clubData.nombre]);
     };
   
     // Filtrar los datos con los filtros y los clubes aplicados
@@ -25,6 +25,7 @@ export default function Userpag() {
   
       return positionMatch && leagueMatch && !appliedClubs.includes(item.nombre);
     });
+    
     return (
       <div>
         <Navbar />
@@ -33,7 +34,13 @@ export default function Userpag() {
           setData={setData} // Pasar la función setData para actualizar los datos del fetch
           render={() => (
             <div>
-              {data ? (
+              {data.length === 0 ? (
+                <div className="card-container-team">
+                <div className="card-content">
+                  <h3>No te has postulado a ningun equipo...</h3>
+                </div>
+              </div>
+              ) : (
                 <ul>
                   {filteredData.map((item, index) => (
                     <PostuCard
@@ -43,8 +50,6 @@ export default function Userpag() {
                     />
                   ))}
                 </ul>
-              ) : (
-                <p>Cargando datos...</p>
               )}
             </div>
           )}

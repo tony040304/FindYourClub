@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../../Navbar/Navbar.jsx';
-import PlayerFilter from '../FindClubs/PlayerFilter.jsx';
-import ClubCard from '../FindClubs/ClubCard.jsx';
+import Navbar from '../../../Navbar/Navbar.jsx';
+import PlayerFilter from '../PlayerFilter.jsx';
+import ClubCard from '../Cards/ClubCard.jsx';
 import Cookies from 'universal-cookie';
 
 const Userpage=()=> {
@@ -53,15 +53,23 @@ const Userpage=()=> {
   return (
     <div className="App">
       <Navbar />
-      <PlayerFilter onFilterChange={handleFilterChange} />
-      <div className="cards-container">
+      <PlayerFilter onFilterChange={handleFilterChange} onApply={handleApply} />
+      <div>
+        {data.length === 0 ? (
+          <div className="card-container-team">
+          <div className="card-content">
+            <h3>No hay equipos que requieran postulaciones...</h3>
+          </div>
+        </div>
+        ) : (
+          <div className="cards-container">
         {filteredData.map((item, index) => (
           <ClubCard
           key={index}
-          Data={item}
-          onApply={handleApply}
-        />
+          Data={item}/>
         ))}
+      </div>
+        )}
       </div>
     </div>
   );

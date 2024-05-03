@@ -10,7 +10,13 @@ const PrevPage = () => {
     }
     const goToSearch =()=>{
       nav('/app/UserPage/Equipos')
-  }
+    }
+    const goToContract=()=>{
+      nav('/app/UserPage/Contrato')
+    }
+    const goToChangePass=()=>{
+      nav('/app/UserPage/ChangePassword')
+    }
   return (
     <>
     <Navbar/>
@@ -27,11 +33,11 @@ const PrevPage = () => {
   <div className='userDiv2'>
   <form className='userForm'>
     <h3 className='userH'>Mi equipo:</h3><br />
-    <Button type='button' onClick={goToSearch}>Ver mi equipo</Button>
+    <Button type='button' onClick={goToContract}>Ver mi equipo</Button>
   </form>
   <form className='userForm'>
     <h3 className='userH'>Cambiar mi contraseña:</h3><br />
-    <Button type='button' onClick={goToSearch}>Cambiar contraseña</Button>
+    <Button type='button' onClick={goToChangePass}>Cambiar contraseña</Button>
   </form>
   </div>
 </>

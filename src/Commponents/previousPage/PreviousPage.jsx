@@ -16,7 +16,7 @@ const PreviousPage = () => {
   }
   return (
     <div className="">
-     <div className="text-span"> <span className="style-span">ENTRÁ, POSTULATE &amp; DEMOSTRÁ</span> </div>
+     <div className="text-span"> <span className="style-span">LA PAGINA DONDE VAS A PODER CONCEGUIR TU EQUIPO/JUGADORES DE FUTBOL</span> </div>
      
         <div className="paginaPrevia">
             <button className="prev" onClick={navegarAlLogin}>Tengo una cuenta</button>
