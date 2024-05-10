@@ -1,12 +1,12 @@
 import logo from '../Img/FINDYOURLOG1.png'
 import { useNavigate } from 'react-router-dom'
-import Userpage from '../UserPage/FindClubs/Fetchs/Userpage';
+import Userpage from '../UserPage/FindClubs/Containers/Userpage';
 
 const Navbar = () => {
   const nav = useNavigate('')
     
   const goBack =()=>{
-    nav('./')
+    nav("..", { relative: "path" });
   }
 
   //const handleLogout = () => {
@@ -24,12 +24,10 @@ const Navbar = () => {
        
         </span>
         
-        <span className="nav-item">Inicio</span>
-
-        <span className="nav-item">Buscar</span>
+        <span onClick={goBack} className="nav-item">Inicio</span>
       </div>
       <div className="navbar-right">
-        <button onClick={goBack} className="logout-button">
+        <button className="logout-button">
           Cerrar Sesión
         </button>
       </div>

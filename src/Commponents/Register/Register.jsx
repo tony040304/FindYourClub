@@ -5,19 +5,21 @@ import { toast, ToastContainer } from 'react-toastify';
 
 
 
-const Registro = ({ Rol }) => {
+const Registro = () => {
   const navigate = useNavigate("")
   const [Contrasenia, setContrasenia] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [email, setEmail] = useState("")
-  const [Nombre, setNombre] = useState("")
+  const [NombreApellido, setNombre] = useState("")
+  const [Posicion, setPosicion] = useState("")
+  const [FechaNacimiento, setNacimiento] = useState("")
   const [errors, setErrors] = useState({});
   const [isDelayedActionComplete, setDelayedActionComplete] = useState(false);
 
   const handleSubmit = (e)=>{
     e.preventDefault()
     if (handleValidation()) {
-      let registerNeeded = {Nombre, Contrasenia, email, Rol}
+      let registerNeeded = {NombreApellido, Contrasenia, email, Posicion, FechaNacimiento}
       
       fetch("https://localhost:7102/api/Auth/register",{
         method: "POST", 
@@ -31,10 +33,6 @@ const Registro = ({ Rol }) => {
       }).then((response)=>{
           const isJson = response.headers.get('content-type')?.includes('application/json');
           const data = isJson ? response.json() : null;
-          if (!response.ok) {
-            const error = (data && data.message) || response.status;
-            return Promise.reject(error);
-          }
           toast.success('Registrado satisfactoriamente', {
             position: "top-right",
             autoClose: 5000,
@@ -45,33 +43,53 @@ const Registro = ({ Rol }) => {
             progress: undefined,
             theme: "light",
         })
-        console.log(response)
         setTimeout(() => {
           navigate("/app/login")
           setDelayedActionComplete(true);
         }, 3000);
         return response.json()
       }).catch(err => {
-          toast.error("Usuario existente, error:" + err, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        })
+          if (err === 400) {
+            toast.error("Usuario existente", {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            })
+          }else{
+            toast.error("Ocurrio un error en la aplicacion"+err, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            })
+          }
       })
     }
   }
 
   const handleValidation  = () => {
+    const birthdateObj = new Date(FechaNacimiento);
+    const today = new Date();
+    let age = today.getFullYear() - birthdateObj.getFullYear();
+    const monthDifference = today.getMonth() - birthdateObj.getMonth();
+  
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthdateObj.getDate())) {
+      age--;
+    }
     let result = true
     const validationErrors = {};
-    if (!Nombre.trim()) {
+    if (!NombreApellido.trim()) {
       result = false
-      validationErrors.Nombre = 'El nombre es obligatorio';
+      validationErrors.NombreApellido = 'El nombre es obligatorio';
     }
     if (!email.trim()) {
       result = false
@@ -91,9 +109,19 @@ const Registro = ({ Rol }) => {
       result = false
       validationErrors.confirmPassword = 'Las contraseñas no coinciden';
     }
-    
+    if (!Posicion.trim()) {
+      result = false
+      validationErrors.Posicion = 'La posicion es obligatoria';
+    }
+    if (!FechaNacimiento.trim()) {
+      result = false
+      validationErrors.FechaNacimiento = 'La fecha de nacimiento es obligatoria';
+    }
+    if (age < 16) {
+      result = false;
+      validationErrors.FechaNacimiento = 'Es obligatorio tener más de 16 años';
+    }
     if (Object.keys(validationErrors).length === 0) {
-      console.log('Datos válidos:');
     } else {
       result = false
       setErrors(validationErrors);
@@ -115,12 +143,12 @@ const Registro = ({ Rol }) => {
           placeholder='Nomre usuario'
             type="text"
             name="nombre"
-            value={Nombre}
+            value={NombreApellido}
             onChange={(e)=>setNombre(e.target.value)}
-            isInvalid={!!errors.Nombre}
+            isInvalid={!!errors.NombreApellido}
             maxLength="20"
           />
-          <Form.Control.Feedback type="invalid">{errors.Nombre}</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{errors.NombreApellido}</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group controlId="email">
@@ -134,7 +162,7 @@ const Registro = ({ Rol }) => {
             isInvalid={!!errors.email}
             maxLength="50"
           />
-          <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
+          <Form.Control.Feedback  type="invalid">{errors.email}</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group controlId="password">
@@ -165,11 +193,39 @@ const Registro = ({ Rol }) => {
           <Form.Control.Feedback type="invalid">{errors.confirmPassword}</Form.Control.Feedback>
         </Form.Group>
 
-        <Button class="register btn btn-succes justify-content-center mt-3 " type="submit">
+        <Form.Group controlId="posicion">
+          <select className="select-form-control" value={Posicion} onChange={(e)=>setPosicion(e.target.value)} isInvalid={!!errors.Posicion}>
+            <option value="">Posicion</option>
+            <option value="DFC">DFC</option>
+            <option value="LD">LD</option>
+            <option value="LI">LI</option>
+            <option value="MC">MC</option>
+            <option value="MCD">MCD</option>
+            <option value="MCO">MCO</option>
+            <option value="EI">EI</option>
+            <option value="ED">ED</option>
+            <option value="DC">DC</option>
+          </select>
+          <Form.Control.Feedback type="invalid">{errors.Posicion}</Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group controlId="Date">
+          <Form.Control
+            className="contrasenia form-control"
+            placeholder='Ingrese su fecha de nacimiento'
+            type="Date"
+            value={FechaNacimiento}
+            onChange={(e)=>setNacimiento(e.target.value)}
+            isInvalid={!!errors.FechaNacimiento}
+          />
+          <Form.Control.Feedback type="invalid">{errors.FechaNacimiento}</Form.Control.Feedback>
+        </Form.Group>
+
+        <Button className="register btn btn-succes justify-content-center mt-3 " type="submit">
           Registrarse
         </Button>
       </Form>
-      <Button onClick={NavToLogin} type="button" class="btn btn-outline-secondary">
+      <Button onClick={NavToLogin} type="button" className="btn btn-outline-secondary">
           Ya tengo una cuenta
         </Button>
       </div>

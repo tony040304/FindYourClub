@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, {useState} from 'react'
 import Cookies from 'universal-cookie';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Navbar from '../Navbar/Navbar';
 
-const ChangePassword = () => {
-  const [password, setPassword] = useState('');
+const ChangeClubPassword = () => {
+    const [password, setPassword] = useState('');
   const [checkPassword, setConfirm] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
   const cookies = new Cookies();
-  const token = cookies.get("token")
+  const token = cookies.get("tokenTeam")
   const navigate = useNavigate()
-
+  const location = useLocation()
 
   
 
@@ -32,7 +35,7 @@ const ChangePassword = () => {
 
   const handleSubmit = () => {
     if (changePassword()) {
-      fetch('https://localhost:7102/api/Jugador/CambiarContraseña', {
+      fetch('https://localhost:7102/api/Equipo/Changepassword', {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -41,14 +44,22 @@ const ChangePassword = () => {
         body: JSON.stringify({ password, checkPassword }),
       })
       .then((response) => {
+        toast.success('Contraseña cambiada satisfactoriamente', {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
         if (!response.ok) {
           throw new Error('Error al responder');
         }
-  
-        // Agregar un delay de 2 segundos antes de navegar
         setTimeout(() => {
-          navigate('/app/UserPage');
-        }, 1000);
+          navigate("..", { relative: "path" });
+        }, 1500);
       })
       .catch(error => {
         console.error('Error al cambiar la contraseña:', error.message);
@@ -58,6 +69,8 @@ const ChangePassword = () => {
   
 
   return (
+    <>
+    <Navbar/>
     <div className="card-container-changePasword">
       <div className="card-content">
         <input
@@ -79,8 +92,11 @@ const ChangePassword = () => {
         </button>
         {!success ? <p style={{ color: 'red' }}>{error}</p> : <p style={{ color: 'green' }}>Contraseña cambiada</p>}
       </div>
+        <ToastContainer />
     </div>
+    </>
   );
 };
 
-export default ChangePassword;
+
+export default ChangeClubPassword

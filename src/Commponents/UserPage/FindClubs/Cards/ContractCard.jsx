@@ -13,7 +13,6 @@ const ContractCard = ({ Data }) => {
 
   const handleDelete =()=>{
     let idContrato = Data.idContrato
-    console.log(idContrato);
     fetch(`https://localhost:7102/api/Jugador/BorrarContrato/${idContrato}`, {
       method: 'DELETE',
       headers: {

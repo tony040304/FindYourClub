@@ -4,7 +4,7 @@ import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 const token = cookies.get("tokenTeam")
 
-class Contratos extends Component {
+class MyClub extends Component {
   state = {
     data: null,
     loading: true,
@@ -12,7 +12,7 @@ class Contratos extends Component {
 
   componentDidMount() {
     // Lógica de obtención de datos usando el fetch personalizado
-    fetch('https://localhost:7102/api/Equipo/GetContratoListaxEquipo', {
+    fetch('https://localhost:7102/api/Equipo/MyTeam', {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`, // Incluir el token JWT en el encabezado de autorización
@@ -26,7 +26,7 @@ class Contratos extends Component {
       })
       .then((data) => {
         this.setState({ data, loading: false });
-        this.props.setData(data); 
+        this.props.setData(data);
       })
       .catch((error) => {
         console.error('Hubo un error al obtener los datos:', error);
@@ -40,4 +40,4 @@ class Contratos extends Component {
     return this.props.render(this.state.data, this.state.loading);
   }
 }
-export default Contratos
+export default MyClub

@@ -1,8 +1,8 @@
 import React from 'react'
-import Navbar from '../Navbar/Navbar';
-import ClubFilter from './Clubfilter';
-import Contratos from './Get/Contratos';
-import ContractCards from './Cards/ContractCards';
+import Navbar from '../../Navbar/Navbar';
+import ClubFilter from '../Clubfilter';
+import Contratos from '../Get/Contratos';
+import ContractCards from '../Cards/ContractCards';
 import { useState } from 'react';
 
 export const ClubContracts = () => {

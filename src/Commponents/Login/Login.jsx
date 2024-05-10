@@ -26,10 +26,18 @@ const Login = () => {
         body: JSON.stringify({ nombre, password }),
       });
   
-      if (!response.ok) {
-        throw new Error('Credenciales incorrectas');
+      if (response.status == 404) {
+        toast.error('Nombre/Contraseña incorrecta', {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       }
-      
       const token = await response.text(); // Obtener el token como texto
       const decodeToken = jwtDecode(token);
       const Role = decodeToken.role;
@@ -112,19 +120,6 @@ const Login = () => {
         <Button  class="btn btn-secondary justify-content-center mt-4 mb-3" type="button" onClick={goRegisterE}>Registrarme como equipo</Button>
         <Button  class="btn btn-secondary justify-content-center mt-4 mb-3" type="button" onClick={goRegisterJ}>Registrarme como jugador</Button>
       </div>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-        />
-        {/* Same as */}
         <ToastContainer />
 
     </div>

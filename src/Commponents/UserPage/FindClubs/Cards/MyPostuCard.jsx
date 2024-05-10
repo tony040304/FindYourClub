@@ -6,7 +6,6 @@ const ClubCard = ({ Data, onApply }) => {
   const [applied, setApplied] = useState(false);
   const cookies = new Cookies();
   const token = cookies.get("token");
-  console.log(token);
 
   const formattedDate = new Date(Data.fechaPostulaciones).toLocaleDateString();
 
@@ -37,7 +36,6 @@ const ClubCard = ({ Data, onApply }) => {
     });
   }
 
-  console.log(Data)
 
   return (
     <div>

@@ -2,6 +2,7 @@ import React from 'react'
 import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../Navbar/Navbar'
+import ClubNavbar from './ClubNavbar'
 
 
 const ClubPage = () => {
@@ -12,6 +13,12 @@ const ClubPage = () => {
   }
   const gpToSoli =()=>{
     navigate("/app/ClubPage/Clubdashbooard")
+  }
+  const goToPlantel =()=>{
+    navigate('/app/ClubPage/Plantel')
+  }
+  const goToChangePass=()=>{
+    navigate('/app/ClubPage/ChangeClubPassword')
   }
 
   return (
@@ -30,15 +37,47 @@ const ClubPage = () => {
   <div className='userDiv2'>
   <form className='userForm'>
     <h3 className='userH'>Mi equipo:</h3><br />
-    <Button type='button' onClick={gpToSoli}>Ver mi equipo</Button>
+    <Button type='button' onClick={goToPlantel}>Ver mi equipo</Button>
   </form>
   <form className='userForm'>
     <h3 className='userH'>Cambiar mi contraseña:</h3><br />
-    <Button type='button' onClick={gpToSoli}>Cambiar contraseña</Button>
+    <Button type='button' onClick={goToChangePass}>Cambiar contraseña</Button>
   </form>
   </div>
+  <ClubNavbar/>
 </>
   )
 }
+ 
 
-export default ClubPage
+const ClubPage2 = () => {
+  const navigate = useNavigate("")
+
+  const goToChangeData =()=>{
+    navigate("/app/ClubPage/CambiarDatos")
+  }
+  const goToMyData =()=>{
+    
+    navigate("/app/ClubPage/MyTeam")
+  }
+
+
+  return (
+    <>
+    <Navbar/>
+    <div className='userDiv'>
+      <form className='userForm'>
+        <h3 className='userH'>Mis datos:</h3><br />
+        <Button type='button' onClick={goToMyData}>Cambiar datos</Button>
+      </form>
+      <form className='userForm'>
+        <h3 className='userH'>Cambiar datos del equipo:</h3><br />
+        <Button type='button' onClick={goToChangeData}>Cambiar datos</Button>
+      </form>
+  </div>
+  <ClubNavbar/>
+  </>
+  )
+}
+
+export { ClubPage, ClubPage2 }

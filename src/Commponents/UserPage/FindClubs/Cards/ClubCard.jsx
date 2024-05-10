@@ -12,7 +12,6 @@ const ClubCard = ({ Data, onApply }) => {
 
   const handleApply = () => {
     let nombre = Data.nombre
-    console.log(nombre);
     fetch('https://localhost:7102/api/Jugador/CrearPostulacionJugador', {
       method: 'POST',
       headers: {

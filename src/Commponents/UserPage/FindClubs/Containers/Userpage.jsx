@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../../../Navbar/Navbar.jsx';
-import PlayerFilter from '../PlayerFilter.jsx';
+import PlayerFilter from '../../PlayerFilter.jsx';
 import ClubCard from '../Cards/ClubCard.jsx';
 import Cookies from 'universal-cookie';
 
@@ -35,7 +35,6 @@ const Userpage=()=> {
       console.error('Hubo un error al obtener los datos del servidor:', error);
     }
   };
-  console.log(data)
   const filteredData = data.filter((item) => {
     const positionMatch = filters.position ? item.posiciónRequerida === filters.position : true;
     const leagueMatch = filters.league ? item.liga === filters.league : true;
@@ -66,7 +65,9 @@ const Userpage=()=> {
         {filteredData.map((item, index) => (
           <ClubCard
           key={index}
-          Data={item}/>
+          Data={item}
+          onApply={handleApply}
+          />
         ))}
       </div>
         )}
