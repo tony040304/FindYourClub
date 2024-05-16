@@ -5,7 +5,7 @@ import Cookies from 'universal-cookie';
 const PlayerCard = ({ Data, onApply }) => {
   const [applied, setApplied] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-  const [salary, setSalary] = useState('');
+  const [salarioJugador, setSalarioJugador] = useState('');
   const cookies = new Cookies();
   const token = cookies.get("tokenTeam");
 
@@ -49,7 +49,7 @@ const PlayerCard = ({ Data, onApply }) => {
         'accept': 'text/plain',
         Authorization: `Bearer ${token}`, // Incluir el token JWT en el encabezado de autorización          
       },
-      body: JSON.stringify({ salarioJugador: salary }) // Enviar un objeto con el salario
+      body: JSON.stringify({ salarioJugador: salarioJugador }) // Enviar un objeto con el salario
     })
     .then((response) => {
       if (!response.ok) {
@@ -58,8 +58,8 @@ const PlayerCard = ({ Data, onApply }) => {
         throw new Error('Error al responder');
       }
       setApplied(true);
-      if (!applied && Data.success !== false) {
-        toast.success('Logeado satisfactoriamente', {
+      if (response.ok) {
+        toast.success('Jugador contratado satisfactoriamente', {
           position: "top-right",
           autoClose: 1000,
           hideProgressBar: false,
@@ -105,7 +105,7 @@ const PlayerCard = ({ Data, onApply }) => {
           <div className="popUp-containerr">
             <h2 className='popUp-h2'>Ingresa el salario del jugador ({Data.nombreApellido}) que deseas contratar:</h2>
             <form onSubmit={handleSubmit}>
-              <input type="number" value={salary} onChange={(e) => setSalary(e.target.value)} />
+              <input type="number" value={salarioJugador} onChange={(e) => setSalarioJugador(e.target.value)} />
               <button type="submit">Enviar</button>
             </form>
             <button type="cancel" onClick={() => setShowPopup(false)}>Cancelar</button>

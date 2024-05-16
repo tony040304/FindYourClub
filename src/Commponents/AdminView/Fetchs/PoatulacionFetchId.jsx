@@ -4,15 +4,15 @@ import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 const token = cookies.get("tokenAdmin")
 
-function TraerJugadoresIDRenderProps({ render }) {
-  const [userNombre, setUserNombre] = useState('');
-  const [user, setUser] = useState(null);
+function ContratoFetchId({ render }) {
+  const [userClubNombre, setUserClubNombre] = useState('');
+  const [userClub, setUserClub] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const fetchUser = (e) => {
     setLoading(true);
     e.preventDefault()
-    fetch(`https://localhost:7102/api/Admin/GetJugadoresById/${userNombre}`,{
+    fetch(`https://localhost:7102/api/Admin/GetPostulacionByName?nombre=${userClubNombre}`,{
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -20,23 +20,22 @@ function TraerJugadoresIDRenderProps({ render }) {
     })
       .then((response) => {
         if (!response.ok) {
-          alert("Usuario inexistente");
           throw new Error('Network response was not ok');
         }
         return response.json();
       })
       .then((userData) => {
-        setUser(userData);
+        setUserClub(userData);
         setLoading(false);
       })
       .catch((error) => {
-        console.error('Hubo un error al obtener los datos del usuario:', error);
+        console.error('Hubo un error al obtener los datos:', error);
         setLoading(false);
       });
   };
 
 
-  return render({ userNombre, user, loading, setUserNombre, fetchUser });
+  return render({ userClubNombre, userClub, loading, setUserClubNombre, fetchUser });
 }
 
-export default TraerJugadoresIDRenderProps;
+export default ContratoFetchId;

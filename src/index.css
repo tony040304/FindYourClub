@@ -1,3 +1,4 @@
+@import url('./styles/var.css');
 html, body {
   height: 100%;
   margin: 0;
@@ -9,7 +10,8 @@ body {
   font-family: 'Jost', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #6d6d6d;
+  background-color: var(--background);
+  color: var(--text-primary);
  /* background-image: url("./Commponents/Img/El.png");*/
   background-size:cover;
   background-repeat: no-repeat;
@@ -26,6 +28,12 @@ h2{
 }
 p{
   color:  #a4ff00;
+}
+#light{
+  color: #ffffff;
+}
+#dark{
+  color: #000;
 }
 
 /*register, login*/
@@ -46,13 +54,12 @@ p{
   margin: 0 auto;
   width: 60%;
   height: auto;
-  background-color: #ffffffa1;
+  background-color: var(--background);
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
   text-align: center;
 }
-
 
 .titelLog {
   font-size: 24px;
@@ -94,78 +101,56 @@ p{
 }
 
 
-Button[type="submit"] {
-  max-width: 45%;
-  background-color: #a4ff00;
-  color: #000000;
-  border: none;
+Button[type="submit"],
+button[type="cancel"],
+button[type="button"] {
+  width: auto; /* Permitir que el botón crezca según el contenido */
+  margin: 1.5%;
   padding: 8px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
-  margin-left: 1%;
+  font-size: 14px; /* Reducir el tamaño de la fuente */
+  overflow: hidden; /* Recortar el contenido que excede el ancho */
+  text-overflow: ellipsis; /* Mostrar puntos suspensivos (...) si el contenido es demasiado largo */
 }
 
-Button[type="button"] {
-  max-width: 35%;
-  margin: 1.5%;
+
+Button[type="submit"] {
+  background-color: #a4ff00;
+  color: #000000;
+}
+
+button[type="button"] {
   background-color: rgb(41, 56, 56);
   color: #fff;
-  border: none;
-  padding: 8px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
 }
-button[type="cancel"]{
-  max-width: 45%;
+
+button[type="cancel"] {
   background-color: #ff3c00b6;
   color: #000000;
-  border: none;
-  padding: 8px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
 }
+
 button[type="submit"]:hover {
   background-color: #161616;
   color: #ffffff;
 }
+
 button[type="button"]:hover {
   background-color: #a4ff00;
 }
-button[type="buttonl"]:hover {
-  background-color: #a4ff00;
-}
-button[type="cancel"]:hover{
+
+button[type="cancel"]:hover {
   background-color: #ff3c00;
   color: #ffffff;
 }
 input.is-invalid {
   border-color: #dc3545 !important;
 }
-/*ClubPage*/
-.popUp-container{
-  display: flex;
-  align-items: center;
-  background-color: #ffffff;
-  border: 1px solid #95ff00;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 8px;
-  max-width: 40%;
-  margin-left: 30%;
-  margin-top: 1%;
-  text-align: center;
-}
-.popUp-h2{
-  color: #000;
-}
 /* Userpage */
 .card-container {
   display: list-item flow;
   align-items: center;
-  background-color: #ffffff5a;
+  background-color: var(--background);
   border: 1px solid #818181;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -178,7 +163,7 @@ input.is-invalid {
 .card-container-team{
   display: flex;
   align-items: center;
-  background-color: #ffffff5a;
+  background-color: var(--background);
   border: 1px solid #818181;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(143, 255, 6, 0.698);
@@ -187,36 +172,35 @@ input.is-invalid {
   margin-top: 10%;
   margin-left: 35%;
 }
-.p-submit{
+
+.card-container-team {
+  box-shadow: 0 2px 4px rgba(143, 255, 6, 0.698);
+}
+
+.p-submit {
   color: #000;
 }
-.cardButton{
-  max-width: 35%;
+
+.cardButton {
+  max-width: 45%;
   margin: 1.5%;
-  background-color: rgb(41, 56, 56);
-  color: #fff;
-  border: none;
   padding: 0.5%;
   border-radius: 5px;
   cursor: pointer;
   font-size: 80%;
-  margin-left: 45%;
 }
-.userDiv {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+.userDiv,
 .userDiv2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .userForm {
   flex: 1;
   max-width: 30%;
   margin: 2%;
-  background-color: #cacacade; /* Color de fondo blanco */
+  background-color: var(--background); /* Color de fondo blanco */
   padding: 5%;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(157, 255, 0, 0.459);
@@ -226,6 +210,20 @@ input.is-invalid {
 h3.userH {
   color: #a4ff00;
   margin-bottom: 3%; /* Ajusta el espacio entre el título y el botón */
+}
+
+/* Media queries para hacerlo responsive */
+@media screen and (max-width: 768px) {
+  .userForm {
+    max-width: 45%; /* Reducir el ancho máximo en pantallas más pequeñas */
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .userForm {
+    max-width: 90%; /* Reducir aún más el ancho máximo en pantallas muy pequeñas */
+    margin: 2% auto; /* Centrar los elementos */
+  }
 }
 
 .card-logo {
@@ -263,29 +261,22 @@ h3.userH {
   background-color: #0056b3;
 }
 
-
 @media (max-width: 767px) {
   .card {
     padding: 10px;
-    font-size: 16px;
   }
-  .card h2 {
+
+  .card h3 {
     font-size: 20px;
   }
+
   .card p {
     font-size: 16px;
   }
+
   .card-button {
     font-size: 16px;
   }
-}
-
-.player-filter {
-  background-color: #f5f5f5;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  text-align: center;
 }
 
 .filter-title {
@@ -301,7 +292,7 @@ h3.userH {
   border-radius: 5px;
 }
 
-.filter-container{
+.filter-container {
   position: fixed;
   top: 61px;
   width: 250px;
@@ -313,12 +304,13 @@ h3.userH {
 }
 
 @media (max-width: 767px) {
-.filter-container {
-  width: 100%; 
-  left: -100%; 
-  z-index: 999; 
+  .filter-container {
+    width: 100%; 
+    left: -100%; 
+    z-index: 999; 
+  }
 }
-}
+
 .filter-button {
   background-color: #a4ff00;
   color: #fff;
@@ -331,7 +323,6 @@ h3.userH {
 .filter-button:hover {
   background-color: #0056b3;
 }
-
 
 @media (max-width: 767px) {
   .player-filter {
@@ -354,90 +345,56 @@ h3.userH {
   }
 }
 
-.hamburger-button{
-  position:absolute;
+.hamburger-button {
+  position: absolute;
   top: 20px;
   left: 20px;
   cursor: pointer;
   font-size: 24px;
-  color:#fff;
-}
-.form-style-4{
-	width: 450px;
-	font-size: 16px;
-	background: #89cc0d;
-	padding: 30px 30px 15px 30px;
-	border: 5px solid #53687E;
-}
-.form-style-4 input[type=text],
-.form-style-4 label
-{
-	font-family: Georgia, "Times New Roman", Times, serif;
-	font-size: 16px;
-	color: #fff;
-
-}
-.form-style-4 label {
-	display:block;
-	margin-bottom: 10px;
-}
-.form-style-4 label > span{
-	display: inline-block;
-	width: 150px;
-}
-.form-style-4 input[type=text]
-{
-	background: transparent;
-	border: none;
-	border-bottom: 1px dashed #61a316;
-	width: 275px;
-	outline: none;
-	padding: 0px 0px 0px 0px;
-	font-style: italic;
-}
-.form-style-4 textarea{
-	font-style: italic;
-	padding: 0px 0px 0px 0px;
-	background: transparent;
-	outline: none;
-	border: none;
-	border-bottom: 1px dashed #61a316;
-	width: 275px;
-	overflow: hidden;
-	resize:none;
-	height:20px;
+  color: #fff;
 }
 
-.form-style-4 textarea:focus, 
-.form-style-4 input[type=text]:focus
-{
-background: #65b415;
-}
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-.large-form {
-  width: 600px; /* Cambia el ancho según tus necesidades */
-  height: auto; /* Puedes ajustar la altura según sea necesario */
-}
-/*Change Password*/
 .card-container-changePasword {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  background-color: #ffffff5a;
+  background-color: var(--background);
   border: 1px solid #818181;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 10px;
-  max-width: 30%;
-  margin-left: 35%;
-  margin-top: 10%;
+  max-width: 90%; /* Ajuste del ancho máximo */
+  margin: 1% auto; /* Centrar los elementos */
   text-align: center;
 }
+
+@media (max-width: 767px) {
+  .card-container-changePasword {
+    max-width: 100%; /* Ajuste del ancho máximo para pantallas pequeñas */
+    margin-left: 0; /* Eliminar margen izquierdo en pantallas pequeñas */
+    margin-top: 10px; /* Ajuste del margen superior en pantallas pequeñas */
+  }
+}
+
 /*ClubPage*/
+.popUp-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--background);
+  border: 1px solid #95ff00;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  max-width: 40%; /* Ajuste del ancho máximo */
+  margin: 1% auto; /* Centrar el contenedor */
+  text-align: center;
+}
+
+.popUp-h2 {
+  color: #000;
+}
+
 .player-card-container {
   display: flex;
   flex-wrap: wrap;
@@ -454,11 +411,12 @@ background: #65b415;
   padding: 20px;
   text-align: center;
   width: 500px;
-  background-color: #ffffffa1;
+  background-color: var(--background);
   margin: 10px;
 }
+
 .card-container-list {
-  background-color: #ffffff5a;
+  background-color: var(--background);
   display: flex;
   padding: 1%;
   flex-direction: column;
@@ -472,7 +430,7 @@ background: #65b415;
 .list-container {
   border-collapse: collapse;
   width: 80%;
-  background-color: #ffffff8e; /* Ancho del contenedor de la lista */
+  background-color: var(--background); /* Ancho del contenedor de la lista */
 }
 
 .list-container th,
@@ -482,56 +440,29 @@ background: #65b415;
   text-align: center; /* Alineación del texto al centro */
 }
 
-
 .list-container tbody tr:nth-child(even) {
-  background-color: #ffffff9b; /* Color de fondo para filas pares */
+  background-color: var(--background); /* Color de fondo para filas pares */
 }
 
 .list-container tbody tr:hover {
-  background-color: #53687E; /* Color de fondo cuando se pasa el cursor sobre la fila */
+  background-color: var(--background); /* Color de fondo cuando se pasa el cursor sobre la fila */
 }
-
-@media (min-width: 600px) {
-  .player-card {
-    width: 500px; 
-  }
-}
-
 
 @media (max-width: 599px) {
+  .popUp-container {
+    max-width: 90%; /* Ajuste del ancho máximo en pantallas pequeñas */
+    margin: 5% auto; /* Centrar el contenedor en pantallas pequeñas */
+  }
+
   .player-card {
-    width: 100%; 
+    width: 90%; /* Ajuste del ancho máximo en pantallas pequeñas */
+  }
+
+  .list-container {
+    width: 100%; /* Ajuste del ancho máximo en pantallas pequeñas */
   }
 }
 
-.player-card img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 50%;
-}
-
-.player-card h3 {
-  font-size: 1.5rem;
-  margin: 10px 0;
-}
-
-
-.player-card p {
-  font-size: 1rem;
-  color: #555;
-  margin: 10px 0;
-}
-
-.player-card button {
-  background-color: #a4ff00;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  margin: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-}
 
 @media (max-width: 768px) {
   .player-card {
@@ -629,9 +560,10 @@ background: #65b415;
 /*AdminPage*/
 .form-admin{
   margin: 5%;
-  width: 60%;
+  margin-left: 25%;
+  width: 50%;
   height: auto;
-  background-color: #04373dad;
+  background-color: var(--background);
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
@@ -644,6 +576,12 @@ background: #65b415;
   align-items: center;
   top: 150px;
 }
+.admin-input{
+  width: 20%;
+  height: 25px;
+  border-radius: 5px;
+  border-color: #ffffff00;
+}
 .img-previa{
   background-image: url("./Commponents/Img/FINdyourclub.png");
   height: 100%;
@@ -652,20 +590,38 @@ background: #65b415;
   background-position: center center;
   max-width: 100%;
 }
-
+.Admin-container{
+  display: block;
+  align-items: center;
+  background-color: var(--background);
+  border: 1px solid #a4ff00;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  max-width: 30%;
+  margin-left: 35%;
+  margin-top: 1%;
+  text-align: center;
+}
+.Admin-render-user{
+  display: block;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
 .paginaPrevia {
   max-width: 600px;
   margin: 50px auto;
-  background-color: #ffffffa1; /* Color de fondo blanco */
+  background-color: var(--background); 
   padding: 50px;
-
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
 h1 {
-  color: #007bff; /* Color azul brillante */
+  color: #00c8ff; 
 }
 
 .prev, .prevRe, .prevRE {
@@ -676,8 +632,8 @@ h1 {
   text-align: center;
   text-decoration: none;
   outline: none;
-  background-color: #28a745; /* Color verde brillante */
-  color: #070707; /* Texto blanco */
+  background-color: #28a745;
+  color: #070707;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -686,21 +642,21 @@ h1 {
 }
 
 .button:hover {
-  background-color: #218838; /* Color verde más oscuro al pasar el ratón */
+  background-color: #218838;
 }
 
 .prev {
   align-items: center;
   width: 240px;
-  background-color: #a4ff00; /* Color azul brillante para el botón "Tengo una cuenta" */
+  background-color: #a4ff00; 
 }
 
 .prevRe {
-  background-color: #a4ff00; /* Color amarillo para el botón "Registrarme como equipo" */
+  background-color: #a4ff00; 
 }
 
 .prevRE {
-  background-color: #a4ff00; /* Color rojo para el botón "Registrarme como jugador" */
+  background-color: #a4ff00;
 }
 
 /* Navbar */
@@ -708,7 +664,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
+  background-color: #00000087;
   padding: 10px;
 }
 
@@ -775,4 +731,15 @@ nav{
   border-radius: 5px;
   border: #00000000;
   max-width: 60px;
+}
+.theme-icon {
+  color: rgb(255, 255, 255);
+   background-color: rgba(0, 0, 0, 0.353);
+  font-size: 24px; /* Cambia el tamaño del icono según sea necesario */
+  cursor: pointer; /* Cambia el cursor a una mano cuando se pasa por encima del icono */
+}
+/* Estilo para ocultar el input del checkbox */
+.hidden-input {
+  position: absolute;
+  left: -9999px;
 }

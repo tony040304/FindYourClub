@@ -1,4 +1,8 @@
 import { Component } from 'react';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
+const token = cookies.get("tokenAdmin")
 
 class PostulacionFetch extends Component {
   state = {
@@ -7,7 +11,12 @@ class PostulacionFetch extends Component {
   };
 
   componentDidMount() {
-    fetch('https://localhost:7102/api/Admin/GetPostulacionListaxAdmin')
+    fetch('https://localhost:7102/api/Admin/GetPostulacionListaxAdmin',{
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error('Error al responder');

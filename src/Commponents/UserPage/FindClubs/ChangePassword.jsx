@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
+import Navbar from '../../Navbar/Navbar';
 
 const ChangePassword = () => {
   const [password, setPassword] = useState('');
@@ -58,6 +59,8 @@ const ChangePassword = () => {
   
 
   return (
+    <>
+    <Navbar/>
     <div className="card-container-changePasword">
       <div className="card-content">
         <input
@@ -80,6 +83,7 @@ const ChangePassword = () => {
         {!success ? <p style={{ color: 'red' }}>{error}</p> : <p style={{ color: 'green' }}>Contraseña cambiada</p>}
       </div>
     </div>
+    </>
   );
 };
 

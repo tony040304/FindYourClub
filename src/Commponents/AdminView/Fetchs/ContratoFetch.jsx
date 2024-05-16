@@ -1,4 +1,8 @@
 import { Component } from 'react';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
+const token = cookies.get("tokenAdmin")
 
 class ContratoFetch extends Component {
   state = {
@@ -8,7 +12,12 @@ class ContratoFetch extends Component {
 
   componentDidMount() {
     // Lógica de obtención de datos usando el fetch personalizado
-    fetch('https://localhost:7102/api/Admin/GetContratoListaxAdmin')
+    fetch('https://localhost:7102/api/Admin/GetContratoListaxAdmin',{
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error('Error al responder');

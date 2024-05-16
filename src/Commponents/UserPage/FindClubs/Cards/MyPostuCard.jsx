@@ -11,7 +11,6 @@ const ClubCard = ({ Data, onApply }) => {
 
   const handleDelete =()=>{
     let id_psotu = Data.id
-    console.log(id_psotu);
     fetch(`https://localhost:7102/api/Jugador/BorrarPostulacion/(id)?id=${id_psotu}`, {
       method: 'DELETE',
       headers: {

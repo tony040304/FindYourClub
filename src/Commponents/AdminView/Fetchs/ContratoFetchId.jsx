@@ -4,15 +4,15 @@ import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 const token = cookies.get("tokenAdmin")
 
-function TraerJugadoresIDRenderProps({ render }) {
-  const [userNombre, setUserNombre] = useState('');
-  const [user, setUser] = useState(null);
+function ContratoFetchId({ render }) {
+  const [userClubNombre, setUserClubNombre] = useState('');
+  const [userClub, setUserClub] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const fetchUser = (e) => {
     setLoading(true);
     e.preventDefault()
-    fetch(`https://localhost:7102/api/Admin/GetJugadoresById/${userNombre}`,{
+    fetch(`https://localhost:7102/api/Admin/GetContratoByName?nombre=${userClubNombre}`,{
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -26,7 +26,7 @@ function TraerJugadoresIDRenderProps({ render }) {
         return response.json();
       })
       .then((userData) => {
-        setUser(userData);
+        setUserClub(userData);
         setLoading(false);
       })
       .catch((error) => {
@@ -36,7 +36,7 @@ function TraerJugadoresIDRenderProps({ render }) {
   };
 
 
-  return render({ userNombre, user, loading, setUserNombre, fetchUser });
+  return render({ userClubNombre, userClub, loading, setUserClubNombre, fetchUser });
 }
 
-export default TraerJugadoresIDRenderProps;
+export default ContratoFetchId;

@@ -135,7 +135,7 @@ const Registro = () => {
 
   return (
     <div className="login">
-      <div className="form scale-up-center form-login " >
+      <div className="form scale-up-center form-login" >
       <h2 className="titelLog">Registro</h2>
       <Form className="form-login" onSubmit={handleSubmit}>
         <Form.Group className=""controlId="nombre">

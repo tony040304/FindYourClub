@@ -5,6 +5,7 @@ import { jwtDecode } from "jwt-decode";
 import Cookies from 'universal-cookie';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Navbar from '../Navbar/Navbar';
 
 const Login = () => {
   const [nombre, setNombre] = useState('');
@@ -54,7 +55,7 @@ const Login = () => {
         });
   
         setTimeout(() => {
-          cookies.set("token", token, {path: '/'});
+          cookies.set("token", token, {path: '/app/UserPage'}, );
           console.log('Inicio de sesión exitoso');
           Navigate('/app/UserPage');
         }, 1000);
@@ -75,6 +76,23 @@ const Login = () => {
           cookies.set("tokenTeam", token, {path: '/'});
           console.log('Inicio de sesión exitoso');
           Navigate('/app/ClubPage');
+        }, 1000);
+      }if (Role == 1) {
+        toast.success('Logeado satisfactoriamente', {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+  
+        setTimeout(() => {
+          cookies.set("tokenAdmin", token, {path: '/'});
+          console.log('Inicio de sesión exitoso');
+          Navigate("/app/adminview");
         }, 1000);
       }
     } catch (error) {
@@ -115,13 +133,12 @@ const Login = () => {
           <div>
             <input placeholder="Contraseña" className="contrasenia form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" type="password" value={password} onChange={handlePasswordChange} required maxLength="30"/>
           </div>
-          <Button class="btn btn-success justify-content-center mt-3" type="submit" onClick={handleSubmitLog}>Iniciar sesión</Button>
+          <Button className="btn btn-success justify-content-center mt-3" type="submit" onClick={handleSubmitLog}>Iniciar sesión</Button>
         </form>
-        <Button  class="btn btn-secondary justify-content-center mt-4 mb-3" type="button" onClick={goRegisterE}>Registrarme como equipo</Button>
-        <Button  class="btn btn-secondary justify-content-center mt-4 mb-3" type="button" onClick={goRegisterJ}>Registrarme como jugador</Button>
+        <Button  className="btn btn-secondary justify-content-center mt-4 mb-3" type="button" onClick={goRegisterE}>Registrarme como equipo</Button>
+        <Button  className="btn btn-secondary justify-content-center mt-4 mb-3" type="button" onClick={goRegisterJ}>Registrarme como jugador</Button>
       </div>
         <ToastContainer />
-
     </div>
   );
 };

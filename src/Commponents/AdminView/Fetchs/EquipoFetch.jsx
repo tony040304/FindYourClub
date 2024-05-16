@@ -1,4 +1,9 @@
 import { Component } from 'react';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
+const token = cookies.get("tokenAdmin")
+
 class EquipoFetch extends Component {
     state = {
       data: null,
@@ -6,7 +11,12 @@ class EquipoFetch extends Component {
     };
     
     componentDidMount() {
-        fetch('https://localhost:7102/api/Admin/GetListaEquipoxAdmin')
+        fetch('https://localhost:7102/api/Admin/GetEquipo',{
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          }
+        })
         .then((response) => {
           if (!response.ok) {
             throw new Error('Error al responder');

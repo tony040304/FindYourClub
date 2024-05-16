@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
+const token = cookies.get("tokenAdmin")
 
 function TraerEquipoID({ render }) {
   const [equipoNombre, setEquipoNombre] = useState('');
@@ -6,10 +10,14 @@ function TraerEquipoID({ render }) {
   const [loading, setLoading] = useState(false);
 
   const fetchEquipo = (e) => {
-    e.preventDeafult()
     setLoading(true);
 
-    fetch(`https://localhost:7102/api/Admin/GetEquipoById/${equipoNombre}`)
+    fetch(`https://localhost:7102/api/Admin/GetEquipoByName/${equipoNombre}`,{
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    })
       .then((response) => {
         if (!response.ok) {
           alert("Equipo inexistente");
