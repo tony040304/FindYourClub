@@ -2,7 +2,7 @@ import  { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
-
+import LoginNavBar from '../Login/LoginNavBar';
 
 
 const Registro = () => {
@@ -19,7 +19,6 @@ const Registro = () => {
   const handleSubmit = (e)=>{
     e.preventDefault()
     if (handleValidation()) {
-      let registerNeeded = {NombreApellido, Contrasenia, email, Posicion, FechaNacimiento}
       
       fetch("https://localhost:7102/api/Auth/register",{
         method: "POST", 
@@ -29,28 +28,12 @@ const Registro = () => {
         headers: { "Content-Type": "application/json" },
         redirect: "follow", 
         referrerPolicy: "no-referrer", 
-        body: JSON.stringify(registerNeeded),
+        body: JSON.stringify({ NombreApellido, Contrasenia, email, Posicion, FechaNacimiento }),
       }).then((response)=>{
           const isJson = response.headers.get('content-type')?.includes('application/json');
           const data = isJson ? response.json() : null;
-          toast.success('Registrado satisfactoriamente', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        })
-        setTimeout(() => {
-          navigate("/app/login")
-          setDelayedActionComplete(true);
-        }, 3000);
-        return response.json()
-      }).catch(err => {
-          if (err === 400) {
-            toast.error("Usuario existente", {
+          if (response.ok) {
+            toast.success('Registrado satisfactoriamente', {
               position: "top-right",
               autoClose: 5000,
               hideProgressBar: false,
@@ -59,8 +42,25 @@ const Registro = () => {
               draggable: true,
               progress: undefined,
               theme: "light",
-            })
-          }else{
+          })
+          setTimeout(() => {
+            navigate("/app/login")
+            setDelayedActionComplete(true);
+          }, 3000);
+          }
+          if (!response.ok) {
+            toast.error('Usuario existente', {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+          })
+          }
+      }).catch(err => {
             toast.error("Ocurrio un error en la aplicacion"+err, {
               position: "top-right",
               autoClose: 5000,
@@ -71,7 +71,6 @@ const Registro = () => {
               progress: undefined,
               theme: "light",
             })
-          }
       })
     }
   }
@@ -134,6 +133,8 @@ const Registro = () => {
   }
 
   return (
+    <>
+    <LoginNavBar/>
     <div className="login">
       <div className="form scale-up-center form-login" >
       <h2 className="titelLog">Registro</h2>
@@ -194,7 +195,7 @@ const Registro = () => {
         </Form.Group>
 
         <Form.Group controlId="posicion">
-          <select className="select-form-control" value={Posicion} onChange={(e)=>setPosicion(e.target.value)} isInvalid={!!errors.Posicion}>
+          <select className="select-form-control" value={Posicion} onChange={(e)=>setPosicion(e.target.value.trim())} isInvalid={!!errors.Posicion}>
             <option value="">Posicion</option>
             <option value="DFC">DFC</option>
             <option value="LD">LD</option>
@@ -231,6 +232,7 @@ const Registro = () => {
       </div>
       <ToastContainer/>
     </div>
+    </>
   );
 };
 

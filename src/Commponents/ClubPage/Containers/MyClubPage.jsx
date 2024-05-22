@@ -26,7 +26,7 @@ const MyClubPage = () => {
               </div>
             </div>
             ) : (
-              <ul>
+              <ul className='ul-card'>
                 {data.map((item, index) => (
                   <MyClubCard
                     key={index}

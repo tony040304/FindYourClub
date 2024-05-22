@@ -26,6 +26,7 @@ class JugadoFetch extends Component {
       })
       .then((data) => {
         this.setState({ data, loading: false });
+        console.log(data)
       })
       .catch((error) => {
         console.error('Hubo un error al obtener los datos:', error);

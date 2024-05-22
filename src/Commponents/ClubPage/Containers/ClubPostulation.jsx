@@ -40,7 +40,7 @@ const ClubDashboard = () => {
               </div>
             </div>
             ) : (
-              <ul>
+              <ul className='ul-card'>
                 {filteredPlayers.map((item, index) => (
                   <PlayerCard
                     key={index}

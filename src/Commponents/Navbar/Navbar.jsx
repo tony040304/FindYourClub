@@ -13,8 +13,9 @@ const Navbar = () => {
     nav("..", { relative: "path" });
   }
   const goLogin =()=>{
-    cookies.remove("tokenTeam", {path: '/'})
-    cookies.remove("tokenTeam", {path: '/'})
+    cookies.remove("tokenTeam", {path: '/app/login'})
+    cookies.remove("tokenAdmin", {path: '/app/login'})
+    cookies.remove("token", {path: '/app/login'})
     nav('/app/login')
   }
 

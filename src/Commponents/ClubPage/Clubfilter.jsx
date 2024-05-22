@@ -1,49 +1,49 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { FaArrowRightArrowLeft } from "react-icons/fa6";
 
 const ClubFilter = ({ onFilterChange }) => {
-  const [filters, setFilters] = useState({ positionJug: '' });
+  const [filters, setFilters] = useState({ position: '' });
+  const [isFilterVisible, setIsFilterVisible] = useState(false);
 
-  const handleFilterChange = () => {
-    onFilterChange(filters);
+  const toggleFilterVisibility = () => {
+    setIsFilterVisible(!isFilterVisible);
   };
-  const ClubFilter = () => {
-    const [filterOpen, setFilterOpen] = useState(false);
-    
-    const toggleFilter = () => {
-      setFilterOpen(!filterOpen);
-    };
 
-    const filterStyle = {
-      left: filterOpen ? '0' : '-250px',
-    };
-  
+  const handleFilterChange = (e) => {
+    const newFilters = { ...filters, position: e.target.value };
+    setFilters(newFilters);
+    console.log('Updated Filters:', newFilters); // Depuración
+    onFilterChange(newFilters);
   };
 
   return (
-    <div className="filter-container" >
-      <div className='hamburger-button' >
-      
+    <>
+      <div className={`filter-container ${isFilterVisible ? 'active' : ''}`}>
+        <h2 className="filter-title">Buscar</h2>
+        <select
+          className="filter-select"
+          value={filters.position}
+          onChange={handleFilterChange}
+        >
+          <option value="">Posicion</option>
+          <option value="DFC">DFC</option>
+          <option value="LD">LD</option>
+          <option value="LI">LI</option>
+          <option value="MC">MC</option>
+          <option value="MCD">MCD</option>
+          <option value="MCO">MCO</option>
+          <option value="EI">EI</option>
+          <option value="ED">ED</option>
+          <option value="DC">DC</option>
+        </select>
+        <button className="filter-button" onClick={() => onFilterChange(filters)}>
+          Aplicar Filtros
+        </button>
       </div>
-      <h2 className='filter-title'>Filtrar por posición</h2>
-      <select
-      className='filter-select'
-        value={filters.positionJug}
-        onChange={(e) => setFilters({ ...filters, positionJug: e.target.value })}
-      >
-        <option value="">Position</option>
-        <option value="DFC">DFC</option>
-        <option value="LD">LD</option>
-        <option value="LI">LI</option>
-        <option value="MC">MC</option>
-        <option value="MCD">MCD</option>
-        <option value="MCO">MCO</option>
-        <option value="EI">EI</option>
-        <option value="ED">ED</option>
-        <option value="DC">DC</option>
-      </select>
-     
-      <button className='filter-button' onClick={handleFilterChange}>Aplicar Filtros</button>
-    </div>
+      <div className="hamburger-button" onClick={toggleFilterVisibility}>
+        <FaArrowRightArrowLeft />
+      </div>
+    </>
   );
 };
 

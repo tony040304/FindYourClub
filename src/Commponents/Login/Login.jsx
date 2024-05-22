@@ -4,8 +4,8 @@ import { Button } from 'react-bootstrap';
 import { jwtDecode } from "jwt-decode";
 import Cookies from 'universal-cookie';
 import { ToastContainer, toast } from 'react-toastify';
+import LoginNavBar from './LoginNavBar';
 import 'react-toastify/dist/ReactToastify.css';
-import Navbar from '../Navbar/Navbar';
 
 const Login = () => {
   const [nombre, setNombre] = useState('');
@@ -73,7 +73,7 @@ const Login = () => {
         });
   
         setTimeout(() => {
-          cookies.set("tokenTeam", token, {path: '/'});
+          cookies.set("tokenTeam", token, {path: '/app/ClubPage'});
           console.log('Inicio de sesión exitoso');
           Navigate('/app/ClubPage');
         }, 1000);
@@ -90,7 +90,7 @@ const Login = () => {
         });
   
         setTimeout(() => {
-          cookies.set("tokenAdmin", token, {path: '/'});
+          cookies.set("tokenAdmin", token, {path: '/app/adminview'});
           console.log('Inicio de sesión exitoso');
           Navigate("/app/adminview");
         }, 1000);
@@ -121,6 +121,8 @@ const Login = () => {
   
 
   return (
+    <>
+    <LoginNavBar/>
     <div className="login">
       <div className="form scale-up-center form-login ">
         <h1 className="titelLog">Iniciar sesión</h1>
@@ -140,6 +142,7 @@ const Login = () => {
       </div>
         <ToastContainer />
     </div>
+    </>
   );
 };
 

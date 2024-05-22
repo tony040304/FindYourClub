@@ -24,6 +24,7 @@ import CreateClub from '../AdminView/Render/CreateClub'
 import DataClubRender from '../AdminView/Render/DataClubRender'
 import ContratoRender from '../AdminView/Render/ContratoRender'
 import PostulacionesRender from '../AdminView/Render/PostulacionesRender'
+import RegisterEquipo from '../Register/RegisterEquipo'
 
 const AppRouter = () => {
   return (
@@ -32,6 +33,7 @@ const AppRouter = () => {
         <Route path='/app' element={<PreviousPage/>} />
         <Route path='/app/login' element={<Login/>} />
         <Route path='/app/Registro' element={<Register />} />
+        <Route path='/app/RegistroEquipo' element={<RegisterEquipo />} />
 
         <Route path='/app/UserPage' element={<PrevPage/>} />
         <Route path='/app/UserPage/Equipos' element={<Userpage/>} />

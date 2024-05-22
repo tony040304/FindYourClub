@@ -42,7 +42,7 @@ export default function Userpag() {
                 </div>
               </div>
               ) : (
-                <ul>
+                <ul className='ul-card'>
                   {filteredData.map((item, index) => (
                     <MyPostuCard
                       key={index}
