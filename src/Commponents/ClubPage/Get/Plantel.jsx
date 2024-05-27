@@ -6,7 +6,7 @@ const token = cookies.get("tokenTeam")
 
 class Plantel extends Component {
   state = {
-    data: null,
+    data: [],
     loading: true,
   };
 

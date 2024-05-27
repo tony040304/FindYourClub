@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import Cookies from 'universal-cookie';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../Navbar/Navbar';
 
 const ChangeClubPassword = () => {

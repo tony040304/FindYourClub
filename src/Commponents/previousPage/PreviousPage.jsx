@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
-import Chatbot from "../ChatBot/ChatBot"
+//import Chatbot from "../ChatBot/ChatBot"
 
 
 const PreviousPage = () => {
@@ -24,7 +24,6 @@ const PreviousPage = () => {
             <button className="prevRE" onClick={navegarAlRegister}>Reguistrarme como jugador</button>
         </div>
         <div>
-      <Chatbot/>
       </div>
     </div>
    

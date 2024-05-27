@@ -24,7 +24,6 @@ class Contratos extends Component {
       return response.json();
     })
     .then((data) => {
-      console.log('Fetched Data:', data); // Depuración
       this.setState({ data, loading: false });
       this.props.setData(data);
     })

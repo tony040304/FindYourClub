@@ -26,10 +26,13 @@ import ContratoRender from '../AdminView/Render/ContratoRender'
 import PostulacionesRender from '../AdminView/Render/PostulacionesRender'
 import RegisterEquipo from '../Register/RegisterEquipo'
 
+import ServerTest from '../Tests/ServerTest'
+
 const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
+      <Route path='/app/health' element={<ServerTest/>} />
         <Route path='/app' element={<PreviousPage/>} />
         <Route path='/app/login' element={<Login/>} />
         <Route path='/app/Registro' element={<Register />} />
