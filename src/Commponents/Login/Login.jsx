@@ -53,11 +53,10 @@ const Login = () => {
           progress: undefined,
           theme: "light",
         });
-  
         setTimeout(() => {
           cookies.set("token", token, {path: '/app/UserPage'}, );
           console.log('Inicio de sesión exitoso');
-          Navigate('/app/UserPage');
+          Navigate('/app/UserPage', { state: { token } });
         }, 1000);
         
       } if (Role == 3) {
@@ -71,11 +70,11 @@ const Login = () => {
           progress: undefined,
           theme: "light",
         });
-  
+        
         setTimeout(() => {
           cookies.set("tokenTeam", token, {path: '/app/ClubPage'});
           console.log('Inicio de sesión exitoso');
-          Navigate('/app/ClubPage');
+          Navigate('/app/ClubPage', { state: { token } });
         }, 1000);
       }if (Role == 1) {
         toast.success('Logeado satisfactoriamente', {
@@ -92,7 +91,7 @@ const Login = () => {
         setTimeout(() => {
           cookies.set("tokenAdmin", token, {path: '/app/adminview'});
           console.log('Inicio de sesión exitoso');
-          Navigate("/app/adminview");
+          Navigate("/app/adminview", { state: { token } });
         }, 1000);
       }
     } catch (error) {

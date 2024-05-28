@@ -3,14 +3,11 @@ import Navbar from '../../../Navbar/Navbar.jsx';
 import PlayerFilter from '../../PlayerFilter.jsx';
 import ClubCard from '../Cards/ClubCard.jsx';
 import Cookies from 'universal-cookie';
+import useFilter from '../../../../Hook/useFilter.jsx';
 
 const Userpage=()=> {
-  const [filters, setFilters] = useState({
-    position: '',
-    league: '',
-  });
-  const [appliedClubs, setAppliedClubs] = useState([]);
   const [data, setData] = useState([]);
+  const [filters, filteredData, handleFilterChange, handleApply] = useFilter({data})
   const cookies = new Cookies();
   const token = cookies.get("token")
   useEffect(() => {
@@ -35,19 +32,8 @@ const Userpage=()=> {
       console.error('Hubo un error al obtener los datos del servidor:', error);
     }
   };
-  const filteredData = data.filter((item) => {
-    const positionMatch = filters.position ? item.posiciónRequerida === filters.position : true;
-    const leagueMatch = filters.league ? item.liga === filters.league : true;
-  
-    return positionMatch && leagueMatch && !appliedClubs.includes(item.nombre);
-  });
-  const handleFilterChange = (newFilters) => {
-    setFilters(newFilters);
-  };
 
-  const handleApply = (clubData) => {
-    setAppliedClubs([...appliedClubs, clubData.clubName]);
-  };
+  
 
   return (
     <div className="App">

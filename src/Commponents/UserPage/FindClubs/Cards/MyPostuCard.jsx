@@ -42,7 +42,7 @@ const ClubCard = ({ Data, onApply }) => {
         <div className="card-content">
           <h3>Nombre equipo: {Data.nombre}</h3>
           <p>Liga: {Data.liga}</p>
-          <p>Posición: {Data.posicion}</p>
+          <p>Posición: {Data.posiciónRequerida}</p>
           <p>Fecha: {formattedDate}</p>
           <p>Id: {Data.id}</p>
         </div>

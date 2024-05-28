@@ -48,11 +48,7 @@ const ClubCard = ({ Data, onApply }) => {
           <p>Liga: {Data.liga}</p>
           <p>Descripción: {Data.descripcion}</p>
         </div>
-        {applied ? (
-          <p className="p-submit">¡Postulación enviada!</p>
-        ) : (
           <button className='card-button' onClick={handleApply}>Postularse</button>
-        )}
       </div>
     </div>
 
