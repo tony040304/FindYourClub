@@ -2,23 +2,24 @@ import React, { useEffect } from 'react';
 import Navbar from '../Navbar/Navbar';
 import { Button } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Cookies from 'universal-cookie';
 
 const PrevPage = () => {
     const nav = useNavigate();
-    const location = useLocation();
-    const cookies = new Cookies();
+
 
     useEffect(() => {
-        const token = location.state?.token || cookies.get("token");
-        if (token) {
-            console.log('Token disponible:', token);
-            localStorage.setItem('token', token);  // Almacenar el token en localStorage
-        } else {
-            console.log('No hay token disponible');
-            nav('/login'); // Redirigir al login si no hay token
+        // Verificar si la página ya ha sido recargada
+        const haRecargado = localStorage.getItem('haRecargado');
+    
+        if (!haRecargado) {
+          // Marcar que la página ha sido recargada
+          localStorage.setItem('haRecargado', 'true');
+          
+          // Recargar la página
+          window.location.reload();
         }
-    }, [location.state, cookies, nav]);
+      }, []);
+
 
     const goToPostulaciones = () => {
         nav('/app/UserPage/Postulaciones');

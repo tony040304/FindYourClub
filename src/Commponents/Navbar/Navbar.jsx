@@ -3,7 +3,7 @@ import Cookies from 'universal-cookie';
 import { useTheme } from '../../Hook/useTheme';
 import { TbSunMoon } from "react-icons/tb";
 import { useNavigate } from 'react-router-dom';
-import logo from '../Img/FINDYOURLOG1.png'
+import logo from '../Img/FindYOUR.png'
 
 const Navbar = () => {
   const nav = useNavigate('')
@@ -17,6 +17,7 @@ const Navbar = () => {
     cookies.remove("tokenTeam", {path: '/app/login'})
     cookies.remove("tokenAdmin", {path: '/app/login'})
     cookies.remove("token", {path: '/app/login'})
+    localStorage.clear()
     nav('/app/login')
   }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../Navbar/Navbar'
@@ -20,6 +20,19 @@ const ClubPage = () => {
   const goToChangePass=()=>{
     navigate('/app/ClubPage/ChangeClubPassword')
   }
+
+  useEffect(() => {
+    // Verificar si la página ya ha sido recargada
+    const haRecargado = localStorage.getItem('haRecargadoE');
+
+    if (!haRecargado) {
+      // Marcar que la página ha sido recargada
+      localStorage.setItem('haRecargadoE', 'true');
+      
+      // Recargar la página
+      window.location.reload();
+    }
+  }, []);
 
   return (
     <>

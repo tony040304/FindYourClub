@@ -1,4 +1,4 @@
-import logo from '../Img/FINDYOURLOG1.png'
+import logo from '../Img/FindYOUR.png'
 import { useTheme } from '../../Hook/useTheme';
 import { TbSunMoon } from "react-icons/tb";
 

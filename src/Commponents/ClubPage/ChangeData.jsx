@@ -10,7 +10,7 @@ import Navbar from "../Navbar/Navbar";
 const ChangeData = () => {
     const [nombre, setNombre] = useState('');
     const [descripcion, setDescripcion] = useState('');
-    const [posiciónRequerida, setPosicion] = useState('');
+    const [posicionesSeleccionadas, setPosicionesSeleccionadas] = useState([]);
     const [liga, setLiga] = useState('');
     const cookies = new Cookies();
     const token = cookies.get("tokenTeam")
@@ -23,7 +23,7 @@ const ChangeData = () => {
               'Content-Type': 'application/json',
               Authorization: `Bearer ${token}`
             },
-            body: JSON.stringify({ nombre, descripcion, posiciónRequerida, liga  }),
+            body: JSON.stringify({ nombre, descripcion, posiciónRequerida: posicionesSeleccionadas.toString() , liga  }),
           })
           .then((response) => {
             toast.success('Datos cambiados satisfactoriamente', {
@@ -48,6 +48,16 @@ const ChangeData = () => {
           })
       }
 
+      const handleSelectChange = (e) => {
+        const selectedOption = e.target.value;
+        if (!posicionesSeleccionadas.includes(selectedOption)) {
+            setPosicionesSeleccionadas([...posicionesSeleccionadas, selectedOption]);
+        }
+      };
+      const handleRemovePosition = (position) => {
+        setPosicionesSeleccionadas(posicionesSeleccionadas.filter(pos => pos !== position));
+    };  
+
   return (
     <>
     <Navbar/>
@@ -62,18 +72,26 @@ const ChangeData = () => {
                     <input className="usuario_estilo form-control" value={descripcion} onChange={(e)=>setDescripcion(e.target.value)} type="text" placeholder='Cambiar descripcion' />
                 </div>
                 <div>
-                    <select className="usuario_estilo form-control" value={posiciónRequerida} onChange={(e)=>setPosicion(e.target.value)}>
-                        <option value="">Posicion</option>
-                        <option value="DFC">DFC</option>
-                        <option value="LD">LD</option>
-                        <option value="LI">LI</option>
-                        <option value="MC">MC</option>
-                        <option value="MCD">MCD</option>
-                        <option value="MCO">MCO</option>
-                        <option value="EI">EI</option>
-                        <option value="ED">ED</option>
-                        <option value="DC">DC</option>
-                    </select>
+                <select
+                className='usuario_estilo form-control' 
+                onChange={handleSelectChange}
+            >
+                <option value="">Posicion</option>
+                <option value="DFC">DFC</option>
+                <option value="LD">LD</option>
+                <option value="LI">LI</option>
+                <option value="MC">MC</option>
+                <option value="MCD">MCD</option>
+                <option value="MCO">MCO</option>
+                <option value="EI">EI</option>
+                <option value="ED">ED</option>
+                <option value="DC">DC</option>
+            </select>
+            <div>
+                {posicionesSeleccionadas.map((posicion, index) => (
+                    <span key={index} className="badge badge-primary" onClick={() => handleRemovePosition(posicion)}>{posicion} <i className="fa fa-times"></i></span>
+                ))}
+            </div>
                 </div>
                 <div>
                     <select value={liga} onChange={(e)=>setLiga(e.target.value)} className="usuario_estilo form-control">

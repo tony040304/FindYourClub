@@ -4,7 +4,6 @@ import { useState } from 'react';
 
 const cookies = new Cookies();
 const token = cookies.get("token")
-//console.log(token)
 class MyPostuFetch extends Component {
   state = {
     loading: true,
@@ -12,6 +11,7 @@ class MyPostuFetch extends Component {
   };
 
   componentDidMount() {
+    
     fetch('https://localhost:7102/api/Jugador/MisPostulaciones', {
       method: 'GET',
       headers: {
