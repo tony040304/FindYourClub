@@ -49,3 +49,13 @@ Como hace un equipo para encontrar sus jugadores? Primero debe comunicarse con n
 -    `Funcionalidad 6`: Cambiar contraseña-
 -    `Funcionalidad 7`: Cambiar los datos del equipo-
 -    `Funcionalidad 8`: Ver los datos del equipo-
+
+## :white_check_mark:Tecnologias usadas
+- React js
+- Vite
+- React-Router
+- BootStrap
+- Toatify
+- Simple-ChatBot
+- react-icons
+- React-testing-library
