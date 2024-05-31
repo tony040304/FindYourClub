@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navbar-left">
-        <img src={logo} alt="Logo" className="logo" />
+        <img src={logo} onClick={goBack} alt="Logo" className="logo" />
         <span className="page-name">FIND YOUR CLUB</span>
         <span onClick={goBack} className="nav-item">Inicio</span>
       </div>

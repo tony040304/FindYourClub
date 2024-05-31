@@ -81,7 +81,7 @@ const ClubPage2 = () => {
     <div className='userDiv'>
       <form className='userForm'>
         <h3 className='userH'>Mis datos:</h3><br />
-        <Button type='button' onClick={goToMyData}>Cambiar datos</Button>
+        <Button type='button' onClick={goToMyData}>Ver mis datos</Button>
       </form>
       <form className='userForm'>
         <h3 className='userH'>Cambiar datos del equipo:</h3><br />

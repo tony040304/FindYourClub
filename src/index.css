@@ -661,12 +661,22 @@ h3.userH {
   border-color: #ffffff00;
 }
 .img-previa{
-  background-image: url("./Commponents/Img/FINdyourclub.png");
+  background-image: url("./Commponents/Img/Find.png");
   height: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
   max-width: 100%;
+}
+@media (max-width: 768px) {
+  .img-previa{
+    background-image: url("./Commponents/Img/jack-monach-5gcM189YA7o-unsplash.jpg");
+  }
+}
+@media (max-width: 425px) {
+  .img-previa{
+    background-image: url("./Commponents/Img/3d24ffc760bb39551b687ca294adc072.jpg");
+  }
 }
 .Admin-container{
   display: block;
@@ -831,4 +841,24 @@ nav{
 .hidden-input {
   position: absolute;
   left: -9999px;
+}
+/*Not Found*/
+.notFound{
+  display: flow;
+  align-items: center;
+  background-color: rgba(52, 52, 52, 0.659);
+  padding: 10px;
+  max-width: 45%;
+  margin-left: 25%;
+  margin-top: 10%;
+  text-align: center;
+  border-radius: 50px;
+}
+.notFoundh{
+  color: rgb(255, 255, 255);
+  font-size: 60px;
+}
+.notFoundIcon{
+  font-size: 100px;
+  color: wheat;
 }

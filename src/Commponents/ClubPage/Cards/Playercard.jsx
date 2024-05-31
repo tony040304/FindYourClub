@@ -82,6 +82,7 @@ const PlayerCard = ({ Data, onApply }) => {
     setShowPopup(false);
   };
 
+  const mailto = `mailto:${Data.mail}`;
   return (
     <div>
       <div className="card-container">
@@ -89,6 +90,11 @@ const PlayerCard = ({ Data, onApply }) => {
           <h3>Nombre jugador: {Data.nombreApellido}</h3>
           <p>Posición: {Data.posisionJugador}</p>
           <p>Fecha: {formattedDate}</p>
+          <p>Mail:
+          <a href={mailto} target="_blank" style={{ color: "white" }}>
+           {Data.mail}
+          </a>
+          </p>
         </div>
         {applied ? (
           <p className='p-submit'>¡Postulación borrada!</p>
