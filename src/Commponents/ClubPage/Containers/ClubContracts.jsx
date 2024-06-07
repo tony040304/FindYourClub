@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Navbar from '../../Navbar/Navbar';
 import ClubFilter from '../Clubfilter';
 import Contratos from '../Get/Contratos';
@@ -6,13 +6,13 @@ import ContractCards from '../Cards/ContractCards';
 
 export const ClubContracts = () => {
   const [filters, setFilters] = useState({
-    position: ''
+    position: '',
+    categoriaEquipo: ''
   });
   const [appliedClubs, setAppliedClubs] = useState([]);
   const [data, setData] = useState([]);
 
   const handleFilterChange = (newFilters) => {
-    console.log('New filters:', newFilters); // Depuración
     setFilters(newFilters);
   };
 
@@ -20,18 +20,12 @@ export const ClubContracts = () => {
     setAppliedClubs([...appliedClubs, clubData.nombreApellido]);
   };
 
-  useEffect(() => {
-    console.log('Filters:', filters); // Depuración
-  }, [filters]);
 
   const filteredData = data.filter((item) => {
     const positionMatch = filters.position ? item.posicion === filters.position : true;
-    return positionMatch && !appliedClubs.includes(item.nombreApellido);
+    const categoriaMatch = filters.categoriaEquipo ? item.categoriaEquipo === filters.categoriaEquipo : true
+    return positionMatch && categoriaMatch && !appliedClubs.includes(item.nombreApellido);
   });
-
-  useEffect(() => {
-    console.log('Filtered Data:', filteredData); // Depuración
-  }, [filteredData]);
 
   return (
     <div>

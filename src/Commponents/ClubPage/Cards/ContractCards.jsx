@@ -33,7 +33,7 @@ const ContractCards = ({ Data }) => {
   };
 
   const formattedDate = new Date(Data.fechaContrato).toLocaleDateString();
-
+console.log(Data)
   return (
     <div>
       <div className="card-container">
@@ -42,6 +42,7 @@ const ContractCards = ({ Data }) => {
           <p>Posición: {Data.posicion}</p>
           <p>Fecha: {formattedDate}</p>
           <p>Salario jugador: ${Data.salarioJugador}</p>
+          <p>Categoria: {Data.categoriaEquipo}</p>
         </div>
         {applied ? (
           <p className="p-submit">¡Contrato borrado!</p>

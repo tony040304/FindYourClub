@@ -51,7 +51,7 @@ const Login = () => {
           navigatePath = "/app/adminview";
         }
         else if(role == "2"){
-          cookieName = "tokenUser";
+          cookieName = "token";
           navigatePath = "/app/UserPage";
         }
         else if(role == "3"){
