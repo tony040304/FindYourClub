@@ -25,10 +25,10 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <div className="navbar-left">
-        <img src={logo} onClick={goBack} alt="Logo" className="logo" />
+      <div className="navbar-left" onClick={goBack}>
+        <img src={logo}  alt="Logo" className="logo" />
         <span className="page-name">FIND YOUR CLUB</span>
-        <span onClick={goBack} className="nav-item">Inicio</span>
+        <span className="nav-item">Inicio</span>
       </div>
       <div className="container-switch">
         <label className="switch">

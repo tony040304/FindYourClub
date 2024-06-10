@@ -13,6 +13,8 @@ const Login = () => {
   const navigate = useNavigate();
   const cookies = new Cookies();
 
+  console.clear()
+
   const handleSubmitLog = async (e) => {
     e.preventDefault();
 

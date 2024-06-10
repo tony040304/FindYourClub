@@ -11,7 +11,7 @@ const NotFound = () => {
     <div>
         <div className='notFound'>
             <h1 className='notFoundh'>Not Found 404</h1>
-            <h1 className='notFoundh'>Esta pagina no existe</h1>
+            <h1 className='notFoundh'>Esta pagina no existe o useted no tiene acceso</h1>
             <TbPlayFootball className='notFoundIcon'/><br />
             <button type='button' onClick={goBack}>Volver a la pagina anterior</button>
         </div>

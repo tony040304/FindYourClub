@@ -267,7 +267,6 @@ h3.userH {
   margin-bottom: 3%; /* Ajusta el espacio entre el título y el botón */
 }
 
-/* Media queries para hacerlo responsive */
 @media screen and (max-width: 768px) {
   .userForm {
     max-width: 45%; /* Reducir el ancho máximo en pantallas más pequeñas */
@@ -619,7 +618,6 @@ h3.userH {
   gap: 20px;
 }
 
-/* Estilos para hacer responsive */
 @media (max-width: 768px) {
   .players,
   .accepted-players,
@@ -861,4 +859,13 @@ nav{
 .notFoundIcon{
   font-size: 100px;
   color: wheat;
+}
+/*prevPage*/
+.style-span{
+  font-family: monospace
+}
+@media (max-width: 425px) {
+  .style-span{
+    font-size: 220%;
+  }
 }

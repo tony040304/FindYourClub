@@ -35,6 +35,7 @@ const AppRouter = () => {
         <Route path='/app/Registro' element={<Register />} />
         <Route path='/app/RegistroEquipo' element={<RegisterEquipo />} />
         <Route path='/app/*' element={<NotFound/>}/>
+        <Route path='/*' element={<NotFound/>}/>
 
         <Route element={<ProtectedRoute allowedRoles={['user']} />}>
           <Route path='/app/UserPage' element={<PrevPage />} />
