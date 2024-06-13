@@ -39,10 +39,10 @@ const PlayerCard = ({ Data, onApply }) => {
     setShowPopup(true);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmitFirstDivition = (event) => {
     event.preventDefault();
     let id = Data.idUser;
-    fetch(`https://localhost:7102/api/Equipo/CrearContrato?idUser=${id}`, {
+    fetch(`https://localhost:7102/api/Equipo/CrearContratoPrimera?idUser=${id}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -73,6 +73,73 @@ const PlayerCard = ({ Data, onApply }) => {
           setApplied(true);
           window.location.reload();
         }, 1500)
+      }
+      if (!response.ok) {
+        toast.error('Error al generar contrato', {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+    })
+    .catch((error) => {
+      console.error('Hubo un error al obtener los datos:', error);
+      // Puedes manejar el error aquí si es necesario
+    });
+    setShowPopup(false);
+  };
+
+  const handleSubmitReserve = (event) => {
+    event.preventDefault();
+    let id = Data.idUser;
+    fetch(`https://localhost:7102/api/Equipo/CrearContratoReserva?idUser=${id}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'text/plain',
+        Authorization: `Bearer ${token}`, // Incluir el token JWT en el encabezado de autorización          
+      },
+      body: JSON.stringify({ salarioJugador: salarioJugador }) // Enviar un objeto con el salario
+    })
+    .then((response) => {
+      if (!response.ok) {
+        setApplied(false);
+        console.log(response)
+        throw new Error('Error al responder');
+      }
+      setApplied(true);
+      if (response.ok) {
+        toast.success('Jugador contratado satisfactoriamente', {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        setTimeout(()=>{
+          setApplied(true);
+          window.location.reload();
+        }, 1500)
+      }
+      if (!response.ok) {
+        toast.error('Error al generar contrato', {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       }
     })
     .catch((error) => {
@@ -110,10 +177,9 @@ const PlayerCard = ({ Data, onApply }) => {
         <div className="popUp-container">
           <div className="popUp-containerr">
             <h2 className='popUp-h2'>Ingresa el salario del jugador ({Data.nombreApellido}) que deseas contratar:</h2>
-            <form onSubmit={handleSubmit}>
-              <input type="number" value={salarioJugador} onChange={(e) => setSalarioJugador(e.target.value)} />
-              <button type="submit">Enviar</button>
-            </form>
+              <input type="number" value={salarioJugador} onChange={(e) => setSalarioJugador(e.target.value)} /> <br />
+              <button onClick={handleSubmitFirstDivition} type="submit">Contrato primera division</button> 
+              <button onClick={handleSubmitReserve} type='submit'>Contrato reserva</button> <br />
             <button type="cancel" onClick={() => setShowPopup(false)}>Cancelar</button>
           </div>
         </div>

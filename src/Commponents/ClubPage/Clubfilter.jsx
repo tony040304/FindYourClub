@@ -44,7 +44,7 @@ const ClubFilter = ({ onFilterChange }) => {
         </button>
       </div>
       <div className="hamburger-button" onClick={toggleFilterVisibility}>
-        <FaArrowRightArrowLeft />
+        <FaArrowRightArrowLeft style={{ color: 'black' }} />
       </div>
     </>
   );
