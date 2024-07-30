@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+/* eslint-disable react/prop-types */
+
+import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import Cookies from 'universal-cookie';
 
@@ -21,6 +23,7 @@ const ContractCards = ({ Data }) => {
         setApplied(false)
         throw new Error('Error al responder');
       }
+      toast.success(("Contrato borrado"))
       setApplied(true)
       if (!applied && Data.success !== false) {
         setApplied(true);
@@ -52,6 +55,7 @@ console.log(Data)
           </button>
         )}
       </div>
+      <ToastContainer />
     </div>
   );
 };

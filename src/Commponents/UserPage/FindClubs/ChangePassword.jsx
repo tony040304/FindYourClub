@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import Navbar from '../../Navbar/Navbar';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ChangePassword = () => {
   const [password, setPassword] = useState('');
@@ -45,11 +47,21 @@ const ChangePassword = () => {
         if (!response.ok) {
           throw new Error('Error al responder');
         }
+
+        toast.success('Contraseña cambiada', {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
   
-        // Agregar un delay de 2 segundos antes de navegar
         setTimeout(() => {
           navigate('/app/UserPage');
-        }, 1000);
+        }, 2000);
       })
       .catch(error => {
         console.error('Error al cambiar la contraseña:', error.message);
@@ -82,6 +94,7 @@ const ChangePassword = () => {
         </button>
         {!success ? <p style={{ color: 'red' }}>{error}</p> : <p style={{ color: 'green' }}>Contraseña cambiada</p>}
       </div>
+      <ToastContainer />
     </div>
     </>
   );

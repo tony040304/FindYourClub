@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+import React from 'react';
 import { Component } from 'react';
 import Cookies from 'universal-cookie';
 

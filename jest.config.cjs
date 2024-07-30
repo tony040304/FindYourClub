@@ -1,4 +1,5 @@
 // jest.config.cjs
+/*global module*/
 module.exports = {
   testEnvironment: 'jest-environment-jsdom',
   transform: {

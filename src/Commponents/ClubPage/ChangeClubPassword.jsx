@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React, { useState} from 'react'
 import Cookies from 'universal-cookie';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import Navbar from '../Navbar/Navbar';
 
@@ -12,7 +12,6 @@ const ChangeClubPassword = () => {
   const cookies = new Cookies();
   const token = cookies.get("tokenTeam")
   const navigate = useNavigate()
-  const location = useLocation()
 
   
 

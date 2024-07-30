@@ -1,4 +1,4 @@
-import { Component, useState } from 'react';
+import { useState } from 'react';
 import JugadorFetch from '../Fetchs/JugadoFetch'
 import TraerJugadoresID from '../Fetchs/TraerJugadoresID'
 import UserCard from '../Cards/UserCard';

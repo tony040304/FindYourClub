@@ -1,4 +1,5 @@
-import React from 'react'
+/* eslint-disable react/prop-types */
+
 import { useState } from 'react';
 import Cookies from 'universal-cookie';
 import "../../../../index.css"

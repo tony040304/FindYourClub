@@ -1,11 +1,15 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Navbar from '../Navbar/Navbar';
 import { Button } from 'react-bootstrap';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 const PrevPage = () => {
     const nav = useNavigate();
+    const cookies = new Cookies();
+    const nombre = cookies.get("nombreUser")
 
+    console.log(nombre)
 
     useEffect(() => {
         // Verificar si la página ya ha sido recargada
@@ -39,7 +43,7 @@ const PrevPage = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar nombre={nombre}/>
             <div className='userDiv'>
                 <form className='userForm'>
                     <h3 className='userH'>Buscar equipo por liga o posición:</h3><br />

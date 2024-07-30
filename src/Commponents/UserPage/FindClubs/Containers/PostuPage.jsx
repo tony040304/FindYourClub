@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import MyPostuFetch from '../Fetchs/MyPostuFetch';
 import Navbar from '../../../Navbar/Navbar';
 import PlayerFilter from '../../PlayerFilter';
 import MyPostuCard from '../Cards/MyPostuCard'
 import useFilter from '../../../../Hook/useFilter';
-import { useEffect } from 'react';
 
 
 export default function PostuPage() {
   const [data, setData] = useState([]);
-  const [filters, filteredData, handleFilterChange, handleApply] = useFilter({ data });
-  const [token, setToken] = useState('');
+  const [filteredData, handleFilterChange, handleApply] = useFilter({ data });
+  const token = ""
 
 
   return (

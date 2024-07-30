@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import Cookies from 'universal-cookie';
 import { useTheme } from '../../Hook/useTheme';
@@ -5,7 +6,7 @@ import { TbSunMoon } from "react-icons/tb";
 import { useNavigate } from 'react-router-dom';
 import logo from '../Img/FindYOUR.png'
 
-const Navbar = () => {
+const Navbar = ({ nombre }) => {
   const nav = useNavigate('')
   const cookies = new Cookies()
 
@@ -29,6 +30,7 @@ const Navbar = () => {
         <img src={logo}  alt="Logo" className="logo" />
         <span className="page-name">FIND YOUR CLUB</span>
         <span className="nav-item">Inicio</span>
+        <span className="nav-item" style={{"color": "#a6ff00"}}>{nombre}</span>
       </div>
       <div className="container-switch">
         <label className="switch">

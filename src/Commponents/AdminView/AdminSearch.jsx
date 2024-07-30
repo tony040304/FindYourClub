@@ -1,4 +1,4 @@
-import React from 'react'
+import useState from 'react'
 
 const AdminSearch = () => {
     const [filters, setFilters] = useState({ nombreApellido: ''});

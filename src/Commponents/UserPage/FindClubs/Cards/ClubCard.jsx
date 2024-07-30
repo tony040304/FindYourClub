@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import "../../../../index.css"
 import Cookies from 'universal-cookie';
@@ -5,7 +6,6 @@ import Cookies from 'universal-cookie';
 
 const ClubCard = ({ Data, onApply }) => {
   const [applied, setApplied] = useState(false);
-  const [nombre, setNombre] = useState('');
 
   const cookies = new Cookies();
   const token = cookies.get("token");

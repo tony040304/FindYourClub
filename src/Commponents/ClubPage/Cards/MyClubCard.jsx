@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+/* eslint-disable react/prop-types */
+import { useState } from 'react';
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
 

@@ -1,5 +1,3 @@
-import { id } from 'date-fns/locale';
-import React from 'react';
 import Chatbot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Navbar from '../../Navbar/Navbar';
 import ClubFilter from '../Clubfilter';
 import Contratos from '../Get/Contratos';

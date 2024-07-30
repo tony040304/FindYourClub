@@ -1,4 +1,6 @@
-import React, {useState} from 'react'
+/* eslint-disable react/prop-types */
+
+import {useState} from 'react'
 import Cookies from 'universal-cookie';
 import { ToastContainer, toast } from 'react-toastify';
 import { IoEye } from "react-icons/io5";

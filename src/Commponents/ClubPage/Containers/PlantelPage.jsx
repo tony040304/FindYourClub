@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Navbar from '../../Navbar/Navbar';
 import Plantel from '../Get/Plantel';
 import PlantelResrva from '../Get/PlantelReserva';

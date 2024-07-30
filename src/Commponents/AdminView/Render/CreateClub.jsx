@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import Cookies from 'universal-cookie';
-import { Form, Button } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import Navbar from '../../Navbar/Navbar';
 
 const CreateClub = () => {
@@ -51,6 +51,7 @@ const CreateClub = () => {
         validationErrors.liga = 'La liga es obligatoria';
       }
     if (Object.keys(validationErrors).length === 0) {
+      result = true
     } else {
       result = false
       setErrors(validationErrors);

@@ -1,7 +1,5 @@
-import { Container } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import ChatBot from "../ChatBot/ChatBot"
-//import Chatbot from "../ChatBot/ChatBot"
 
 
 const PreviousPage = () => {

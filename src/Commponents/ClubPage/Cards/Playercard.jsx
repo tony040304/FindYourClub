@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+/* eslint-disable react/prop-types */
+import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import Cookies from 'universal-cookie';
 
-const PlayerCard = ({ Data, onApply }) => {
+const PlayerCard = ({ Data }) => {
   const [applied, setApplied] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [salarioJugador, setSalarioJugador] = useState('');
@@ -158,7 +159,7 @@ const PlayerCard = ({ Data, onApply }) => {
           <p>Posición: {Data.posisionJugador}</p>
           <p>Fecha: {formattedDate}</p>
           <p>Mail:
-          <a href={mailto} target="_blank" style={{ color: "white" }}>
+          <a href={mailto} target="blank" style={{ color: "white" }}>
            {Data.mail}
           </a>
           </p>

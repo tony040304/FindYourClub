@@ -1,10 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import PlayerCard from '../Cards/Playercard';
-import { Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-import ClubFilter from '../Clubfilter';
+import { useState } from 'react';
 import Navbar from '../../Navbar/Navbar';
-import Postulaciones from '../Get/Postulaciones';
 import MyClub from '../Get/MyClub';
 import MyClubCard from '../Cards/MyClubCard';
 

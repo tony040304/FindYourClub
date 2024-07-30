@@ -3,7 +3,7 @@ import { useTheme } from '../../Hook/useTheme';
 import { TbSunMoon } from "react-icons/tb";
 import { useNavigate } from 'react-router-dom';
 
-const loginNavBar = () => {
+const LoginNavBar = () => {
   const [theme, handleChange] = useTheme('dark');
   const navigate = useNavigate('')
 
@@ -24,4 +24,4 @@ const loginNavBar = () => {
   );
 };
 
-export default loginNavBar;
+export default LoginNavBar;

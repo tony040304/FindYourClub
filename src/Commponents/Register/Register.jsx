@@ -14,7 +14,6 @@ const Registro = () => {
   const [Posicion, setPosicion] = useState("")
   const [FechaNacimiento, setNacimiento] = useState("")
   const [errors, setErrors] = useState({});
-  const [isDelayedActionComplete, setDelayedActionComplete] = useState(false);
 
   const handleSubmit = (e)=>{
     e.preventDefault()
@@ -30,8 +29,6 @@ const Registro = () => {
         referrerPolicy: "no-referrer", 
         body: JSON.stringify({ NombreApellido, Contrasenia, email, Posicion, FechaNacimiento }),
       }).then((response)=>{
-          const isJson = response.headers.get('content-type')?.includes('application/json');
-          const data = isJson ? response.json() : null;
           if (response.ok) {
             toast.success('Registrado satisfactoriamente', {
               position: "top-right",
@@ -45,7 +42,6 @@ const Registro = () => {
           })
           setTimeout(() => {
             navigate("/app/login")
-            setDelayedActionComplete(true);
           }, 3000);
           }
           if (!response.ok) {
@@ -61,7 +57,7 @@ const Registro = () => {
           })
           }
       }).catch(err => {
-            toast.error("Ocurrio un error en la aplicacion"+err, {
+            toast.error("Ocurrió un error en la aplicacion"+err, {
               position: "top-right",
               autoClose: 5000,
               hideProgressBar: false,
@@ -121,6 +117,7 @@ const Registro = () => {
       validationErrors.FechaNacimiento = 'Es obligatorio tener más de 16 años';
     }
     if (Object.keys(validationErrors).length === 0) {
+      result = true
     } else {
       result = false
       setErrors(validationErrors);
@@ -195,7 +192,8 @@ const Registro = () => {
         </Form.Group>
 
         <Form.Group controlId="posicion">
-          <select className="select-form-control" value={Posicion} onChange={(e)=>setPosicion(e.target.value.trim())} isInvalid={!!errors.Posicion}>
+          <select className="select-form-control" value={Posicion} onChange={(e)=>setPosicion(e.target.value.trim())}>
+          {!!errors.Posicion}
             <option value="">Posicion</option>
             <option value="DFC">DFC</option>
             <option value="LD">LD</option>

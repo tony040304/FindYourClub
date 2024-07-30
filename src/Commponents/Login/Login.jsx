@@ -44,10 +44,10 @@ const Login = () => {
       const token = await response.text(); // Obtener el token como texto
       const decodeToken = jwtDecode(token);
       const role = decodeToken.role;
+      const tokenName = decodeToken.Nombre;
       let cookieName;
       let navigatePath;
 
-      console.log(role)
         if(role == "1"){
           cookieName = "tokenAdmin";
           navigatePath = "/app/adminview";
@@ -76,6 +76,7 @@ const Login = () => {
     
 
       cookies.set(cookieName, token, { path: '/' });
+      cookies.set("nombreUser", tokenName, { path: '/' })
 
       toast.success('Logeado satisfactoriamente', {
         position: "top-right",

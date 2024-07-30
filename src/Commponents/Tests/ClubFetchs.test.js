@@ -1,5 +1,6 @@
+/* eslint-env jest */
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import Contratos from '../ClubPage/Get/Contratos'
 import MyClub from '../ClubPage/Get/MyClub'
@@ -7,7 +8,7 @@ import Plantel from '../ClubPage/Get/Plantel'
 import Postulaciones from '../ClubPage/Get/Postulaciones'
 
 
-global.fetch = jest.fn(() =>
+globalThis.fetch = jest.fn(() =>
   Promise.resolve({
     ok: true,
     json: () => Promise.resolve([{ id: 1, name: 'test' }]),

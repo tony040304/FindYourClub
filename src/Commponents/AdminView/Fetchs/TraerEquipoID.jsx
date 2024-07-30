@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
@@ -9,7 +9,7 @@ function TraerEquipoID({ render }) {
   const [equipo, setEquipo] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const fetchEquipo = (e) => {
+  const fetchEquipo = () => {
     setLoading(true);
 
     fetch(`https://localhost:7102/api/Admin/GetEquipoByName/${equipoNombre}`,{

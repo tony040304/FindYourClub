@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import  { useState } from 'react';
 import { FaArrowRightArrowLeft } from "react-icons/fa6";
 

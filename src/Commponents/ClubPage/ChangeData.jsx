@@ -1,5 +1,4 @@
-import { useState } from "react"
-import React from 'react'
+import React, { useState } from 'react';
 import { Button } from "react-bootstrap";
 import Cookies from "universal-cookie";
 import { ToastContainer, toast } from "react-toastify";

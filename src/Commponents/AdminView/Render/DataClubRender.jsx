@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState } from 'react'
 import Navbar from '../../Navbar/Navbar'
 import TraerEquipoID from '../Fetchs/TraerEquipoID'

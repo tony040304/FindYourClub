@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import ContratoCard from '../Cards/ContratoCard'
 import ContratoFetch from '../Fetchs/ContratoFetch'
 import ContratoFetchId from '../Fetchs/ContratoFetchId';

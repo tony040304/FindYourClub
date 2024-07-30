@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from '../../../Navbar/Navbar.jsx';
 import PlayerFilter from '../../PlayerFilter.jsx';
 import ClubCard from '../Cards/ClubCard.jsx';
@@ -7,7 +7,7 @@ import useFilter from '../../../../Hook/useFilter.jsx';
 
 const Userpage=()=> {
   const [data, setData] = useState([]);
-  const [filters, filteredData, handleFilterChange, handleApply] = useFilter({data})
+  const [filteredData, handleFilterChange, handleApply] = useFilter({data})
   const cookies = new Cookies();
   const token = cookies.get("token")
   useEffect(() => {

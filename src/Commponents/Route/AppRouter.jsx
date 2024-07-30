@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import React from 'react';
 
 import PreviousPage from '../previousPage/PreviousPage';
 import Login from '../Login/Login';

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import Navbar from '../../Navbar/Navbar';
 import PoatulacionFetchId from '../Fetchs/PoatulacionFetchId';
 import PostulacionFetch from '../Fetchs/PostulacionFetch';
