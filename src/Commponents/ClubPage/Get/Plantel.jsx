@@ -13,11 +13,10 @@ class Plantel extends Component {
   };
 
   componentDidMount() {
-    // Lógica de obtención de datos usando el fetch personalizado
     fetch('https://localhost:7102/api/Equipo/GetPlantel', {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${token}`, // Incluir el token JWT en el encabezado de autorización
+        Authorization: `Bearer ${token}`,
       },
     })
       .then((response) => {
@@ -37,8 +36,6 @@ class Plantel extends Component {
   }
 
   render() {
-    // Renderiza los datos utilizando la función de render prop
-    // que se pasa como prop a este componente
     return this.props.render(this.state.data, this.state.loading);
   }
 }

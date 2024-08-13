@@ -8,7 +8,7 @@ import useFilter from '../../../../Hook/useFilter';
 
 export default function PostuPage() {
   const [data, setData] = useState([]);
-  const [filteredData, handleFilterChange, handleApply] = useFilter({ data });
+  const [filters, filteredData, handleFilterChange, handleApply] = useFilter({ data });
   const token = ""
 
 

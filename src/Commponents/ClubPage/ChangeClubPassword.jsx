@@ -8,7 +8,6 @@ const ChangeClubPassword = () => {
     const [password, setPassword] = useState('');
   const [checkPassword, setConfirm] = useState('');
   const [error, setError] = useState('');
-  const [success, setSuccess] = useState(false);
   const cookies = new Cookies();
   const token = cookies.get("tokenTeam")
   const navigate = useNavigate()
@@ -16,20 +15,34 @@ const ChangeClubPassword = () => {
   
 
   const changePassword = () => {
-    let result = true
+    let result = true;
+    let errorMessage = '';
+  
     if (password !== checkPassword) {
-      result = false
-      setSuccess(false)
-      setError('Las contraseñas no coinciden');
-    } else if (password.length < 6) {
-      result = false
-      setSuccess(false)
-      setError('La contraseña es muy corta. Debe tener al menos 6 caracteres');
-    } else {
-      setSuccess(true);
-      return result
+      result = false;
+      errorMessage = 'Las contraseñas no coinciden';
     }
+  
+    if (password.length < 6) {
+      result = false;
+      errorMessage = 'La contraseña es muy corta. Debe tener al menos 6 caracteres';
+    }
+  
+    if (password.includes('"') || password.includes("'")) {
+      result = false;
+      errorMessage = 'No se permiten comillas';
+    }
+  
+    if (checkPassword.includes('"') || checkPassword.includes("'")) {
+      result = false;
+      errorMessage = 'No se permiten comillas';
+    }
+  
+    setError(errorMessage || '');
+  
+    return result;
   };
+  
 
   const handleSubmit = () => {
     if (changePassword()) {
@@ -64,7 +77,7 @@ const ChangeClubPassword = () => {
       })
     }
   }
-  
+
 
   return (
     <>
@@ -88,7 +101,7 @@ const ChangeClubPassword = () => {
         <button type="button" onClick={handleSubmit}>
           Cambiar contraseña
         </button>
-        {!success ? <p style={{ color: 'red' }}>{error}</p> : <p style={{ color: 'green' }}>Contraseña cambiada</p>}
+        {error && <p style={{ color: 'red' }}>{error}</p>}
       </div>
         <ToastContainer />
     </div>

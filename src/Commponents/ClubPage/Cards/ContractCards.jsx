@@ -31,7 +31,6 @@ const ContractCards = ({ Data }) => {
     })
     .catch((error) => {
       console.error('Hubo un error al obtener los datos:', error);
-      // Puedes manejar el error aquí si es necesario
     });
   };
 

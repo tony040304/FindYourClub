@@ -1,10 +1,24 @@
 import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 import Navbar from '../Navbar/Navbar'
 
 
 const Admin = () => {
   const navigate = useNavigate('')
+
+  useEffect(() => {
+    // Verificar si la página ya ha sido recargada
+    const haRecargado = localStorage.getItem('haRecargado');
+
+    if (!haRecargado) {
+      // Marcar que la página ha sido recargada
+      localStorage.setItem('haRecargado', 'true');
+      
+      // Recargar la página
+      window.location.reload();
+    }
+  }, []);
 
   const GoMostrarJugadores =()=>{
     navigate('/app/adminview/viewplayers')

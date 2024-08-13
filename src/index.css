@@ -219,7 +219,7 @@ input.is-invalid {
   box-shadow: 0 2px 4px rgba(143, 255, 6, 0.698);
   padding: 5%;
   max-width: 20%;
-  margin-top: 10%;
+  margin-top: 5%;
   margin-left: 35%;
 }
 @media screen and (max-width: 768px) {
@@ -630,12 +630,10 @@ h3.userH {
     font-size: 1.2rem;
   }
 }
-
-
-
 /*AdminPage*/
 .form-admin{
   margin: 5%;
+  margin-top: 1%;
   margin-left: 25%;
   width: 50%;
   height: auto;
@@ -797,16 +795,15 @@ h1 {
   margin-left: 18%;
   margin-top: 10px;
 }
-
 nav{
   display: flex;
   justify-content: center;
   align-items: first baseline;
-  background-color: #d9d9d900;
+  background-color: #ffffff9d;
+  border-radius: 20px;
   padding: 1%;
-  width: 20%;
-  margin-top: 1%;
-  margin-left: 39%;
+  width: 5%;
+  margin-left: 46.5%;
 }
 .nav-button{
   color: #ffffff;
@@ -820,8 +817,8 @@ nav{
 .theme-icon {
   color: rgb(255, 255, 255);
    background-color: rgba(0, 0, 0, 0);
-  font-size: 24px; /* Cambia el tamaño del icono según sea necesario */
-  cursor: pointer; /* Cambia el cursor a una mano cuando se pasa por encima del icono */
+  font-size: 24px; 
+  cursor: pointer;
 }
 .container-switch{
   margin-right: 8%;
@@ -835,7 +832,6 @@ nav{
     margin-right: 40%;
   }
 }
-/* Estilo para ocultar el input del checkbox */
 .hidden-input {
   position: absolute;
   left: -9999px;

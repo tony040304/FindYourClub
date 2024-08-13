@@ -11,6 +11,11 @@ function ContratoFetchId({ render }) {
 
   const fetchUser = (e) => {
     setLoading(true);
+
+    if (!userClubNombre.trim()) {
+      alert("Ingrese un nombre")
+      return
+    }else{
     e.preventDefault()
     fetch(`https://localhost:7102/api/Admin/GetContratoByName?nombre=${userClubNombre}`,{
       method: 'GET',
@@ -20,21 +25,25 @@ function ContratoFetchId({ render }) {
     })
       .then((response) => {
         if (!response.ok) {
-          alert("Usuario inexistente");
+          alert("Contrato inexistente");
           throw new Error('Network response was not ok');
         }
         return response.json();
       })
       .then((userData) => {
-        setUserClub(userData);
+        if (Array.isArray(userData) && userData.length === 0) {
+            alert("No se encontraron contratos con ese nombre.");
+        } else {
+            setUserClub(userData.length > 0 ? userData[0] : userData);
+        }
         setLoading(false);
-      })
+    })
       .catch((error) => {
         console.error('Hubo un error al obtener los datos del usuario:', error);
         setLoading(false);
       });
+    }
   };
-
 
   return render({ userClubNombre, userClub, loading, setUserClubNombre, fetchUser });
 }

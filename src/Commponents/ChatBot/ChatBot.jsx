@@ -24,13 +24,13 @@ const ChatBot = () => {
           {
             id: 'options',
             options: [
-              { value: 1, label: 'Como registrarme como equipo', trigger: 'registration' },
+              { value: 1, label: 'Como registrarme como equipo', trigger: 'registro' },
               { value: 2, label: 'Qué ligas hay disponibles', trigger: 'leagues' },
               { value: 3, label: 'Cómo encuentro un equipo para probarme', trigger: 'findTeam' },
             ],
           },
           {
-            id: 'registration',
+            id: 'registro',
             message:
               'Para registrarte como equipo debes contactarte vía WhatsApp con nuestro equipo de logística.',
             trigger: 'Otra pregunta?',

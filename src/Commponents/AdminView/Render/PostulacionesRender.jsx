@@ -6,6 +6,8 @@ import PostulacionCard from '../Cards/PostulacionCard';
 
 const PostulacionesRender = () => {
     const [mostrarTodaPostulaciones, setMostrarTodaPostulaciones] = useState(false);
+
+
   return (
     <div>
         <Navbar/>
@@ -39,7 +41,7 @@ const PostulacionesRender = () => {
         }
         <PostulacionFetch render={(data) => (
           <div>
-            {data ? (
+            {data && data.length > 0 ? (
               <ul>
                 {mostrarTodaPostulaciones && data.map((item, index) => (
                   <PostulacionCard

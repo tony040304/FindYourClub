@@ -61,10 +61,9 @@ const ReservaTeamCard = ({ Data, index }) => {
       setData(sortedData);
       setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
     };
- console.log(Data)
   return (
     <div className="card-container-list">
-              <h2>Plantel de Jugadores</h2>
+              <h2>Plantel de Jugadores de reserva</h2>
               <table className='list-container'>
                 <thead>
                   <tr>

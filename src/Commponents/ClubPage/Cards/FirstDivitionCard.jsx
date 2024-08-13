@@ -61,7 +61,6 @@ const FirstDivitionCard = ({ Data, index }) => {
       setData(sortedData);
       setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
     };
- console.log(Data)
   return (
     <div className="card-container-list">
               <h2>Plantel de Jugadores</h2>

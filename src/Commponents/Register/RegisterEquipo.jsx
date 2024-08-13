@@ -11,7 +11,7 @@ const RegisterEquipo = () => {
     <>
     <LoginNavBar/>
     <div className="card-register-equipo">
-          <h3>Para crear tu equipo debes contactarte con nuestro equipo via whatsapp y ellos te proveeran info</h3>
+          <h3>Para crear tu equipo debes contactarte con nuestro equipo via whatsapp y ellos te proveeran la informacion</h3>
           <div className='WhatsApp'>
             <a href="https://wa.me/5403416465444" target="blank"><IoLogoWhatsapp style={{ color: 'green'}}/></a>
           </div>

@@ -8,6 +8,7 @@ import ReservaTeamCard from '../Cards/ReservaTeamCard'
 
 const PlantelPage = () => {
   const [data, setData] = useState([]);
+  const [dataReserva, setDataReserva] = useState([]);
 
   return (
     <>
@@ -18,7 +19,7 @@ const PlantelPage = () => {
           {data.length === 0 ? (
             <div className="card-container-team">
               <div className="card-content">
-                <h3>Ningún jugador tiene contrato con tu equipo...</h3>
+                <h3>Ningún jugador de primera tiene contrato con tu equipo...</h3>
               </div>
             </div>
           ) : (
@@ -35,17 +36,17 @@ const PlantelPage = () => {
       )} />
     </div>
     <div>
-    <PlantelResrva setData={setData} render={() => (
+    <PlantelResrva setData={setDataReserva} render={() => (
         <div>
-          {data.length === 0 ? (
+          {dataReserva.length === 0 ? (
             <div className="card-container-team">
               <div className="card-content">
-                <h3>Ningún jugador tiene contrato con tu equipo...</h3>
+                <h3>Ningún jugador de reserva tiene contrato con tu equipo...</h3>
               </div>
             </div>
           ) : (
             <div>
-            {data.map((item, index) => (
+            {dataReserva.map((item, index) => (
               <ReservaTeamCard
               key={index}
               Data={item} 

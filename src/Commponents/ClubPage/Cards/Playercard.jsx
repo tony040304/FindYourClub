@@ -55,7 +55,6 @@ const PlayerCard = ({ Data }) => {
     .then((response) => {
       if (!response.ok) {
         setApplied(false);
-        console.log(response)
         throw new Error('Error al responder');
       }
       setApplied(true);
@@ -110,7 +109,6 @@ const PlayerCard = ({ Data }) => {
     .then((response) => {
       if (!response.ok) {
         setApplied(false);
-        console.log(response)
         throw new Error('Error al responder');
       }
       setApplied(true);

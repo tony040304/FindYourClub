@@ -39,7 +39,7 @@ const UserCard = ({ Data }) => {
           }
         })
         .catch((error) => {
-            toast.error('El usuario tiene contrato o postulacion'+ error, {
+            toast.error('El usuario tiene contrato o postulacion', {
                 position: "top-right",
                 autoClose: 1000,
                 hideProgressBar: false,
@@ -49,9 +49,10 @@ const UserCard = ({ Data }) => {
                 progress: undefined,
                 theme: "light",
               })
+              console.log(error)
         });
       };
-
+console.log(Data)
   return (
     <div>
         <div className='Admin-container'>

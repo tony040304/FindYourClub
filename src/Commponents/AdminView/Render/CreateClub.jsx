@@ -140,7 +140,7 @@ const CreateClub = () => {
                 className='usuario_estilo form-control' 
                 onChange={handleSelectChange}
             >
-                <option value="">Posicion</option>
+                <option value="">Posicion requerida</option>
                 <option value="DFC">DFC</option>
                 <option value="LD">LD</option>
                 <option value="LI">LI</option>

@@ -57,7 +57,7 @@ const Registro = () => {
           })
           }
       }).catch(err => {
-            toast.error("Ocurrió un error en la aplicacion"+err, {
+            toast.error("Ocurrió un error en el servidor", {
               position: "top-right",
               autoClose: 5000,
               hideProgressBar: false,
@@ -67,6 +67,7 @@ const Registro = () => {
               progress: undefined,
               theme: "light",
             })
+            console.log(err)
       })
     }
   }
@@ -85,24 +86,36 @@ const Registro = () => {
     if (!NombreApellido.trim()) {
       result = false
       validationErrors.NombreApellido = 'El nombre es obligatorio';
+    } else if (NombreApellido.includes("'", '"')) {
+      result = false
+      validationErrors.NombreApellido = "No se permiten comillas"
     }
     if (!email.trim()) {
       result = false
       validationErrors.email = 'El correo electrónico es obligatorio';
-    } else if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email)) {
+    } if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email)) {
       result = false
       validationErrors.email = 'El correo electrónico no es válido';
+    } else if (email.includes("'") || email.includes('"')) {
+      result = false
+      validationErrors.email = "No se permiten comillas"
     }
     if (!Contrasenia) {
       result = false
       validationErrors.Contrasenia = 'La contraseña es obligatoria';
-    } else if (Contrasenia.length < 6) {
+    } if (Contrasenia.length < 6) {
       result = false
       validationErrors.Contrasenia = 'La contraseña debe tener al menos 6 caracteres';
+    }else if (Contrasenia.includes("'") || Contrasenia.includes('"')) {
+      result = false
+      validationErrors.Contrasenia = "No se permiten comillas"
     }
     if (Contrasenia !== confirmPassword) {
       result = false
       validationErrors.confirmPassword = 'Las contraseñas no coinciden';
+    }else if (confirmPassword.includes("'") || confirmPassword.includes('"')) {
+      result = false
+      validationErrors.confirmPassword = "No se permiten comillas"
     }
     if (!Posicion.trim()) {
       result = false

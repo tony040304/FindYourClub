@@ -9,7 +9,7 @@ const ContratoCard = ({ Data }) => {
     const cookies = new Cookies();
     const token = cookies.get("tokenAdmin");
 
-
+    console.log(Data)
       const handleDelete = () => {
         let id = Data.id
         fetch(`https://localhost:7102/api/Admin/BorrarContrato/${id}`, {
@@ -45,17 +45,16 @@ const ContratoCard = ({ Data }) => {
       };
 
       const formattedDate = new Date(Data.fechaContrato).toLocaleDateString();
-
   return (
     <div>
         <div className='Admin-container'>
             <div >
-                <h3>Nombre equipo: {Data.nombreEquipo}</h3>
-                <p>Nombre jugador: {Data.nombreApellido}</p>
-                <p>Posición jugador: {Data.posicion}</p>
-                <p>Liga: {Data.liga}</p>
-                <p>Fecha contrato: {formattedDate}</p>
-                <p>Salario jugador: {Data.salarioJugador}</p>
+            <h3>Nombre equipo: {Data.nombreEquipo || 'No disponible'}</h3>
+                    <p>Nombre jugador: {Data.nombreApellido || 'No disponible'}</p>
+                    <p>Posición jugador: {Data.posicion || 'No disponible'}</p>
+                    <p>Liga: {Data.liga || 'No disponible'}</p>
+                    <p>Fecha contrato: {formattedDate}</p>
+                    <p>Salario jugador: {Data.salarioJugador || 'No disponible'}</p>
             </div>
             {applied ? (
           <p>Usuario borrado!</p>

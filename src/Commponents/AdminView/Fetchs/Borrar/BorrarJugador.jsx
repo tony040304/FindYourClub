@@ -33,7 +33,6 @@ const TraerJugadoresID = () => {
   };
 
 
-  console.log(UsuarioId)
   return (
     <div>
       <h1>Borrar jugador por ID</h1>

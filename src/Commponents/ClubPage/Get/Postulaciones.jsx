@@ -18,7 +18,7 @@ class Postulaciones extends Component {
     fetch('https://localhost:7102/api/Equipo/GetPostulacionListaxEquipo', {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${token}`, // Incluir el token JWT en el encabezado de autorización
+        Authorization: `Bearer ${token}`,
       },
     })
     .then((response) => {
@@ -30,7 +30,7 @@ class Postulaciones extends Component {
     })
     .then((data) => {
       this.setState({ data, loading: false });
-      this.props.setData(data); // Actualizamos los datos en el componente padre
+      this.props.setData(data);
     })
     .catch((error) => {
       console.error('Hubo un error al obtener los datos:', error);
@@ -39,8 +39,6 @@ class Postulaciones extends Component {
 }
 
 render() {
-  // Renderiza los datos utilizando la función de render prop
-  // que se pasa como prop a este componente
   return this.props.render(this.state.loading, this.state.data);
 }
 }

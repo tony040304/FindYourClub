@@ -13,12 +13,12 @@ const ClubNavbar = () => {
   return (
     <nav>
 
-      <div style={{cursor: 'pointer' }} onClick={goToPage1}>
+      <div style={{cursor: 'pointer', color: 'black' }} onClick={goToPage1}>
         
         <GoChevronLeft />
         1.
       </div>
-      <div style={{cursor: 'pointer' }} onClick={goToPage2}>
+      <div style={{cursor: 'pointer', color: 'black',  }} onClick={goToPage2}>
          .2
         <GoChevronRight  />
         

@@ -12,13 +12,13 @@ const ContratoRender = () => {
         <Navbar/>
         <div className="Admin-render-user">
         <h1>Buscar contratos por nombre</h1>
-          <ContratoFetchId
-            render={({ userClubNombre, userClub, loading, setUserClubNombre, fetchUser }) => (
-              <div>
+        <ContratoFetchId
+          render={({ userClubNombre, userClub, loading, setUserClubNombre, fetchUser })=>(
+            <div>
                 <input
                   className='admin-input'
                   type="text"
-                  placeholder="Ingrese el nombre del usuario o equipo"
+                  placeholder="Ingrese el nombre del usuario"
                   value={userClubNombre}
                   onChange={(e) => setUserClubNombre(e.target.value)}
                 />
@@ -30,8 +30,8 @@ const ContratoRender = () => {
                 />
                 )}
               </div>
-            )}
-          />
+          )}
+        />
         {
           mostrarTodosContratos === false ?
           (<button type='button' onClick={() => setMostrarTodosContratos(true)}>Mostrar Todos los contratos</button>)
@@ -40,7 +40,7 @@ const ContratoRender = () => {
         }
         <ContratoFetch render={(data) => (
           <div>
-            {data ? (
+            {data && data.length > 0 ? (
               <ul>
                 {mostrarTodosContratos && data.map((item, index) => (
                   <ContratoCard

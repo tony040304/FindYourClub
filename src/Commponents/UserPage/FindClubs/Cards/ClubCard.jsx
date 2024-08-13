@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import "../../../../index.css"
 import Cookies from 'universal-cookie';
 
@@ -11,33 +12,48 @@ const ClubCard = ({ Data, onApply }) => {
   const token = cookies.get("token");
 
   const handleApply = () => {
-    let nombre = Data.nombre
+    if (applied) return; // Si ya se postuló, no hacer nada
+
+    let nombre = Data.nombre;
     fetch('https://localhost:7102/api/Jugador/CrearPostulacionJugador', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'accept': 'text/plain',
-        Authorization: `Bearer ${token}`, // Incluir el token JWT en el encabezado de autorización          
+        Authorization: `Bearer ${token}`,          
       },
-      body: JSON.stringify({ nombre: nombre }) // Enviar un objeto con el nombre
+      body: JSON.stringify({ nombre: nombre })
     })
     .then((response) => {
       if (!response.ok) {
-        setApplied(false)
+        setApplied(false);
         throw new Error('Error al responder');
       }
-      setApplied(true)
+
+      toast.success('Te has postulado!!', {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+
+      setApplied(true); // Desactivar el botón después de postularse
+
       if (!applied && Data.success !== false) {
-        onApply(Data);
-        setApplied(true);
+        setTimeout(() => {
+          onApply(Data);
+          setApplied(true);
+        }, 3000);
       }
     })
     .catch((error) => {
       console.error('Hubo un error al obtener los datos:', error);
-      // Puedes manejar el error aquí si es necesario
     });
   };
-
 
   return (
     <div>
@@ -48,12 +64,16 @@ const ClubCard = ({ Data, onApply }) => {
           <p>Liga: {Data.liga}</p>
           <p>Descripción: {Data.descripcion}</p>
         </div>
-          <button className='card-button' onClick={handleApply}>Postularse</button>
+        <button 
+          className='card-button' 
+          onClick={handleApply} 
+          disabled={applied} // Deshabilitar el botón si ya se ha postulado
+        >
+          {applied ? "Postulado" : "Postularse"}
+        </button>
       </div>
+      <ToastContainer/>
     </div>
-
-  
-
   );
 };
 

@@ -41,7 +41,7 @@ const DataClubRender = () => {
         }
         <EquipoFetch render={(data) => (
           <div>
-            {data ? (
+            {data && data.length > 0 ? (
               <ul>
                 {mostrarTodosClubs && data.map((item, index) => (
                   <ClubCard

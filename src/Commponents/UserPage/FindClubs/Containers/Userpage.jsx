@@ -7,7 +7,7 @@ import useFilter from '../../../../Hook/useFilter.jsx';
 
 const Userpage=()=> {
   const [data, setData] = useState([]);
-  const [filteredData, handleFilterChange, handleApply] = useFilter({data})
+  const [filters, filteredData, handleFilterChange, handleApply] = useFilter({data})
   const cookies = new Cookies();
   const token = cookies.get("token")
   useEffect(() => {

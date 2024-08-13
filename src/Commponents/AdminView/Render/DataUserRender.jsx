@@ -41,7 +41,7 @@ const DataRender = () => {
         }
         <JugadorFetch render={(data) => (
           <div>
-            {data ? (
+            {data && data.length > 0 ? (
               <ul>
                 {mostrarTodosUsuarios && data.map((item, index) => (
                   <UserCard

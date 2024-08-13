@@ -35,7 +35,7 @@ function TraerJugadoresIDRenderProps({ render }) {
       });
   };
 
-
+  console.log(user)
   return render({ userNombre, user, loading, setUserNombre, fetchUser });
 }
 
