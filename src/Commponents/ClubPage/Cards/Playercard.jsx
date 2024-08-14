@@ -55,6 +55,16 @@ const PlayerCard = ({ Data }) => {
     .then((response) => {
       if (!response.ok) {
         setApplied(false);
+        toast.error('El jugador tiene contrato con otro equipo', {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
         throw new Error('Error al responder');
       }
       setApplied(true);
@@ -74,22 +84,9 @@ const PlayerCard = ({ Data }) => {
           window.location.reload();
         }, 1500)
       }
-      if (!response.ok) {
-        toast.error('Error al generar contrato', {
-          position: "top-right",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      }
     })
     .catch((error) => {
       console.error('Hubo un error al obtener los datos:', error);
-      // Puedes manejar el error aquí si es necesario
     });
     setShowPopup(false);
   };
@@ -102,13 +99,23 @@ const PlayerCard = ({ Data }) => {
       headers: {
         'Content-Type': 'application/json',
         'accept': 'text/plain',
-        Authorization: `Bearer ${token}`, // Incluir el token JWT en el encabezado de autorización          
+        Authorization: `Bearer ${token}`,       
       },
-      body: JSON.stringify({ salarioJugador: salarioJugador }) // Enviar un objeto con el salario
+      body: JSON.stringify({ salarioJugador: salarioJugador }) 
     })
     .then((response) => {
       if (!response.ok) {
         setApplied(false);
+        toast.error('El jugador tiene contrato con otro equipo', {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
         throw new Error('Error al responder');
       }
       setApplied(true);
@@ -128,22 +135,9 @@ const PlayerCard = ({ Data }) => {
           window.location.reload();
         }, 1500)
       }
-      if (!response.ok) {
-        toast.error('Error al generar contrato', {
-          position: "top-right",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      }
     })
     .catch((error) => {
       console.error('Hubo un error al obtener los datos:', error);
-      // Puedes manejar el error aquí si es necesario
     });
     setShowPopup(false);
   };

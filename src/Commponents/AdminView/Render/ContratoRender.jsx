@@ -18,7 +18,7 @@ const ContratoRender = () => {
                 <input
                   className='admin-input'
                   type="text"
-                  placeholder="Ingrese el nombre del usuario"
+                  placeholder="Ingrese el nombre de jugador o equipo"
                   value={userClubNombre}
                   onChange={(e) => setUserClubNombre(e.target.value)}
                 />

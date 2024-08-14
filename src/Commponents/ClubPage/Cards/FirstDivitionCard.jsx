@@ -17,71 +17,59 @@ const positionOrder = {
   };
   
 
-const FirstDivitionCard = ({ Data, index }) => {
-    const [data, setData] = useState([]);
+  const FirstDivitionCard = ({ data }) => {
+    const [sortedData, setSortedData] = useState(data);
     const [sortDirection, setSortDirection] = useState('asc');
 
     const handleSortByName = () => {
-      const sortedData = [...data].sort((a, b) => {
-        if (a.nombreJugador < b.nombreJugador) {
-          return sortDirection === 'asc' ? -1 : 1;
-        }
-        if (a.nombreJugador > b.nombreJugador) {
-          return sortDirection === 'asc' ? 1 : -1;
-        }
-        return 0;
+      const newSortedData = [...sortedData].sort((a, b) => {
+        return sortDirection === 'asc' ? a.nombreJugador.localeCompare(b.nombreJugador) : b.nombreJugador.localeCompare(a.nombreJugador);
       });
-  
-      setData(sortedData);
+      setSortedData(newSortedData);
       setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
     };
-  
+
     const handleSortByPosition = () => {
-      const sortedData = [...data].sort((a, b) => {
+      const newSortedData = [...sortedData].sort((a, b) => {
         const positionA = positionOrder[a.posicion] || Number.MAX_SAFE_INTEGER;
         const positionB = positionOrder[b.posicion] || Number.MAX_SAFE_INTEGER;
         return sortDirection === 'asc' ? positionA - positionB : positionB - positionA;
       });
-  
-      setData(sortedData);
+      setSortedData(newSortedData);
       setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
     };
-  
+
     const handleSortByAge = () => {
-      const sortedData = [...data].sort((a, b) => {
-        if (a.edad < b.edad) {
-          return sortDirection === 'asc' ? -1 : 1;
-        }
-        if (a.edad > b.edad) {
-          return sortDirection === 'asc' ? 1 : -1;
-        }
-        return 0;
-      });
-  
-      setData(sortedData);
+      const newSortedData = [...sortedData].sort((a, b) => sortDirection === 'asc' ? a.edad - b.edad : b.edad - a.edad);
+      setSortedData(newSortedData);
       setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
     };
-  return (
-    <div className="card-container-list">
-              <h2>Plantel de Jugadores</h2>
-              <table className='list-container'>
+
+    return (
+        <div className="card-container-list">
+            <h2>Plantel de Jugadores</h2>
+            <table className='list-container'>
                 <thead>
-                  <tr>
-                    <th onClick={handleSortByName}>Nombre</th>
-                    <th onClick={handleSortByPosition}>Posición</th>
-                    <th onClick={handleSortByAge}>Edad</th>
-                  </tr>
+                    <tr>
+                        <th onClick={handleSortByName}>Nombre</th>
+                        <th onClick={handleSortByPosition}>Posición</th>
+                        <th onClick={handleSortByAge}>Edad</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr key={index}>
-                      <td>{Data.nombreJugador}</td>
-                      <td>{Data.posicion}</td>
-                      <td>{Data.edad}</td>
-                    </tr>
+                    {sortedData.map((player, index) => (
+                        <tr key={index}>
+                            <td>{player.nombreJugador}</td>
+                            <td>{player.posicion}</td>
+                            <td>{player.edad}</td>
+                        </tr>
+                    ))}
                 </tbody>
-              </table>
-            </div>
-  )
-}
+            </table>
+        </div>
+    );
+};
+
+
 
 export default FirstDivitionCard

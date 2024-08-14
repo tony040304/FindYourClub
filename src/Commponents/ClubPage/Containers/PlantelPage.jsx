@@ -15,25 +15,19 @@ const PlantelPage = () => {
     <div>
       <Navbar />
       <Plantel setData={setData} render={() => (
-        <div>
-          {data.length === 0 ? (
-            <div className="card-container-team">
-              <div className="card-content">
-                <h3>Ningún jugador de primera tiene contrato con tu equipo...</h3>
-              </div>
-            </div>
-          ) : (
-            <div>
-            {data.map((item, index) => (
-              <FirstDivitionCard
-              key={index}
-              Data={item} 
-              />
-            ))}
-            </div>
-          )}
+    <div>
+      {data.length === 0 ? (
+        <div className="card-container-team">
+          <div className="card-content">
+            <h3>Ningún jugador de primera tiene contrato con tu equipo...</h3>
+          </div>
         </div>
-      )} />
+      ) : (
+        <FirstDivitionCard data={data} />
+      )}
+    </div>
+)} />
+
     </div>
     <div>
     <PlantelResrva setData={setDataReserva} render={() => (
